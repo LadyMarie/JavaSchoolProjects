@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: com.tsystems.JavaSchool:ShopOnline.Model:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
