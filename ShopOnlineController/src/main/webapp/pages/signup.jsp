@@ -54,7 +54,7 @@
         </c:if>
             <c:if test="${not empty NoPassword}">
                 <div class="form-group has-error">
-                    <label class="control-label" for="inputNoEmail">Please, write your password. It should only contain letters and digits.</label>
+                    <label class="control-label" for="inputNoEmail">Please, write your password. It should be correct and only contain letters and digits.</label>
                     <div>
                         <input name="password" class="form-control" id="inputNoPassword" placeholder="Password" type="password">
                     </div>
@@ -113,10 +113,15 @@
                 </div>
             </div>
             <div class="form-group">
-            <c:if test="${User.role.name == 'Employee'}">
+                <!--So long conditions, because sessionScope.User was got from db by previous requests,
+                 where field role is a table. And requestScope.User is a data, just saved from this form,
+                 during current request. Servlet haven't called db methods yet(because before successfull
+                 validation it is temporary data and don't need to be saved to db), so he only can
+                 set a string role field in a User-->
+            <c:if test="${sessionScope.User.role.name == 'Employee' || requestScope.User.strRole == 'Employee'}">
                 <input type="checkbox" name="isEmployee" id="isEmployee" checked="true"> You are employee</input>
             </c:if>
-            <c:if test="${User.role.name != 'Employee'}">
+            <c:if test="${sessionScope.User.role.name != 'Employee' && requestScope.User.strRole != 'Employee'}">
                 <input type="checkbox" name="isEmployee" id="isEmployee"> You are employee</input>
             </c:if>
             </div>

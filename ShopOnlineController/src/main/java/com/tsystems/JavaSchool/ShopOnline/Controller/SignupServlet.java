@@ -25,25 +25,22 @@ public class SignupServlet extends HttpServlet {
 
             String email;
             String pass;
-            if (req.getSession().getAttribute("User") == null) {
+
                 email = req.getParameter("email");
                 pass = req.getParameter("password");
-                //Try to restore previously filled fields
-                if (StringUtils.isNullOrEmpty(email) || StringUtils.isNullOrEmpty(pass))
-                    email = (String)req.getAttribute("User.email");
-                    pass = (String)req.getAttribute("User.pass");
-            }
+
+            if (req.getSession().getAttribute("User") != null)
+                person = (Person) req.getSession().getAttribute("User");
             else {
-                //profile edit mode
-                person = (Person)req.getSession().getAttribute("User");
-                email = person.getEmail();
-                pass = person.getPassword();
+                //Try to restore previously filled fields if parameters are empty
+                if (StringUtils.isNullOrEmpty(pass) && (person.getPassword() != null))
+                    pass = person.getPassword();
             }
+            if (StringUtils.isNullOrEmpty(email) && (person.getEmail() != null))
+                email = person.getEmail();
 
-
-
-            if(!StringUtils.isNullOrEmpty(email) && !StringUtils.isNullOrEmpty(pass))
-                addCheckPerson(email,pass,req);
+            if (!StringUtils.isNullOrEmpty(pass))
+                addCheckPerson(email, pass, req);
             else
                 forward = "./pages/signup.jsp";
 
@@ -51,16 +48,19 @@ public class SignupServlet extends HttpServlet {
             req.getRequestDispatcher(forward).forward(req, resp);
         }
 
+
+
     private void addCheckPerson(String email, String pass, HttpServletRequest req) {
-        //Try to save already filled fields
-        req.setAttribute("User",makePerson(req));
         if (validate(email, pass, req)) {
             addOrUpdatePersonDB(req);
             req.getSession().setAttribute("User", person);
             forward = "./pages/Index.jsp";
         }
-        else
+        else {
+            //Try to save already filled fields
+            req.setAttribute("User",makePerson(req));
             forward = "./pages/signup.jsp";
+        }
     }
 
     private boolean validate(String email, String pass, HttpServletRequest req) {
@@ -69,7 +69,8 @@ public class SignupServlet extends HttpServlet {
                  req.setAttribute("NoEmail", true);
                  matches = false;
              }
-             if (!match(pass,"^[0-9A-Za-z]+$")) {
+             if (!match(pass,"^[0-9A-Za-z]+$") ||
+                     !((Person)req.getSession().getAttribute("User")).getPassword().equals(pass)) {
                  req.setAttribute("NoPassword", true);
                  matches = false;
              }
@@ -87,6 +88,8 @@ public class SignupServlet extends HttpServlet {
 
     private void addOrUpdatePersonDB(HttpServletRequest req) {
         try {
+            //Finally making person, because during previous call of this method
+            //some fields might not be filled
             Person person = makePerson(req);
             new SignupDAO().addOrUpdateUser(person);
 
@@ -100,24 +103,35 @@ public class SignupServlet extends HttpServlet {
     private Person makePerson(HttpServletRequest req) {
         //field not null means it is changed, overriding it
         String email = (String)req.getParameter("email");
-        if (email != null)
+        if (!StringUtils.isNullOrEmpty(email))
            person.setEmail(email);
         String password = (String)req.getParameter("password");
-        if (password != null)
+        //don't support changing password yet
+        if (!StringUtils.isNullOrEmpty(password) && (person.getPassword() == null))
             person.setPassword(password);
         String name = (String)req.getParameter("name");
-        if (name != null)
+        if (!StringUtils.isNullOrEmpty(name))
             person.setName(name);
         String surname = (String)req.getParameter("surname");
-        if (surname != null)
+        if (!StringUtils.isNullOrEmpty(surname))
             person.setSurname(surname);
-        String isEmployee = (String)req.getParameter("isEmployee");
-        if ((isEmployee != null) & (isEmployee.equals("on")))
-            person.setStrRole("Employee");
-        else
-            person.setStrRole("Client");
+        setDate(req);
+        addRole(req);
         return person;
     }
+
+    private void setDate(HttpServletRequest req) {
+    }
+
+    private void addRole(HttpServletRequest req) {
+            String isEmployee = (String) req.getParameter("isEmployee");
+            if ((!StringUtils.isNullOrEmpty(isEmployee)) && (isEmployee.equals("on")))
+                person.setStrRole("Employee");
+            else
+                person.setStrRole("Client");
+
+    }
+
 
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

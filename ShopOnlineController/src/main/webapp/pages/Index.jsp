@@ -26,9 +26,15 @@
         </c:if>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/ShopOnline/signup">Edit profile</a></li>
-                <li><a href="/ShopOnline/login">Sign in</a></li>
-                <li><a href="/ShopOnline/signup">Sign up</a></li>
+                <c:if test="${empty User}">
+                    <li><a href="/ShopOnline/login">Sign in</a></li>
+                </c:if>
+                <c:if test="${not empty User}">
+                    <li><a href="/ShopOnline/signup">Edit profile</a></li>
+                </c:if>
+                <c:if test="${empty User}">
+                    <li><a href="/ShopOnline/signup">Sign up</a></li>
+                </c:if>
                 <li><a href="/ShopOnline/logout">Log out</a></li>
             </ul>
             <ul class="nav navbar-nav">
