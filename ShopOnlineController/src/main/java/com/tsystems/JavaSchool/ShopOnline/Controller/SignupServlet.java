@@ -52,13 +52,17 @@ public class SignupServlet extends HttpServlet {
 
     private void addCheckPerson(String email, String pass, HttpServletRequest req) {
         if (validate(email, pass, req)) {
-            addOrUpdatePersonDB(req);
+            boolean isValidPass = true;
+            addOrUpdatePersonDB(makePerson(req,isValidPass));
             req.getSession().setAttribute("User", person);
+            //empty person
+            person = new Person();
             forward = "./pages/Index.jsp";
         }
         else {
+            boolean isValidPass = false;
             //Try to save already filled fields
-            req.setAttribute("User",makePerson(req));
+            req.setAttribute("User",makePerson(req, isValidPass));
             forward = "./pages/signup.jsp";
         }
     }
@@ -69,13 +73,26 @@ public class SignupServlet extends HttpServlet {
                  req.setAttribute("NoEmail", true);
                  matches = false;
              }
-             if (!match(pass,"^[0-9A-Za-z]+$") ||
-                     !((Person)req.getSession().getAttribute("User")).getPassword().equals(pass)) {
+             if (!match(pass,"^[0-9A-Za-z]+$") || !validateIfSession(pass, req)) {
                  req.setAttribute("NoPassword", true);
                  matches = false;
              }
              return matches;
         }
+
+    private boolean validateIfSession(String pass, HttpServletRequest req) {
+        //some validation if user already signed up
+        Person sessionPerson = (Person)req.getSession().getAttribute("User");
+        if (sessionPerson != null) {
+            String sessionPassword = sessionPerson.getPassword();
+            if ((sessionPassword != null) && (sessionPassword.equals(pass)))
+                return true;
+            else
+                return false;
+        }
+        else
+            return true;
+    }
 
     private boolean match(String str, String patternStr) {
         if (str != null) {
@@ -86,28 +103,29 @@ public class SignupServlet extends HttpServlet {
         return false;
     }
 
-    private void addOrUpdatePersonDB(HttpServletRequest req) {
+    private void addOrUpdatePersonDB(Person person) {
         try {
             //Finally making person, because during previous call of this method
             //some fields might not be filled
-            Person person = makePerson(req);
             new SignupDAO().addOrUpdateUser(person);
-
         }
         catch(Exception ex) {
+            //Todo: write stacktrace to log
             forward = "./pages/error.jsp";
         }
 
     }
 
-    private Person makePerson(HttpServletRequest req) {
+    private Person makePerson(HttpServletRequest req, boolean isValidPss) {
         //field not null means it is changed, overriding it
         String email = (String)req.getParameter("email");
         if (!StringUtils.isNullOrEmpty(email))
            person.setEmail(email);
         String password = (String)req.getParameter("password");
         //don't support changing password yet
-        if (!StringUtils.isNullOrEmpty(password) && (person.getPassword() == null))
+        //Save valid password only
+        if (!StringUtils.isNullOrEmpty(password) &&
+                (person.getPassword() == null) && isValidPss)
             person.setPassword(password);
         String name = (String)req.getParameter("name");
         if (!StringUtils.isNullOrEmpty(name))

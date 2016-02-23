@@ -20,7 +20,12 @@
     </c:if>
     <form class="form-horizontal" action="signup" method="post">
         <fieldset>
-            <legend>Sign up or edit profile</legend>
+            <c:if test="${empty sessionScope.User}">
+                 <legend>Sign up</legend>
+            </c:if>
+            <c:if test="${not empty sessionScope.User}">
+                <legend>Edit profile</legend>
+            </c:if>
 
             <p class="text-warning">N.B.! Orange fields are obligatory.</p>
             <c:if test="${empty NoEmail}">

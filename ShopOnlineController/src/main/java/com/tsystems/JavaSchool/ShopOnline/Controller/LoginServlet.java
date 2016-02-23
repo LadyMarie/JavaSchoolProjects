@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class LoginServlet extends HttpServlet {
 
+    String forward;
+
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String email = req.getParameter("email");
@@ -23,9 +25,10 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-        String forward = "./pages/login.jsp";
+        forward = "./pages/login.jsp";
+
         if(!StringUtils.isNullOrEmpty(email) && !StringUtils.isNullOrEmpty(pass)) {
-            Person user = new LoginDAO().getPersonDB(email, pass);
+            Person user = getPersonDB(email, pass);
             if (user == null) {
                 req.setAttribute("LoginError", "Error");
             }
@@ -37,6 +40,18 @@ public class LoginServlet extends HttpServlet {
         req.getRequestDispatcher(forward).forward(req, resp);
 
     }
+
+    private Person getPersonDB(String email, String pass) {
+        try {
+            return new LoginDAO().getPersonDB(email, pass);
+        }
+        catch (Exception ex) {
+            //Todo: Write stacktrace to log
+            forward = "./pages/error.jsp";
+            return null;
+        }
+    }
+
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
