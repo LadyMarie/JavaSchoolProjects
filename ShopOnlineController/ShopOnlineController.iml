@@ -31,7 +31,6 @@
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:4.2.11.Final" level="project" />
-    <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.9" level="project" />
     <orderEntry type="library" name="Maven: hibernate:hibernate3:3.2.3.GA" level="project" />
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
@@ -42,5 +41,6 @@
     <orderEntry type="library" name="Maven: asm:asm:3.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
+    <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
   </component>
 </module>

@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5509f270-dd4f-4a56-a5b7-8d88e4ef3bd5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller.war" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller/WEB-INF/classes/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.class" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller/WEB-INF/classes/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.class" afterPath="$PROJECT_DIR$/target/classes/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ShopOnlineController_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ShopOnlineController_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShopOnlineController.iml" afterPath="$PROJECT_DIR$/ShopOnlineController.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/signup.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/signup.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/signup.jsp" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/signup.jsp" />
     </list>
     <ignored path="ShopOnlineController.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,10 +79,11 @@
       <file leaf-file-name="SignupServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1562974">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.237288">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1579#1587#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,7 +112,7 @@
       <file leaf-file-name="signup.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/signup.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.193548">
+            <state vertical-scroll-proportion="15.612904">
               <caret line="48" column="101" selection-start-line="48" selection-start-column="101" selection-end-line="48" selection-end-column="101" />
               <folding />
             </state>
@@ -216,9 +223,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
+    <option name="x" value="-6" />
+    <option name="y" value="1" />
     <option name="width" value="1932" />
-    <option name="height" value="1031" />
+    <option name="height" value="1033" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1092,20 +1100,20 @@
       <workItem from="1456121423062" duration="1485000" />
       <workItem from="1456129080878" duration="37814000" />
       <workItem from="1456206290269" duration="2075000" />
-      <workItem from="1456231060841" duration="8113000" />
+      <workItem from="1456231060841" duration="20943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134398000" />
+    <option name="totallyTimeSpent" value="147228000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="0" width="1932" height="1031" extended-state="0" />
-    <editor active="true" />
+    <frame x="-6" y="1" width="1932" height="1033" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41034484" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40940368" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28683916" sideWeight="0.50215054" order="7" side_tool="true" content_ui="tabs" />
@@ -1115,14 +1123,14 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3" sideWeight="0.49784946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19516128" sideWeight="0.8280347" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19516128" sideWeight="0.82439923" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19399786" sideWeight="0.46791443" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19516128" sideWeight="0.17196532" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2045977" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19516128" sideWeight="0.17560074" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37958714" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1144,7 +1152,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="56" />
+      <option name="time" value="71" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1538,7 +1546,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/signup.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.193548">
+        <state vertical-scroll-proportion="15.612904">
           <caret line="48" column="101" selection-start-line="48" selection-start-column="101" selection-end-line="48" selection-end-column="101" />
           <folding />
         </state>
@@ -1546,10 +1554,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1562974">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.237288">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1579#1587#0" expanded="true" />
           </folding>
         </state>
       </provider>
