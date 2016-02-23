@@ -46,7 +46,7 @@
                 <div class="form-group has-error">
                     <label class="control-label" for="inputNoEmail">Please, write your email. It should look like 'name@domain'.</label>
                     <div>
-                        <input name="email" class="form-control" id="inputNoEmail" placeholder="${User.email}" type="text">
+                        <input name="email" class="form-control" id="inputNoEmail" placeholder="Email" type="text">
                     </div>
                 </div>
             </c:if>

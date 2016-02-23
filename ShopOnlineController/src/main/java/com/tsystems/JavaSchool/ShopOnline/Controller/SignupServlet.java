@@ -26,9 +26,9 @@ public class SignupServlet extends HttpServlet {
             String email;
             String pass;
 
+
                 email = req.getParameter("email");
                 pass = req.getParameter("password");
-
             if (req.getSession().getAttribute("User") != null)
                 person = (Person) req.getSession().getAttribute("User");
             else {
@@ -52,17 +52,15 @@ public class SignupServlet extends HttpServlet {
 
     private void addCheckPerson(String email, String pass, HttpServletRequest req) {
         if (validate(email, pass, req)) {
-            boolean isValidPass = true;
-            addOrUpdatePersonDB(makePerson(req,isValidPass));
+            addOrUpdatePersonDB(makePerson(req));
             req.getSession().setAttribute("User", person);
             //empty person
             person = new Person();
             forward = "./pages/Index.jsp";
         }
         else {
-            boolean isValidPass = false;
             //Try to save already filled fields
-            req.setAttribute("User",makePerson(req, isValidPass));
+            req.setAttribute("User",makePerson(req));
             forward = "./pages/signup.jsp";
         }
     }
@@ -70,11 +68,11 @@ public class SignupServlet extends HttpServlet {
     private boolean validate(String email, String pass, HttpServletRequest req) {
         boolean matches = true;
              if (!match(email,".*@.*[.].*")) {
-                 req.setAttribute("NoEmail", true);
+                 req.setAttribute("NoEmail", "true");
                  matches = false;
              }
              if (!match(pass,"^[0-9A-Za-z]+$") || !validateIfSession(pass, req)) {
-                 req.setAttribute("NoPassword", true);
+                 req.setAttribute("NoPassword", "true");
                  matches = false;
              }
              return matches;
@@ -116,16 +114,19 @@ public class SignupServlet extends HttpServlet {
 
     }
 
-    private Person makePerson(HttpServletRequest req, boolean isValidPss) {
+    private Person makePerson(HttpServletRequest req) {
         //field not null means it is changed, overriding it
         String email = (String)req.getParameter("email");
-        if (!StringUtils.isNullOrEmpty(email))
+        //save valid email only
+        //don't support changing email
+        if (StringUtils.isNullOrEmpty((String)req.getAttribute("NoEmail"))
+                && StringUtils.isNullOrEmpty(person.getEmail()))
            person.setEmail(email);
         String password = (String)req.getParameter("password");
         //don't support changing password yet
         //Save valid password only
-        if (!StringUtils.isNullOrEmpty(password) &&
-                (person.getPassword() == null) && isValidPss)
+        if (StringUtils.isNullOrEmpty((String)req.getAttribute("NoPassword"))
+                && StringUtils.isNullOrEmpty(person.getPassword()))
             person.setPassword(password);
         String name = (String)req.getParameter("name");
         if (!StringUtils.isNullOrEmpty(name))
