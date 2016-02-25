@@ -89,34 +89,52 @@
                     </div>
                 </c:if>
             </div>
-            <div class="form-group">
-                <div>
-                    <input name="birthDay" class="form-control" id="inputBirthDay" placeholder="Day of birth">
+            <c:if test="${empty User.birthDay}">
+                <div class="form-group">
+                    <div>
+                        <input name="birthDay" class="form-control" id="inputBirthDay" placeholder="Day of birth">
+                    </div>
                 </div>
-            </div>
+            </c:if>
+            <c:if test="${not empty User.birthDay}">
+                <div class="form-group">
+                    <div>
+                        <input name="birthDay" class="form-control" id="inputUsBirthDay" placeholder="${User.birthDay}">
+                    </div>
+                </div>
+            </c:if>
             <div class="form-group">
                 <div>
-                    <select class="form-control" id="select">
-                        <option>December</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>September</option>
-                        <option>October</option>
-                        <option>December</option>
-                        <option>January</option>
+                    <select class="form-control" name="month">
+                        <option name="January" ${User.birthMonth == 'January' ? 'selected' : ''}>January</option>
+                        <option name="February" ${User.birthMonth == 'February' ? 'selected' : ''}>February</option>
+                        <option name="March" ${User.birthMonth == 'March' ? 'selected' : ''}>March</option>
+                        <option name="April" ${User.birthMonth == 'April' ? 'selected' : ''}>April</option>
+                        <option name="May" ${User.birthMonth == 'May' ? 'selected' : ''}>May</option>
+                        <option name="June" ${User.birthMonth == 'June' ? 'selected' : ''}>June</option>
+                        <option name="July" ${User.birthMonth == 'July' ? 'selected' : ''}>July</option>
+                        <option name="August" ${User.birthMonth == 'August' ? 'selected' : ''}>August</option>
+                        <option name="September" ${User.birthMonth == 'September' ? 'selected' : ''}>September</option>
+                        <option name="October" ${User.birthMonth == 'October' ? 'selected' : ''}>October</option>
+                        <option name="November" ${User.birthMonth == 'November' ? 'selected' : ''}>November</option>
+                        <option name="December" ${User.birthMonth == 'December' ? 'selected' : ''}>December</option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <div>
-                    <input name="birthYear" class="form-control" id="inputBirthYear" placeholder="Year of birth">
+            <c:if test="${empty User.birthYear}">
+                <div class="form-group">
+                    <div>
+                        <input name="birthYear" class="form-control" id="inputBirthYear" placeholder="Year of birth">
+                    </div>
                 </div>
-            </div>
+            </c:if>
+            <c:if test="${not empty User.birthYear}">
+                <div class="form-group">
+                    <div>
+                        <input name="birthYear" class="form-control" id="inputUsBirthYear" placeholder="${User.birthYear}">
+                    </div>
+                </div>
+            </c:if>
             <div class="form-group">
                 <!--So long conditions, because sessionScope.User was got from db by previous requests,
                  where field role is a table. And requestScope.User is a data, just saved from this form,

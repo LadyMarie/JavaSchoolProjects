@@ -30,9 +30,9 @@ public class CheckDB {
         query.setParameter("password", "verySecure");
        // Person p = (Person) query.getSingleResult();*/
 
-        Person us = testDB.createUser("Salma@yandex.ru","verySecure",testDB.getDate(1,Calendar.DECEMBER,2000),"Employee", "Salma", "Hayek");
+        Person us = testDB.createUser("Salma@yandex.ru","verySecure","1","2000","December","Employee", "Salma", "Hayek");
         (new SignupDAO()).addOrUpdateUser(us);
-        Person newUs = testDB.createUser("Salma@yandex.ru","verySecure",testDB.getDate(1,Calendar.DECEMBER,2000),"Employee", "Dolly", "Sheep");
+        Person newUs = testDB.createUser("Salma@yandex.ru","verySecure","1","2000","December","Employee", "Dolly", "Sheep");
         (new SignupDAO()).addOrUpdateUser(newUs);
 
         //System.out.println(p.getEmail());
@@ -42,11 +42,13 @@ public class CheckDB {
         }*/
     }
 
-    private Person createUser(String email, String password, Date date, String role, String name, String surname) {
+    private Person createUser(String email, String password, String day, String year, String month, String role, String name, String surname) {
         Person person = new Person();
         person.setEmail(email);
         person.setPassword(password);
-        person.setBirthdate(date);
+        person.setBirthDay(day);
+        person.setBirthYear(year);
+        person.setBirthMonth(month);
         person.setStrRole(role);
         person.setName(name);
         person.setSurname(surname);
@@ -74,11 +76,13 @@ public class CheckDB {
         return cal.getTime();
     }
 
-    private void addUser(String email, String password, Date date, String role) {
+    private void addUser(String email, String password, String day, String year, String month, String role) {
         Person person = new Person();
         person.setEmail(email);
         person.setPassword(password);
-        person.setBirthdate(date);
+        person.setBirthDay(day);
+        person.setBirthYear(year);
+        person.setBirthMonth(month);
         person.setRole(getRole(role));
         em.getTransaction().begin();
         em.persist(person);

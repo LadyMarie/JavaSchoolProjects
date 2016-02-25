@@ -12,7 +12,9 @@ public class Person {
     private String email;
     //todo: make regex
     private String password;
-    private Date birthdate;
+    private String birthDay;
+    private String birthMonth;
+    private String birthYear;
     private String name;
     private String surname;
     private String strRole;
@@ -58,17 +60,19 @@ public class Person {
         this.surname = surname;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
-    }
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
+    public String getBirthDay() { return birthDay; }
+    public void setBirthDay(String birthDay) { this.birthDay = birthDay; }
 
-    public void setRole(Roles role) {this.role = role;}
+    public String getBirthYear() { return birthYear; }
+    public void setBirthYear(String birthYear) { this.birthYear = birthYear; }
+
+    public String getBirthMonth() { return birthMonth; }
+    public void setBirthMonth(String birthMonth) { this.birthMonth = birthMonth; }
+
     public Roles getRole() {
         return role;
     }
+    public void setRole(Roles role) { this.role = role; }
 
     public void setStrRole(String role) {this.strRole = role;}
 
@@ -81,7 +85,9 @@ public class Person {
     @Override
     public String toString() {
         return "User{" +
-                "birthdate=" + birthdate.toString() +
+                "birthDay=" + birthDay +
+                ", birthYear='" + birthYear + '\'' +
+                ", birthMonth='" + birthMonth + '\'' +
                 ", email='" + email + '\'' +
                 ", id=" + id + '\'' +
                 ", password='" + password + '\'' +

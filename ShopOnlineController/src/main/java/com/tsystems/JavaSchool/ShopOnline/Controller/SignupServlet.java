@@ -1,15 +1,14 @@
 package com.tsystems.JavaSchool.ShopOnline.Controller;
 
 import com.mysql.jdbc.StringUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import com.tsystems.JavaSchool.ShopOnline.Dao.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -24,10 +23,12 @@ public class SignupServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
             //process fields if at least one was changed
-            req.setAttribute("forward","./pages/signup.jsp");
             if (userChanged(req)) {
                 addCheckPerson(req);
             }
+            else
+                req.setAttribute("forward","./pages/signup.jsp");
+
             String forward = (String)req.getAttribute("forward");
             req.getRequestDispatcher(forward).forward(req, resp);
         }
@@ -99,7 +100,7 @@ public class SignupServlet extends HttpServlet {
             email = ((Person)req.getSession().getAttribute("User")).getEmail();
         }
         //Todo: make a blurred password placeholder, then we can get it from
-        //session too
+        //session too (don't forget to decrypt it)
         String pass = (String) req.getParameter("password");
         req.setAttribute("email",email);
         req.setAttribute("pass",pass);
@@ -126,7 +127,7 @@ public class SignupServlet extends HttpServlet {
         Person sessionPerson = (Person)req.getSession().getAttribute("User");
         if (sessionPerson != null) {
             String sessionPassword = sessionPerson.getPassword();
-            if ((sessionPassword != null) && (sessionPassword.equals(pass)))
+            if ((sessionPassword != null) && (sessionPassword.equals(DigestUtils.md5Hex(pass))))
                 return true;
             else
                 return false;
@@ -162,7 +163,7 @@ public class SignupServlet extends HttpServlet {
             if (StringUtils.isNullOrEmpty((String)req.getAttribute("NoPassword"))
                     && StringUtils.isNullOrEmpty(person.getPassword())
                     && !StringUtils.isNullOrEmpty(password))
-                person.setPassword(password);
+                person.setPassword(DigestUtils.md5Hex(password));
         }
         else {
             //try to restore saved data from previous non-validated form
@@ -177,7 +178,7 @@ public class SignupServlet extends HttpServlet {
             //Save valid password only
             if (StringUtils.isNullOrEmpty((String)req.getAttribute("NoPassword"))
                     && !StringUtils.isNullOrEmpty(password))
-                person.setPassword(password);
+                person.setPassword(DigestUtils.md5Hex(password));
         }
         String name = (String)req.getParameter("name");
         if (!StringUtils.isNullOrEmpty(name))
@@ -185,13 +186,23 @@ public class SignupServlet extends HttpServlet {
         String surname = (String)req.getParameter("surname");
         if (!StringUtils.isNullOrEmpty(surname))
             person.setSurname(surname);
-        setDate(req);
+        //Saving to db as a string, later services will parse it, if they'll need
+        String birthDay = (String)req.getParameter("birthDay");
+        if (!StringUtils.isNullOrEmpty(birthDay))
+            person.setBirthDay(birthDay);
+        String birthYear = (String)req.getParameter("birthYear");
+        if (!StringUtils.isNullOrEmpty(birthYear))
+            person.setBirthYear(birthYear);
+        person.setBirthMonth(getMonth(req));
         person.setStrRole(addRole(req));
         return person;
     }
 
-    private void setDate(HttpServletRequest req) {
+    private String getMonth(HttpServletRequest req) {
+        String month = (String)req.getParameter("month");
+        return  month;
     }
+
 
     private String addRole(HttpServletRequest req) {
         String isEmployee = (String) req.getParameter("isEmployee");

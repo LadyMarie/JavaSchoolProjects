@@ -4,6 +4,7 @@ import com.mysql.jdbc.StringUtils;
 import com.tsystems.JavaSchool.ShopOnline.Dao.ILoginDAO;
 import com.tsystems.JavaSchool.ShopOnline.Dao.LoginDAO;
 import com.tsystems.JavaSchool.ShopOnline.Dao.Person;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         forward = "./pages/login.jsp";
 
         if(!StringUtils.isNullOrEmpty(email) && !StringUtils.isNullOrEmpty(pass)) {
-            Person user = getPersonDB(email, pass);
+            Person user = getPersonDB(email, DigestUtils.md5Hex(pass));
             if (user == null) {
                 req.setAttribute("LoginError", "Error");
             }

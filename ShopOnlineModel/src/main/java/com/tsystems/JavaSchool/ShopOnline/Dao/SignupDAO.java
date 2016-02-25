@@ -59,9 +59,14 @@ public class SignupDAO implements ISignupDAO {
             oldPerson.setName(newPerson.getName());
         if (newPerson.getSurname() != null)
             oldPerson.setSurname(newPerson.getSurname());
-        if (newPerson.getBirthdate() != null)
-            oldPerson.setBirthdate(newPerson.getBirthdate());
+        if (newPerson.getBirthDay() != null)
+            oldPerson.setBirthDay(newPerson.getBirthDay());
+        if (newPerson.getBirthYear() != null)
+            oldPerson.setBirthYear(newPerson.getBirthYear());
+        if (newPerson.getBirthMonth() != null)
+            oldPerson.setBirthMonth(newPerson.getBirthMonth());
         oldPerson.setRole(newPerson.getRole());
         return oldPerson;
     }
 }
+
