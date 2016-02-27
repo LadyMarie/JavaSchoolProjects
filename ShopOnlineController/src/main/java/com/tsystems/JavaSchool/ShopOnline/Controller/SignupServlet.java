@@ -3,6 +3,7 @@ package com.tsystems.JavaSchool.ShopOnline.Controller;
 import com.mysql.jdbc.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import com.tsystems.JavaSchool.ShopOnline.Dao.*;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,15 +20,20 @@ import java.util.regex.Pattern;
  */
 public class SignupServlet extends HttpServlet {
 
+    private Logger logger = Logger.getLogger(SignupServlet.class);
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+            logger.info("Signup servlet started");
             //process fields if at least one was changed
             if (userChanged(req)) {
+                logger.info("User changed something, will process it");
                 addCheckPerson(req);
             }
-            else
-                req.setAttribute("forward","./pages/signup.jsp");
+            else {
+                logger.info("Emptu form, will be forwarded to itself");
+                req.setAttribute("forward", "./pages/signup.jsp");
+            }
 
             String forward = (String)req.getAttribute("forward");
             req.getRequestDispatcher(forward).forward(req, resp);
@@ -72,6 +78,7 @@ public class SignupServlet extends HttpServlet {
         //from user session(for existing user in edit mode)
         getCredenitials(req);
         if (validate(req)) {
+            logger.info("Everything is valid");
             Person person = makePerson(req);
             addOrUpdatePersonDB(person, req);
             req.getSession().setAttribute("User", person);
@@ -80,6 +87,7 @@ public class SignupServlet extends HttpServlet {
             req.setAttribute("forward", "./pages/Index.jsp");
         }
         else {
+            logger.error("Some data is invalid, suggest user try one more time.");
             Person person = makePerson(req);
             //Try to save already filled fields
             req.getSession().setAttribute("TempUser",person);
@@ -94,8 +102,10 @@ public class SignupServlet extends HttpServlet {
         if (req.getSession().getAttribute("User") == null) {
             //if this is not-registered user
             email = (String) req.getParameter("email");
+            logger.info("This is new user.");
         }
         else {
+            logger.info("This is existing user.");
             //under existing user, got credenitials from session
             email = ((Person)req.getSession().getAttribute("User")).getEmail();
         }
@@ -193,16 +203,11 @@ public class SignupServlet extends HttpServlet {
         String birthYear = (String)req.getParameter("birthYear");
         if (!StringUtils.isNullOrEmpty(birthYear))
             person.setBirthYear(birthYear);
-        person.setBirthMonth(getMonth(req));
+        String month = (String)req.getParameter("month");
+        person.setBirthMonth(month);
         person.setStrRole(addRole(req));
         return person;
     }
-
-    private String getMonth(HttpServletRequest req) {
-        String month = (String)req.getParameter("month");
-        return  month;
-    }
-
 
     private String addRole(HttpServletRequest req) {
         String isEmployee = (String) req.getParameter("isEmployee");
@@ -215,19 +220,14 @@ public class SignupServlet extends HttpServlet {
 
     private void addOrUpdatePersonDB(Person person, HttpServletRequest req) {
         try {
-            //Finally making person, because during previous call of this method
-            //some fields might not be filled
             new SignupDAO().addOrUpdateUser(person);
         }
         catch(Exception ex) {
-            //Todo: write stacktrace to log
+            logger.error("Something wrong with db." + ex.getMessage() + " " + ex.getStackTrace().toString());
             req.setAttribute("forward", "./pages/error.jsp");
         }
 
     }
-
-
-
 
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -30,16 +30,18 @@ public class CheckDB {
         query.setParameter("password", "verySecure");
        // Person p = (Person) query.getSingleResult();*/
 
-        Person us = testDB.createUser("Salma@yandex.ru","verySecure","1","2000","December","Employee", "Salma", "Hayek");
+     /*   Person us = testDB.createUser("Salma@yandex.ru","verySecure","1","2000","December","Employee", "Salma", "Hayek");
         (new SignupDAO()).addOrUpdateUser(us);
         Person newUs = testDB.createUser("Salma@yandex.ru","verySecure","1","2000","December","Employee", "Dolly", "Sheep");
-        (new SignupDAO()).addOrUpdateUser(newUs);
+        (new SignupDAO()).addOrUpdateUser(newUs);*/
 
         //System.out.println(p.getEmail());
 
       /*  for(Person u:users){
             System.out.println(u);
         }*/
+        Product product = testDB.createProduct("cat",3000,"animals","cutest","3 kilo","20 dm^3",5);
+        String id = new AddProductDAO().addProductGetId(product);
     }
 
     private Person createUser(String email, String password, String day, String year, String month, String role, String name, String surname) {
@@ -53,6 +55,20 @@ public class CheckDB {
         person.setName(name);
         person.setSurname(surname);
         return person;
+    }
+
+    private Product createProduct(String name, Integer price, String category, String param,
+                                  String weight, String volume, Integer amount) {
+        Product product = new Product();
+        product.setName(name);
+        product.setPrice(price);
+        product.setCategory(category);
+        product.setParams(param);
+        product.setWeight(weight);
+        product.setVolume(volume);
+        product.setName(name);
+        product.setAmount(amount);
+        return product;
     }
 
     private void fillRolesTable() {

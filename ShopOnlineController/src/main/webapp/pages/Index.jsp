@@ -44,7 +44,7 @@
                         <li><a href="/ShopOnline/order" class="list-group-item active">Make order</a></li>
                         <li><a href="#">Anybody can do it</a></li>
                         <c:if test="${User.role.name == 'Employee'}">
-                           <li><a href="#">Employee only action</a></li>
+                           <li><a href="/ShopOnline/addProduct">Add product</a></li>
                         </c:if>
                     </ul>
                 </li>

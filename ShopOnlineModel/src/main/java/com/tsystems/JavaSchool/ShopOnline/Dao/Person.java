@@ -1,16 +1,13 @@
 package com.tsystems.JavaSchool.ShopOnline.Dao;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Person {
     @Id
     @GeneratedValue
     private long id;
-    //todo: make regex
     private String email;
-    //todo: make regex
     private String password;
     private String birthDay;
     private String birthMonth;

@@ -18,10 +18,6 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
 
-    <servlet>
-        <servlet-name>MakeOrderServlet</servlet-name>
-        <servlet-class>com.tsystems.JavaSchool.ShopOnline.Controller.MakeOrderServlet</servlet-class>
-    </servlet>
 
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
@@ -43,20 +39,57 @@
         <servlet-class>com.tsystems.JavaSchool.ShopOnline.Controller.SignupServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>MakeOrderServlet</servlet-name>
+        <servlet-class>com.tsystems.JavaSchool.ShopOnline.Controller.MakeOrderServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>MakeOrderServlet</servlet-name>
         <url-pattern>/order</url-pattern>
     </servlet-mapping>
+
+
+    <filter-mapping>
+        <filter-name>MakeOrderFilter</filter-name>
+        <servlet-name>MakeOrderServlet</servlet-name>
+        <url-pattern>/pages/makeOrder.jsp</url-pattern>
+    </filter-mapping>
 
     <filter>
         <filter-name>MakeOrderFilter</filter-name>
         <filter-class>com.tsystems.JavaSchool.ShopOnline.Controller.OrderFilter</filter-class>
     </filter>
 
+    <servlet>
+        <servlet-name>AddProduct</servlet-name>
+        <servlet-class>com.tsystems.JavaSchool.ShopOnline.Controller.AddProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddProduct</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
+            c:\Program Files\Apache\Tomcat\apache-tomcat-8.0.30\webapps\Data\
+        </param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>EmployeeFilter</filter-name>
+        <filter-class>com.tsystems.JavaSchool.ShopOnline.Controller.EmployeeFilter</filter-class>
+    </filter>
+
     <filter-mapping>
-        <filter-name>MakeOrderFilter</filter-name>
-        <servlet-name>MakeOrderServlet</servlet-name>
+        <filter-name>EmployeeFilter</filter-name>
+        <servlet-name>AddProduct</servlet-name>
+        <url-pattern>/pages/addProductEmployee.jsp</url-pattern>
     </filter-mapping>
+
 
     <welcome-file-list>
         <welcome-file>/pages/Index.jsp</welcome-file>
