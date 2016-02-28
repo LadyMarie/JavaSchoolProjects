@@ -40,9 +40,22 @@ public class CheckDB {
       /*  for(Person u:users){
             System.out.println(u);
         }*/
-      //  Product product = testDB.createProduct("cat",3000,"animals","cutest","3 kilo","20 dm^3",5);
-      //  String id = new AddProductDAO().addProductGetId(product);
-        List<Product> pr = new AddProductDAO().getCatalog();
+        Product product = testDB.createProduct("cat", 3000, "animals", "cutest", "3 kilo", "20 dm^3", 5);
+        CartItem item = new CartItem();
+        item.setProduct(product);
+        item.setAmount(10);
+        commit(item);
+        List<CartItem> items = em.createQuery("select p from CartItem p", CartItem.class).getResultList();
+        for (CartItem u : items) {
+            System.out.println(u);
+            //  String id = new AddProductDAO().addProductGetId(product);
+        }
+    }
+
+    private static void commit(CartItem item) {
+        em.getTransaction().begin();
+        em.persist(item);
+        em.getTransaction().commit();
     }
 
     private Person createUser(String email, String password, String day, String year, String month, String role, String name, String surname) {

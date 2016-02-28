@@ -19,96 +19,47 @@
             vertical-align: top;
         }
     </style>
+    <script>
+        function addToCart(productId) {
+
+            $.ajax({
+                url: 'cart?id='+productId,
+                success: function(data) {
+                    $('.cart').html(data);
+                }
+            });
+
+
+
+        }
+
+
+    </script>
 </head>
 <body>
-        <c:forEach items="${products}" step="3" varStatus="status">
+        <c:forEach items="${productsKeySet}" step="3" varStatus="status">
             <div class="row">
                 <div class="col-md-4">
                     <jsp:include page="itemBlock.jsp">
-                        <jsp:param name="index" value="${status.index}" />
+                        <jsp:param name="productId" value="${productsKeySet[status.index]}" />
                     </jsp:include>
                 </div>
-                <c:if test="${status.index + 1 < fn:length(products)}">
+                <c:if test="${status.index + 1 < fn:length(productsKeySet)}">
                     <div class="col-md-4">
                         <jsp:include page="itemBlock.jsp">
-                            <jsp:param name="index" value="${status.index + 1}" />
+                            <jsp:param name="productId" value="${productsKeySet[status.index + 1]}" />
                         </jsp:include>
                     </div>
                 </c:if>
-                <c:if test="${status.index + 2 < fn:length(products)}">
+                <c:if test="${status.index + 2 < fn:length(productsKeySet)}">
                     <div class="col-md-4">
                         <jsp:include page="itemBlock.jsp">
-                            <jsp:param name="index" value="${status.index + 2}" />
+                            <jsp:param name="productId" value="${productsKeySet[status.index + 2]}" />
                         </jsp:include>
                     </div>
                 </c:if>
             </div>
         </c:forEach>
 
-
-
-
-
-
-   <%-- <table class="table"><thead>
-        <tr>
-            <th>
-                name
-            </th>
-            <th>
-                price
-            </th>
-            <th>
-                category
-            </th>
-
-            <th>
-                params
-            </th>
-            <th>
-                weight
-            </th>
-            <th>
-               volume
-            </th>
-            <th>
-                amount
-            </th>
-            <th>
-                amount
-            </th>
-        </tr>
-
-    </thead>
-    <c:forEach items="${products}" var="product">
-        <tr>
-            <td>
-                ${product.name}
-            </td>
-            <td>
-                ${product.price}
-            </td>
-            <td>
-                ${product.category}
-            </td>
-
-            <td>
-                    ${product.params}
-            </td>
-            <td>
-                    ${product.weight}
-            </td>
-            <td>
-                    ${product.volume}
-            </td>
-            <td>
-                    ${product.amount}
-            </td>
-            <td>
-                    ${product.amount}
-            </td>
-        </tr>
-    </c:forEach>
-    </table>--%>
 </body>
 </html>
