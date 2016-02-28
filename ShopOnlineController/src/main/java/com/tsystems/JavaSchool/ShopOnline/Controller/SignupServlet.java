@@ -84,7 +84,7 @@ public class SignupServlet extends HttpServlet {
             req.getSession().setAttribute("User", person);
             //release tempUser data
             req.getSession().setAttribute("TempUser",new Person());
-            req.setAttribute("forward", "./pages/Index.jsp");
+            req.setAttribute("forward", "/catalog");
         }
         else {
             logger.error("Some data is invalid, suggest user try one more time.");

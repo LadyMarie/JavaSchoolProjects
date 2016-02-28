@@ -3,6 +3,7 @@ package com.tsystems.JavaSchool.ShopOnline.Dao;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.util.List;
 
 /**
  * Created by asus on 21.02.2016.
@@ -13,17 +14,19 @@ public class AddProductDAO implements IAddProductDAO {
 
     public String addProductGetId(Product product) {
         em = DAOUtil.GetEntityManager();
-        commit(product);
+        em.persist(product);
         Long id = product.getId();
         return id.toString();
     }
 
 
-    private void commit(Product product) {
-        em.getTransaction().begin();
-        em.persist(product);
-        em.getTransaction().commit();
+    public List<Product> getCatalog() {
+        em = DAOUtil.GetEntityManager();
+        List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();
+
+        return products;
     }
+
 
 }
 

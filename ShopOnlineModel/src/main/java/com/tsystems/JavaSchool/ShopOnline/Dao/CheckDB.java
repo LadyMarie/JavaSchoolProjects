@@ -40,8 +40,9 @@ public class CheckDB {
       /*  for(Person u:users){
             System.out.println(u);
         }*/
-        Product product = testDB.createProduct("cat",3000,"animals","cutest","3 kilo","20 dm^3",5);
-        String id = new AddProductDAO().addProductGetId(product);
+      //  Product product = testDB.createProduct("cat",3000,"animals","cutest","3 kilo","20 dm^3",5);
+      //  String id = new AddProductDAO().addProductGetId(product);
+        List<Product> pr = new AddProductDAO().getCatalog();
     }
 
     private Person createUser(String email, String password, String day, String year, String month, String role, String name, String surname) {

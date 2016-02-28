@@ -67,6 +67,9 @@
               </div>
           </div>
       </noscript>
+      <div>
+          <jsp:include page="catalog.jsp" />
+      </div>
   </div>
   <!-- Bootstrap core JavaScript
       ================================================== -->

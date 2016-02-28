@@ -43,7 +43,7 @@ public class AddProductServlet extends HttpServlet {
         try {
             tryLoadData(req);
             //forward to next page only in case of success
-            req.setAttribute("forward","./pages/Index.jsp");
+            req.setAttribute("forward","/catalog");
         } catch (FileUploadException ex) {
             req.setAttribute("fileUploadError", "true");
             req.setAttribute("forward", "./pages/addProductEmployee.jsp");

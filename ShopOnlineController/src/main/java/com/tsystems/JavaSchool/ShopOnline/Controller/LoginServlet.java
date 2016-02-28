@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
             else {
                 logger.info("Logged in successfully!=)) Email: " + email);
                 session.setAttribute("User", user);
-                forward = "./pages/Index.jsp";
+                forward = "/catalog";
             }
         }
         req.getRequestDispatcher(forward).forward(req, resp);

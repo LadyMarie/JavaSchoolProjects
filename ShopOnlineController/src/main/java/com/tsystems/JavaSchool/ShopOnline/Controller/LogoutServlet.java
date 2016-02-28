@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class LogoutServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String forward = "./pages/Index.jsp";
+        String forward = "/catalog";
         req.getSession().invalidate();
         req.getRequestDispatcher(forward).forward(req, resp);
     }
