@@ -2,6 +2,7 @@ package com.tsystems.JavaSchool.ShopOnline.Dao;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by asus on 18.02.2016.
@@ -17,14 +18,16 @@ public class Order {
     private Date birthdate;
     private String name;
     private String surname;
+    //this flag is checked if user haven't made order, but add smth to cart
+    private boolean completed;
 
     @OneToMany
-    @JoinColumn(name="orders")
-    private Order orders;
+    @JoinColumn(name="cartItems")
+    private List<CartItem> cartItems;
 
     @OneToOne
-    @JoinColumn(name="role")
-    private Roles role;
+    @JoinColumn(name="user")
+    private Person user;
 
     public long getId() {
         return id;
@@ -56,13 +59,6 @@ public class Order {
         this.password = password;
     }
 
-    public void setRole(Roles role) {
-        this.role = role;
-    }
-
-    public Roles getRole() {
-        return role;
-    }
 
     @Override
     public String toString() {
@@ -71,7 +67,23 @@ public class Order {
                 ", email='" + email + '\'' +
                 ", id=" + id + '\'' +
                 ", password='" + password + '\'' +
-                ", role=" + role.toString() +
+                ", user=" + user.toString() +
                 '}';
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
+
+    public void setUser(Person user) {
+        this.user = user;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

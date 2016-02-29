@@ -15,7 +15,22 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <c:if test="${empty noCart}">
-                    <li><a href="#"><img src="icons/shoping_cart.png" style="height: 30px; width: 30px;"><span class="cart"></span></a></li>
+                    <c:if test="${not empty cartsize}">
+                      <li><a href="<c:url value="/pages/cart.jsp"/>">
+                            <img src="icons/shoping_cart.png" style="height: 30px; width: 30px;">
+                            <span class="cart">
+                                <p class="text-info"><small>Total: ${cartsize}.</small></p>
+                            </span>
+                        </a>
+                      </li>
+                    </c:if>
+                    <c:if test="${empty cartsize}">
+                        <li><a href="<c:url value="/pages/cart.jsp"/>">
+                            <img src="icons/shoping_cart.png" style="height: 30px; width: 30px;">
+                            <span class="cart"></span>
+                        </a>
+                        </li>
+                    </c:if>
                 </c:if>
                 <c:if test="${not empty noCart}">
                     <li><p class="text-primary"><small>sorry, cart not working</small></p></li>

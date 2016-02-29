@@ -2,6 +2,7 @@ package com.tsystems.JavaSchool.ShopOnline.Controller;
 
 import com.tsystems.JavaSchool.ShopOnline.Dao.AddProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Dao.CartItem;
+import com.tsystems.JavaSchool.ShopOnline.Dao.Person;
 import com.tsystems.JavaSchool.ShopOnline.Dao.Product;
 import com.tsystems.JavaSchool.ShopOnline.Services.AddCartItemService;
 import org.apache.log4j.Logger;
@@ -30,8 +31,9 @@ public class CartServlet extends HttpServlet {
         Map<String, Product> products = (Map<String, Product>) req.getSession().getAttribute("products");
         Map<String, CartItem> cart = (Map<String, CartItem>) req.getSession().getAttribute("cart");
         String id = req.getParameter("id");
+        Person user = (Person)req.getSession().getAttribute("User");
 
-        cart = (new AddCartItemService()).addCartItem(products, cart, id);
+        cart = (new AddCartItemService()).addCartItem(products, cart, id, user);
 
         if (cart != null) {
             //write in .jsp that item added
@@ -39,6 +41,7 @@ public class CartServlet extends HttpServlet {
                     + cart.get(id).getProduct().getName() + ".</br> Total: " + cart.size() + ".</small></p>");
             res.getWriter().close();
             req.getSession().setAttribute("cart", cart);
+            req.getSession().setAttribute("cartKeySet", new ArrayList<>(cart.keySet()));
         }
         else
            req.setAttribute("noCart","true");

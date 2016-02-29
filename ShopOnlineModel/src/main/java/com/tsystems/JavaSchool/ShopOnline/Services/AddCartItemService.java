@@ -1,12 +1,11 @@
 package com.tsystems.JavaSchool.ShopOnline.Services;
 
-import com.tsystems.JavaSchool.ShopOnline.Dao.AddProductDAO;
-import com.tsystems.JavaSchool.ShopOnline.Dao.CartItem;
-import com.tsystems.JavaSchool.ShopOnline.Dao.Product;
-import org.apache.commons.collections.functors.ExceptionClosure;
+import com.tsystems.JavaSchool.ShopOnline.Dao.*;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,20 +15,29 @@ public class AddCartItemService implements IAddCartItemService {
 
     private Logger logger = Logger.getLogger(AddCartItemService.class);
 
-    public Map<String,CartItem> addCartItem(Map<String, Product> products, Map<String, CartItem> cart, String id) {
+    public Map<String,CartItem> addCartItem(Map<String, Product> products, Map<String, CartItem> cart, String id, Person user) {
 
         logger.info("Started");
 
         if (products == null)
             logger.error("session expired, gor product from db");
             //load from db if session spoiled
-            products = tryLoadFromDb(products);
+            products = tryLoadFromDb();
 
         if (products != null)
-            return addToCart(cart, products, id);
+            return addToCartAndSave(cart, products, id, user);
         else
             return null;
     }
+
+    private Map<String,CartItem> addToCartAndSave(Map<String, CartItem> cart, Map<String, Product> products, String id, Person user) {
+
+        cart = addToCart(cart, products, id);
+        if (user != null)
+            saveCartDB(cart, user);
+        return cart;
+    }
+
 
     private Map<String,CartItem> addToCart(Map<String, CartItem> cart, Map<String, Product> products, String id) {
         if (cart == null) {
@@ -51,7 +59,7 @@ public class AddCartItemService implements IAddCartItemService {
         return cart;
     }
 
-    private Map<String,Product> tryLoadFromDb(Map<String, Product> products) {
+    private Map<String,Product> tryLoadFromDb() {
         try {
             return new AddProductDAO().getCatalog();
         }
@@ -60,5 +68,16 @@ public class AddCartItemService implements IAddCartItemService {
                     + " " + ex.getStackTrace());
             return null;
         }
+    }
+
+    private void saveCartDB(Map<String, CartItem> cart, Person user) {
+        logger.info("Saving cart to db for user " + user);
+        Order order = new Order();
+        List<CartItem> cartItems = order.getCartItems();
+        for (CartItem item : cart.values())
+           cartItems.add(item);
+        order.setCartItems(cartItems);
+        order.setUser(user);
+        order.setCompleted(false);
     }
 }

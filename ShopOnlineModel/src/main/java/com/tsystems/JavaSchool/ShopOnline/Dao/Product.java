@@ -49,9 +49,7 @@ public class Product {
     public String getParams() {
         return params;
     }
-    public void setParams(String params) {
-        this.params = params;
-    }
+    public void setParams(String params) {this.params = params;}
 
     public String getVolume() {
         return volume;
