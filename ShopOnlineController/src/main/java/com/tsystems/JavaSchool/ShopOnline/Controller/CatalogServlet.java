@@ -23,10 +23,12 @@ public class CatalogServlet extends HttpServlet {
 
         logger.info("Started");
         String forward = "./pages/Index.jsp";
-        Map<String, Product> map = new AddProductDAO().getCatalog();
-        req.getSession().setAttribute("products", map);
-        //// TODO: 28.02.2016 null
-        req.getSession().setAttribute("productsKeySet", new ArrayList<>(map.keySet()));
+        if (req.getSession().getAttribute("products") == null) {
+            Map<String, Product> map = new AddProductDAO().getCatalog();
+            req.getSession().setAttribute("products", map);
+            //// TODO: 28.02.2016 null
+            req.getSession().setAttribute("productsKeySet", new ArrayList<>(map.keySet()));
+        }
         req.getRequestDispatcher(forward).forward(req, res);
     }
 

@@ -26,15 +26,27 @@
     <div class = "panel-body">
         <table class = "table-bordered">
             <tr>
-                <td rowspan="2">
+                <td rowspan="5">
                     <img src="/uploads/${item.id}.jpg" style="max-width: 200px; max-height: 200px;" onerror="this.src='/uploads/default.jpg'"/>
                 </td>
-                <td>Цена: </td>
-                <td>${item.price}$</td>
+                <td><small>Price: </small></td>
+                <td><small>${item.price}$</small></td>
             </tr>
             <tr>
-                <td>Weight:</td>
-                <td>${item.weight}</td>
+                <td><small>Category:</small></td>
+                <td><small>${item.category}</small></td>
+            </tr>
+            <tr>
+                <td><small>Weight:</small></td>
+                <td><small>${item.weight}</small></td>
+            </tr>
+            <tr>
+                <td><small>Volume:</small></td>
+                <td><small>${item.volume}</small></td>
+            </tr>
+            <tr>
+                <td><small>Amount:</small></td>
+                <td><small>${item.amount}</small></td>
             </tr>
         </table>
     </div>

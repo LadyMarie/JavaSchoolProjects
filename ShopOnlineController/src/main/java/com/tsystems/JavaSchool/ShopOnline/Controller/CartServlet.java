@@ -25,7 +25,9 @@ public class CartServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         //todo: handle exceptions
         Map<String, Product> products = (Map<String, Product>) req.getSession().getAttribute("products");
-
+        if (products == null)
+            //load from db if session spoiled
+            products = new AddProductDAO().getCatalog();
         String id = req.getParameter("id");
 
         Map<String, CartItem> cart = (Map<String, CartItem>) req.getSession().getAttribute("cart");

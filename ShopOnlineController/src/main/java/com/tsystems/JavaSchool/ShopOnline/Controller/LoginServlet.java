@@ -16,7 +16,6 @@ import java.io.IOException;
 
 public class LoginServlet extends HttpServlet {
 
-    String forward;
     private Logger logger = Logger.getLogger(LoginServlet.class);
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,32 +28,31 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-        forward = "./pages/login.jsp";
-
         if(!StringUtils.isNullOrEmpty(email) && !StringUtils.isNullOrEmpty(pass)) {
             logger.info("User add data, will process it");
-            Person user = getPersonDB(email, DigestUtils.md5Hex(pass));
+            Person user = getPersonDB(email, DigestUtils.md5Hex(pass), req);
             if (user == null) {
                 logger.error("No such user or wrong credenitials");
                 req.setAttribute("LoginError", "Error");
+                req.getRequestDispatcher("./pages/login.jsp").forward(req, resp);
             }
             else {
                 logger.info("Logged in successfully!=)) Email: " + email);
                 session.setAttribute("User", user);
-                forward = "/catalog";
+                req.getRequestDispatcher("/catalog").forward(req, resp);
             }
         }
-        req.getRequestDispatcher(forward).forward(req, resp);
+        else
+            req.getRequestDispatcher("./pages/login.jsp").forward(req, resp);
 
     }
 
-    private Person getPersonDB(String email, String pass) {
+    private Person getPersonDB(String email, String pass, HttpServletRequest req) {
         try {
             return new LoginDAO().getPersonDB(email, pass);
         }
         catch (Exception ex) {
             logger.info("Something wrong with db. " + ex.getMessage() + " " + ex.getStackTrace().toString());
-            forward = "./pages/error.jsp";
             return null;
         }
     }
