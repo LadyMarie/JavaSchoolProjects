@@ -14,7 +14,12 @@
         </c:if>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><img src="icons/shoping_cart.png" style="height: 30px; width: 30px;"><span class="cart"></span></a></li>
+                <c:if test="${empty noCart}">
+                    <li><a href="#"><img src="icons/shoping_cart.png" style="height: 30px; width: 30px;"><span class="cart"></span></a></li>
+                </c:if>
+                <c:if test="${not empty noCart}">
+                    <li><p class="text-primary"><small>sorry, cart not working</small></p></li>
+                </c:if>
                 <c:if test="${empty User}">
                     <li><a href="login">Sign in</a></li>
                 </c:if>

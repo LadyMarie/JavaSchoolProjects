@@ -3,6 +3,7 @@ package com.tsystems.JavaSchool.ShopOnline.Controller;
 import com.tsystems.JavaSchool.ShopOnline.Dao.AddProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Dao.CartItem;
 import com.tsystems.JavaSchool.ShopOnline.Dao.Product;
+import com.tsystems.JavaSchool.ShopOnline.Services.AddCartItemService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -23,30 +24,29 @@ public class CartServlet extends HttpServlet {
     private Logger logger = Logger.getLogger(CartServlet.class);
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+        logger.info("Started");
         //todo: handle exceptions
         Map<String, Product> products = (Map<String, Product>) req.getSession().getAttribute("products");
-        if (products == null)
-            //load from db if session spoiled
-            products = new AddProductDAO().getCatalog();
+        Map<String, CartItem> cart = (Map<String, CartItem>) req.getSession().getAttribute("cart");
         String id = req.getParameter("id");
 
-        Map<String, CartItem> cart = (Map<String, CartItem>) req.getSession().getAttribute("cart");
-        if (cart == null) {
-            cart = new HashMap<>();
-        }
-        CartItem item = cart.get(id);
-        if (item == null) {
-            item = new CartItem();
-            item.setProduct(products.get(id));
-        }
-        item.setAmount(item.getAmount() + 1);
-        cart.put(id, item);
+        cart = (new AddCartItemService()).addCartItem(products, cart, id);
 
-        req.getSession().setAttribute("cart", cart);
+        if (cart != null) {
+            //write in .jsp that item added
+            res.getWriter().write("<p class=\"text-info\"><small>Added: "
+                    + cart.get(id).getProduct().getName() + ".</br> Total: " + cart.size() + ".</small></p>");
+            res.getWriter().close();
+            req.getSession().setAttribute("cart", cart);
+        }
+        else
+           req.setAttribute("noCart","true");
+           req.getRequestDispatcher("./pages/Index.jsp").forward(req, res);
 
-        res.getWriter().write("Added item: " + products.get(id).getName() + ". Total items: " + cart.size());
-        res.getWriter().close();
     }
+
+
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         doGet(req,res);
