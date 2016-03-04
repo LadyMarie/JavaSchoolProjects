@@ -1,6 +1,5 @@
 package com.tsystems.JavaSchool.ShopOnline.Controller;
 
-import com.tsystems.JavaSchool.ShopOnline.Dao.AddProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Dao.CartItem;
 import com.tsystems.JavaSchool.ShopOnline.Dao.Person;
 import com.tsystems.JavaSchool.ShopOnline.Dao.Product;
@@ -13,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,13 +24,15 @@ public class CartServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
         logger.info("Started");
-        //todo: handle exceptions
         Map<String, Product> products = (Map<String, Product>) req.getSession().getAttribute("products");
         Map<String, CartItem> cart = (Map<String, CartItem>) req.getSession().getAttribute("cart");
         String id = req.getParameter("id");
         Person user = (Person)req.getSession().getAttribute("User");
 
         cart = (new AddCartItemService()).addCartItem(products, cart, id, user);
+        if (user == null) {
+            //todo: try to add product to cart from cookie
+        }
 
         if (cart != null) {
             //write in .jsp that item added
@@ -42,6 +41,7 @@ public class CartServlet extends HttpServlet {
             res.getWriter().close();
             req.getSession().setAttribute("cart", cart);
             req.getSession().setAttribute("cartKeySet", new ArrayList<>(cart.keySet()));
+            req.getSession().setAttribute("cartsize", cart.size());
         }
         else
            req.setAttribute("noCart","true");

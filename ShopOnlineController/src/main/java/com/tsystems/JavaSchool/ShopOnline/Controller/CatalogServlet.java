@@ -23,12 +23,14 @@ public class CatalogServlet extends HttpServlet {
 
         logger.info("Started");
         String forward = "./pages/Index.jsp";
-        if (req.getSession().getAttribute("products") == null) {
-            Map<String, Product> products = tryGetCatalog();
-            if (products != null) {
-                req.getSession().setAttribute("products", products);
-                req.getSession().setAttribute("productsKeySet", new ArrayList<>(products.keySet()));
-            }
+
+        //always load catalog from db, bacause another user
+        //could add new products to db during this session
+        Map<String, Product> products = tryGetCatalog();
+        if (products != null) {
+            req.getSession().setAttribute("products", products);
+            req.getSession().setAttribute("productsKeySet", new ArrayList<>(products.keySet()));
+
         }
         restoreCartCookie(req);
         req.getRequestDispatcher(forward).forward(req, res);
@@ -46,10 +48,8 @@ public class CatalogServlet extends HttpServlet {
     }
 
     private void restoreCartCookie(HttpServletRequest req) {
-        if (req.getSession().getAttribute("cart") == null) {
             logger.info("Restoring cart from cookie");
             //todo: restore cart from cookie, don;t forget attr cartsize
-        }
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

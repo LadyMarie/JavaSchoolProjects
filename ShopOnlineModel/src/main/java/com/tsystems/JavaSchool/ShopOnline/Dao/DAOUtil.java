@@ -12,15 +12,19 @@ public class DAOUtil {
     static EntityManager em;
     static EntityManagerFactory emf;
 
+    /**
+     * gets entityManager
+     * @return
+     */
     public static EntityManager GetEntityManager() {
         if (em == null)
-            return getEntityManagerFactory().createEntityManager();
+            em = getEntityManagerFactory().createEntityManager();
         return em;
     }
 
     public static EntityManagerFactory getEntityManagerFactory() {
         if (emf == null)
-            return emf = Persistence.createEntityManagerFactory("UserSchema");
+            emf = Persistence.createEntityManagerFactory("UserSchema");
         return emf;
     }
 

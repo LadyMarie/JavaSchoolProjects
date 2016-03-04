@@ -1,28 +1,21 @@
 package com.tsystems.JavaSchool.ShopOnline.Dao;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 /**
- * Created by asus on 18.02.2016.
+ * Created by asus on 13.02.2016.
  */
-//@Entity
+@Entity
+@Table(name="booking")
 public class Order {
     @Id
     @GeneratedValue
     private long id;
-    private String email;
-    //todo: make regex
-    private String password;
-    private Date birthdate;
-    private String name;
-    private String surname;
     //this flag is checked if user haven't made order, but add smth to cart
     private boolean completed;
 
-    @OneToMany
-    @JoinColumn(name="cartItems")
+    @OneToMany(mappedBy = "order", cascade = {CascadeType.ALL})
     private List<CartItem> cartItems;
 
     @OneToOne
@@ -35,43 +28,8 @@ public class Order {
 
     public void setId(long id) {this.id = id;}
 
-    public String getEmail() {
-        return email;
-    }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "birthdate=" + birthdate.toString() +
-                ", email='" + email + '\'' +
-                ", id=" + id + '\'' +
-                ", password='" + password + '\'' +
-                ", user=" + user.toString() +
-                '}';
-    }
-
-    public List<CartItem> getCartItems() {
+   public List<CartItem> getCartItems() {
         return cartItems;
     }
 
@@ -79,11 +37,19 @@ public class Order {
         this.cartItems = cartItems;
     }
 
+
     public void setUser(Person user) {
         this.user = user;
+    }
+    public Person getUser() {
+        return user;
     }
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public boolean getCompleted() {
+        return completed;
     }
 }

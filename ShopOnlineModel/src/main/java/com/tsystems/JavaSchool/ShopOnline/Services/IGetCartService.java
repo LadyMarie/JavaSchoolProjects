@@ -10,5 +10,10 @@ import java.util.Map;
  */
 public interface IGetCartService {
 
+    /**
+     * Get cart from db for user given
+     * @param user
+     * @return cart or null, if this user hasn't got a cart
+     */
     Map<String, CartItem> getCart(Person user);
 }

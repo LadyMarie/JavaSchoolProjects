@@ -1,10 +1,8 @@
 package com.tsystems.JavaSchool.ShopOnline.Controller;
 
 import com.mysql.jdbc.StringUtils;
-import com.tsystems.JavaSchool.ShopOnline.Dao.CartItem;
-import com.tsystems.JavaSchool.ShopOnline.Dao.ILoginDAO;
-import com.tsystems.JavaSchool.ShopOnline.Dao.LoginDAO;
-import com.tsystems.JavaSchool.ShopOnline.Dao.Person;
+import com.tsystems.JavaSchool.ShopOnline.Dao.*;
+import com.tsystems.JavaSchool.ShopOnline.Services.AddCartItemService;
 import com.tsystems.JavaSchool.ShopOnline.Services.GetCartService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
@@ -63,20 +61,20 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void tryGetCartDB(Person user, HttpServletRequest req) {
-        //if user logged in, but hadn't added to cart anything before that
-        if (req.getSession().getAttribute("cart") == null) {
             if (req.getSession().getAttribute("User") != null) {
                 logger.info("User " + ((Person)req.getSession().getAttribute("User")).getName()
-                        + " has logged in and hadn't put smth to cart before that. So restoring cart from db.");
-                Map<String, CartItem> cart = new GetCartService().getCart(user);
+                        + " has logged in. Restoring his cart from db.");
+                Map<String, CartItem> oldCart = (Map<String, CartItem>) req.getSession().getAttribute("cart");
+                Map<String, Product> products = (Map<String, Product>) req.getSession().getAttribute("products");
+
+                Map<String, CartItem> cart = (new AddCartItemService()).mergeCarts(user,oldCart,products);
+
                 if (cart != null) {
                     req.getSession().setAttribute("cart", cart);
                     req.getSession().setAttribute("cartKeySet", new ArrayList<>(cart.keySet()));
                     req.getSession().setAttribute("cartsize", cart.size());
                 }
             }
-        }
-
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

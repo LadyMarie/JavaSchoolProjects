@@ -9,6 +9,12 @@ public class LoginDAO implements ILoginDAO {
 
     EntityManager em;
 
+    /**
+     * try to get person from db with this credenitials
+     * @param email
+     * @param password
+     * @return person with credenitials given, or null, if not exist
+     */
     public Person getPersonDB(String email, String password) {
         em = DAOUtil.GetEntityManager();
         Person p = null;

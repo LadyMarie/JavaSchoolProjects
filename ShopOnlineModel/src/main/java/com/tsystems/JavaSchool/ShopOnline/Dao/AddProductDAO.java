@@ -15,6 +15,11 @@ public class AddProductDAO implements IAddProductDAO {
 
     EntityManager em;
 
+    /**
+     * adds product to db
+     * @param product
+     * @return id in db of saved product
+     */
     public String addProductGetId(Product product) {
         em = DAOUtil.GetEntityManager();
         commit(product);
@@ -28,6 +33,10 @@ public class AddProductDAO implements IAddProductDAO {
         em.getTransaction().commit();
     }
 
+    /**
+     * returns list of all products from db
+     * @return
+     */
     public Map<String, Product> getCatalog() {
         em = DAOUtil.GetEntityManager();
         List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();

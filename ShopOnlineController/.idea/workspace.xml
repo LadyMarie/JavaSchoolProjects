@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5509f270-dd4f-4a56-a5b7-8d88e4ef3bd5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cart.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/itemCartBlock.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__org_mockito_mockito_all_1_10_19.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__org_powermock_powermock_api_mockito_1_6_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__org_powermock_powermock_api_support_1_6_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__org_powermock_powermock_core_1_6_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/libraries/Maven__org_powermock_powermock_reflect_1_6_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/GetCartService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/IGetCartService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/test/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemServiceTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/ISomeService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/SomeService.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_10_19.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_api_mockito_1_6_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_api_support_1_6_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_core_1_6_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_reflect_1_6_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/IOrderDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/OrderDAO.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Services/ISomeService.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Services/SomeService.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller.war" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller.war" />
@@ -33,25 +26,43 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.class" afterPath="$PROJECT_DIR$/target/classes/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/ShopOnline.Model-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/../ShopOnlineModel/target/ShopOnline.Model-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/CheckDB.class" afterPath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/CheckDB.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/DAOUtil.class" afterPath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/DAOUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/Order.class" afterPath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/Order.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/Person.class" afterPath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/Person.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/SignupDAO.class" afterPath="$PROJECT_DIR$/../ShopOnlineModel/target/classes/com/tsystems/JavaSchool/ShopOnline/Dao/SignupDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ShopOnlineController_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ShopOnlineController_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShopOnlineController.iml" afterPath="$PROJECT_DIR$/ShopOnlineController.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CartServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CartServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/Nav.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/Nav.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/Index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/Index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/cart.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/itemBlock.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/itemBlock.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/itemCartBlock.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/itemCartBlock.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/Index.jsp" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/Index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/css/bootstrap.css" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/css/bootstrap.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/signup.jsp" afterPath="$PROJECT_DIR$/target/ShopOnline.Controller/pages/signup.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ShopOnlineModel/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/ShopOnlineModel.iml" afterPath="$PROJECT_DIR$/../ShopOnlineModel/ShopOnlineModel.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/pom.xml" afterPath="$PROJECT_DIR$/../ShopOnlineModel/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/AddProductDAO.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/AddProductDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CartItem.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CartItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CheckDB.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CheckDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/DAOUtil.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/DAOUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/ILoginDAO.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/ILoginDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/ISignupDAO.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/ISignupDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/LoginDAO.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/LoginDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/Order.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/Product.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/Product.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/SignupDAO.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/SignupDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/GetCartService.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/GetCartService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/IAddCartItemService.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/IAddCartItemService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/IGetCartService.java" afterPath="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/IGetCartService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ShopOnlineModel/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/../ShopOnlineModel/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="ShopOnlineController.iws" />
@@ -80,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CartServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="107" selection-start-line="39" selection-start-column="35" selection-end-line="40" selection-end-column="107" />
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,51 +99,51 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GetCartService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/GetCartService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddCartItemService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33264887">
+              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="catalog.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.935484">
-              <caret line="53" column="74" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="74" />
+            <state vertical-scroll-proportion="8.5161295">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java">
+      <file leaf-file-name="OrderDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/OrderDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="53" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="53" />
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/login.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.16129">
-              <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignupServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.java">
+      <file leaf-file-name="CatalogServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MakeOrderServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/MakeOrderServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="61" selection-start-line="17" selection-start-column="8" selection-end-line="18" selection-end-column="61" />
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -141,8 +152,8 @@
       <file leaf-file-name="cart.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cart.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.548388">
-              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+            <state vertical-scroll-proportion="-7.096774">
+              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -151,31 +162,31 @@
       <file leaf-file-name="itemCartBlock.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/itemCartBlock.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.967741">
-              <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+            <state vertical-scroll-proportion="-7.096774">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Nav.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/Nav.jsp">
+      <file leaf-file-name="CartItem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CartItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.387096">
-              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CatalogServlet.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6306818">
-              <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#692#693#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -206,7 +217,6 @@
         <option value="$PROJECT_DIR$/src/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java" />
         <option value="$PROJECT_DIR$/webapp/WEB-INF/web.xml" />
         <option value="$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT.jar!/META-INF/maven/com.tsystems.JavaSchool/ShopOnline.Model/pom.xml" />
-        <option value="$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT.jar!/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/Login.jsp" />
         <option value="$PROJECT_DIR$/target/ShopOnline.Controller/pages/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/somePage.jsp" />
@@ -225,22 +235,25 @@
         <option value="$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.3/commons-codec-1.3.pom" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/AddProductServlet1.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/addProductEmployee.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/AddProductServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LogoutServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/SignupServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/Nav.jsp" />
+        <option value="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/cart.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CartServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/Index.jsp" />
+        <option value="$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/OrderDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT.jar!/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/itemBlock.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/itemCartBlock.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CartServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cart.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/Nav.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java" />
       </list>
     </option>
   </component>
@@ -274,7 +287,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
+    <option name="x" value="290" />
+    <option name="y" value="1" />
     <option name="width" value="1932" />
     <option name="height" value="1032" />
   </component>
@@ -303,9 +317,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,6 +344,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ShopOnline.Model-1.0-SNAPSHOT.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShopOnlineController" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: com.tsystems.JavaSchool:ShopOnline.Model:1.0-SNAPSHOT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShopOnline.Model-1.0-SNAPSHOT.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -468,6 +501,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShopOnlineController" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShopOnlineController" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="icons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -522,6 +585,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -531,17 +597,10 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="play.paths.configuration" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main\webapp\pages" />
-      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main\webapp" />
-      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main\webapp\pages\css" />
-      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main" />
-      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.tsystems.JavaSchool.ShopOnline" />
     </key>
@@ -549,6 +608,13 @@
       <recent name="C:\data\Java\JavaSchool\OnlineShop\repo1\JavaSchoolProjects\ShopOnlineController\src\main\webapp\pages" />
       <recent name="C:\data\Java\JavaSchool\OnlineShop\repo1\JavaSchoolProjects\ShopOnlineController\src\main\webapp\icons" />
       <recent name="C:\data\Java\JavaSchool\OnlineShop\repo1\JavaSchoolProjects\ShopOnlineController\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main\webapp\pages" />
+      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main\webapp" />
+      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main\webapp\pages\css" />
+      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\src\main" />
+      <recent name="C:\data\Java\JavaSchool\OnlineShop\ShopOnlineController\" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.MyTomcat">
@@ -1272,11 +1338,21 @@
       <workItem from="1456678760268" duration="9687000" />
       <workItem from="1456739130466" duration="17671000" />
       <workItem from="1456769180883" duration="11838000" />
+      <workItem from="1456820880232" duration="9398000" />
+      <workItem from="1456843850969" duration="705000" />
+      <workItem from="1456857752373" duration="3378000" />
+      <workItem from="1456898823151" duration="2447000" />
+      <workItem from="1456992342599" duration="1487000" />
+      <workItem from="1457012564449" duration="391000" />
+      <workItem from="1457013109938" duration="645000" />
+      <workItem from="1457015630271" duration="1165000" />
+      <workItem from="1457017314878" duration="1847000" />
+      <workItem from="1457070713911" duration="10322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269396000" />
+    <option name="totallyTimeSpent" value="301181000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1288,29 +1364,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1932" height="1032" extended-state="0" />
-    <editor active="false" />
+    <frame x="290" y="1" width="1932" height="1032" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.49784946" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30708662" sideWeight="0.46463022" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35591274" sideWeight="0.18010753" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40298507" sideWeight="0.19301075" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18387097" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16182795" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26659167" sideWeight="0.49571276" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39150402" sideWeight="0.4870968" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1811828" sideWeight="0.7896513" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19408602" sideWeight="0.7896513" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2079314" sideWeight="0.21034871" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2079314" sideWeight="0.21034871" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35591274" sideWeight="0.81989247" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40298507" sideWeight="0.80698925" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1345,8 +1421,80 @@
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CartServlet.java</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java</url>
+          <line>108</line>
+          <properties />
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/AddProductServlet.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/AddProductServlet.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="147" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="116" />
+      <option name="time" value="150" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1355,28 +1503,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/LoginDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/http/HttpServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="113" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1442,13 +1568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT.jar!/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32627118">
-          <caret line="7" column="61" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/LoginDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1477,13 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/DAOUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CheckDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1505,27 +1617,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/EmployeeFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2.jar!/org/apache/commons/fileupload/disk/DiskFileItem.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="196" column="18" selection-start-line="196" selection-start-column="18" selection-end-line="196" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/AddProductDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1543,37 +1638,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CartItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#405#406#0" expanded="false" />
-            <element signature="e#434#435#0" expanded="false" />
-            <element signature="e#478#479#0" expanded="false" />
-            <element signature="e#514#515#0" expanded="false" />
-            <element signature="e#549#550#0" expanded="false" />
-            <element signature="e#579#580#0" expanded="false" />
-            <element signature="e#625#626#0" expanded="false" />
-            <element signature="e#663#664#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.7846153">
           <caret line="2270" column="14" selection-start-line="2270" selection-start-column="14" selection-end-line="2270" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.7419353">
-          <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1581,58 +1649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/AddProductServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="60" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/itemBlock.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.967742">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/signup.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-101.451614">
-          <caret line="146" column="38" selection-start-line="146" selection-start-column="26" selection-end-line="146" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/notEmployed.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.354838">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1653,27 +1669,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/Index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.903226">
-          <caret line="27" column="63" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/addProductEmployee.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.064516">
-          <caret line="25" column="22" selection-start-line="21" selection-start-column="16" selection-end-line="25" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/OrderFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1681,7 +1680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1689,46 +1687,196 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="61" selection-start-line="17" selection-start-column="8" selection-end-line="18" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/EmployeeFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/notEmployed.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/addProductEmployee.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.16129">
+        <state vertical-scroll-proportion="0.0">
           <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/itemCartBlock.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/signup.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.967741">
-          <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.935484">
-          <caret line="53" column="74" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cart.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.548388">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="38" selection-start-line="146" selection-start-column="26" selection-end-line="146" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/Nav.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.387096">
-          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/tsystems/JavaSchool/ShopOnline.Model/1.0-SNAPSHOT/ShopOnline.Model-1.0-SNAPSHOT.jar!/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/Scripts/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.838709">
+          <caret line="77" column="79" selection-start-line="77" selection-start-column="79" selection-end-line="77" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/Index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9677419">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/itemBlock.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.677419">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/DAOUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/AddProductDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#1166#1183#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/AddProductServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/CartItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#692#693#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/catalog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.5161295">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cart.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.096774">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/itemCartBlock.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.096774">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/GetCartService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Dao/OrderDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1736,28 +1884,18 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CartServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="107" selection-start-line="39" selection-start-column="35" selection-end-line="40" selection-end-column="107" />
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/LoginServlet.java">
+    <entry file="file://$PROJECT_DIR$/../ShopOnlineModel/src/main/java/com/tsystems/JavaSchool/ShopOnline/Services/AddCartItemService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="53" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.33264887">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tsystems/JavaSchool/ShopOnline/Controller/CatalogServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6306818">
-          <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

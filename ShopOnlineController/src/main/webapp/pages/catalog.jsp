@@ -14,8 +14,9 @@
     <!-- Bootstrap -->
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
     <style>
-        .table-bordered td{
+        .table-items td{
             padding: 5px;
+            padding-right: 5px;
             vertical-align: top;
         }
     </style>

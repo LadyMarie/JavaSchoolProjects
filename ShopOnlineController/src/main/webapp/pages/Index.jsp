@@ -19,7 +19,7 @@
       <div>
           <jsp:include page="catalog.jsp" />
       </div>
-            </div>
+    </div>
 
   <!-- Bootstrap core JavaScript
       ================================================== -->

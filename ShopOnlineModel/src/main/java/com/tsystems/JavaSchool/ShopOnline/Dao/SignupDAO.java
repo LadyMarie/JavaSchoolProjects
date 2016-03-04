@@ -10,6 +10,11 @@ public class SignupDAO implements ISignupDAO {
     EntityManager em;
     Person newPerson;
 
+    /**
+     * add person given to db, if not exist, or update existing one
+     * (if person with these credenitials is already in db)
+     * @param newPerson updated or created person
+     */
     public void addOrUpdateUser(Person newPerson) {
         em = DAOUtil.GetEntityManager();
         this.newPerson = newPerson;

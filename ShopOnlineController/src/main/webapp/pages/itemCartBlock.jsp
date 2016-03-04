@@ -29,10 +29,10 @@
     </div>
 
     <div class = "panel-body">
-        <table class = "table-bordered">
+        <table class = "table-item">
             <tr>
                 <td rowspan="5">
-                    <img src="/uploads/${item.product.id}.jpg" style="max-width: 200px; max-height: 200px;" onerror="this.src='/uploads/default.jpg'"/>
+                    <img src="/uploads/${item.product.id}.jpg" style="max-width: 190px; max-height: 200px;" onerror="this.src='/uploads/default.jpg'"/>
                 </td>
                 <td><small>Price: </small></td>
                 <td><small>${item.product.price}$</small></td>
@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <td><small>Amount:</small></td>
-                <td><small>${item.product.amount}</small></td>
+                <td><small>${item.amount}</small></td>
             </tr>
             <tr>
                 <td><small>Parametrs:</small></td>

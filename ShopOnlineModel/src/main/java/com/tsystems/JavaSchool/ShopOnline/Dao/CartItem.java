@@ -2,6 +2,7 @@ package com.tsystems.JavaSchool.ShopOnline.Dao;
 
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
+import java.util.List;
 
 /**
  * Created by asus on 28.02.2016.
@@ -13,9 +14,13 @@ public class CartItem {
     @GeneratedValue
     private long id;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne
     @JoinColumn(name="product")
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name="booking")
+    private Order order;
 
     private int amount;
 
@@ -31,5 +36,13 @@ public class CartItem {
     }
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Order getOrders() {
+        return order;
+    }
+
+    public void setOrders(Order order) {
+        this.order = order;
     }
 }

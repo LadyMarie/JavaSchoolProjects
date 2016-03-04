@@ -24,10 +24,10 @@
     </div>
 
     <div class = "panel-body">
-        <table class = "table-bordered">
+        <table class = "table-items">
             <tr>
                 <td rowspan="5">
-                    <img src="/uploads/${item.id}.jpg" style="max-width: 200px; max-height: 200px;" onerror="this.src='/uploads/default.jpg'"/>
+                    <img src="/uploads/${item.id}.jpg" style="max-width: 190px; max-height: 200px;" onerror="this.src='/uploads/default.jpg'"/>
                 </td>
                 <td><small>Price: </small></td>
                 <td><small>${item.price}$</small></td>

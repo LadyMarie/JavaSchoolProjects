@@ -21,6 +21,9 @@
     </style>
 </head>
 <body>
+        <div align="center">
+            <legend>Products in cart</legend>
+        </div>
         <c:forEach items="${cartKeySet}" step="3" varStatus="status">
             <div class="row">
                 <div class="col-md-4">
