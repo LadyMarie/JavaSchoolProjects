@@ -67,7 +67,7 @@
                     <a href="order" class="list-group-item active" width="20%">
                         Make order
                     </a>
-                    <a href="#" class="list-group-item" width="auto">Anybody can do it
+                    <a href="order" class="list-group-item" width="auto">Anybody can do it
                     </a>
                     <c:if test="${User.role.name == 'Employee'}">
                         <a href="#" class="list-group-item" width="auto">Employee only action</a>

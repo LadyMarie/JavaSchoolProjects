@@ -14,7 +14,7 @@
     <!-- Bootstrap -->
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
     <style>
-        .table-bordered td{
+        .table-item td{
             padding: 5px;
             vertical-align: top;
         }
@@ -47,6 +47,9 @@
                 </c:if>
             </div>
         </c:forEach>
+        <div align="center">
+           <a href="/ShopOnline/order" class="btn btn-primary">Make Order</a>
+            </div>
 
 </body>
 </html>

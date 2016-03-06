@@ -22,6 +22,9 @@ public class Order {
     @JoinColumn(name="user")
     private Person user;
 
+    private String payMethod;
+    private String deliveryMethod;
+
     public long getId() {
         return id;
     }
@@ -51,5 +54,21 @@ public class Order {
 
     public boolean getCompleted() {
         return completed;
+    }
+
+    public void setPayMethod(String payMethod) {
+        this.payMethod = payMethod;
+    }
+
+    public String getPayMethod() {
+        return payMethod;
+    }
+
+    public String getDeliveryMethod() {
+        return deliveryMethod;
+    }
+
+    public void setDeliveryMethod(String deliveryMethod) {
+        this.deliveryMethod = deliveryMethod;
     }
 }
