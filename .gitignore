@@ -1,0 +1,43 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+part2/JavaSchoolProjects/Model3/
+part2/ShopOnline/
+part1/ShopOnlineController/.idea/
+part1/ShopOnlineModel/.idea/
+part1/ShopOnlineController/target/
+part1/ShopOnlineModel/target/
+part2/JavaSchoolProjects/Controller/.idea/
+part2/JavaSchoolProjects/Controller/target/
+part2/mJavaSchoolProjects/Controller/.settings/
+part2/JavaSchoolProjects/Model/.idea/
+part2/JavaSchoolProjects/Model/target/
+part2/mJavaSchoolProjects/Model/logs/
+*.iml
+*.project
+*.classpath
