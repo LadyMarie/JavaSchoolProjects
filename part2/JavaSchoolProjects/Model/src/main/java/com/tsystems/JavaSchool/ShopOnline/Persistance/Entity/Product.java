@@ -3,13 +3,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created by asus on 27.02.2016.
  */
 @Entity
-@Table(schema = "shoponlinejpa")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue

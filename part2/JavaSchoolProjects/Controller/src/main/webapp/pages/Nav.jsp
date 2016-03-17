@@ -7,8 +7,8 @@
         </p>
     </noscript>
     <nav class="navbar navbar-default">
-        <c:if test="${not empty User}">
-            <p class="text-center">Hi, ${User.name}!</p>
+        <c:if test="${not empty name}">
+            <p class="text-center">Hi, ${name}!</p>
         </c:if>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">

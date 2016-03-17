@@ -26,7 +26,7 @@ public class CatalogController {
     IGetCatalogService getCatalogService;
 
 
-    @RequestMapping(value="/", method = RequestMethod.GET)
+    @RequestMapping(value = "/")
 	public String getCatalog(HttpServletRequest req) throws IOException{
 
         logger.info("Started");

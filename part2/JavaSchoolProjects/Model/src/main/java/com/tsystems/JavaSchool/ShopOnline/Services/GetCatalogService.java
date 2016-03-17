@@ -1,6 +1,5 @@
 package com.tsystems.JavaSchool.ShopOnline.Services;
 
-import com.tsystems.JavaSchool.ShopOnline.Config.ProductConfig;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.IProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.ProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;

@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Signup</title>
@@ -15,10 +16,10 @@
 </head>
 <body>
 <div align="center">
-    <c:if test="${not empty User}">
+    <c:if test="${not empty User.name}">
         <p class="text-center">Hi, ${User.name}!</p>
     </c:if>
-    <form class="form-horizontal" action="signup" method="post">
+    <form:form class="form-horizontal" method="post" action="addPerson" modelAttribute="User">
         <fieldset>
             <c:if test="${empty sessionScope.User}">
                  <legend>Sign up</legend>
@@ -28,125 +29,63 @@
             </c:if>
 
             <p class="text-warning">N.B.! Orange fields are obligatory.</p>
-            <c:if test="${empty NoEmail}">
-            <div class="form-group has-warning">
-                <c:if test="${empty User.email}">
-                <div>
-                    <input name="email" class="form-control" id="inputEmail" placeholder="Email" type="text">
-                </div>
-                </c:if>
-                <c:if test="${not empty User.email}">
-                    <div>
-                        <input name="email" class="form-control" id="inputUsEmail" placeholder="${User.email}" type="text">
-                    </div>
-                </c:if>
-            </div>
-            </c:if>
-            <c:if test="${not empty NoEmail}">
-                <div class="form-group has-error">
-                    <label class="control-label" for="inputNoEmail">Please, write your email. It should look like 'name@domain'.</label>
-                    <div>
-                        <input name="email" class="form-control" id="inputNoEmail" placeholder="Email" type="text">
-                    </div>
-                </div>
-            </c:if>
-            <c:if test="${empty NoPassword}">
             <div class="form-group has-warning">
                     <div>
-                        <input name="password" class="form-control" id="inputPassword" placeholder="Password" type="password">
+                        <form:errors path="email" class="control-label has-error" id="inputUsEmailErr"/>
+                        <form:input path="email" class="form-control" id="inputUsEmail"  type="text" placeholder="Email"/>
                     </div>
             </div>
-        </c:if>
-            <c:if test="${not empty NoPassword}">
-                <div class="form-group has-error">
-                    <label class="control-label" for="inputNoEmail">Please, write your password. It should be correct and only contain letters and digits.</label>
+            <div class="form-group has-warning">
                     <div>
-                        <input name="password" class="form-control" id="inputNoPassword" placeholder="Password" type="password">
+                        <form:errors name="password" path="password" class="control-label has-error" id="inputPasswordErr" placeholder="Password"/>
+                        <form:password name="password" path="password" class="form-control" id="inputPassword" placeholder="Password"/>
                     </div>
-                </div>
-            </c:if>
-            <div class="form-group">
-                <c:if test="${empty User.name}">
-                    <div>
-                        <input name="name" class="form-control" id="inputName" placeholder="Name" type="text">
-                    </div>
-                </c:if>
-                <c:if test="${not empty User.name}">
-                    <div>
-                        <input name="name" class="form-control" id="inputUsName" placeholder="${User.name}" type="text">
-                    </div>
-                </c:if>
             </div>
             <div class="form-group">
-                <c:if test="${empty User.surname}">
                     <div>
-                        <input name="surname" class="form-control" id="inputsurname" placeholder="Surname" type="text">
+                        <form:errors name="name" path="name" class="control-label has-error" id="inputUsNameErr"/>
+                        <form:input name="name" path="name" class="form-control" id="inputUsName" placeholder="Name"  type="text"/>
                     </div>
-                </c:if>
-                <c:if test="${not empty User.surname}">
-                    <div>
-                        <input name="surname" class="form-control" id="inputUssurname" placeholder="${User.surname}" type="text">
-                    </div>
-                </c:if>
             </div>
-            <c:if test="${empty User.birthDay}">
+            <div class="form-group">
+                    <div>
+                        <form:errors name="surname" path="surname" class="control-label has-error" id="inputUssurnameErr"/>
+                        <form:input name="surname" path="surname" class="form-control" id="inputUssurname" placeholder="Surname" type="text"/>
+                    </div>
+            </div>
                 <div class="form-group">
                     <div>
-                        <input name="birthDay" class="form-control" id="inputBirthDay" placeholder="Day of birth">
+                        <form:errors name="birthDay" path="birthDay" class="control-label has-error" id="inputUsBirthDayEr"/>
+                        <form:input name="birthDay" path="birthDay" class="form-control" id="inputUsBirthDay" placeholder="Birth day" type="text"/>
                     </div>
                 </div>
-            </c:if>
-            <c:if test="${not empty User.birthDay}">
-                <div class="form-group">
-                    <div>
-                        <input name="birthDay" class="form-control" id="inputUsBirthDay" placeholder="${User.birthDay}">
-                    </div>
-                </div>
-            </c:if>
             <div class="form-group">
                 <div>
-                    <select class="form-control" name="month">
-                        <option name="January" ${User.birthMonth == 'January' ? 'selected' : ''}>January</option>
-                        <option name="February" ${User.birthMonth == 'February' ? 'selected' : ''}>February</option>
-                        <option name="March" ${User.birthMonth == 'March' ? 'selected' : ''}>March</option>
-                        <option name="April" ${User.birthMonth == 'April' ? 'selected' : ''}>April</option>
-                        <option name="May" ${User.birthMonth == 'May' ? 'selected' : ''}>May</option>
-                        <option name="June" ${User.birthMonth == 'June' ? 'selected' : ''}>June</option>
-                        <option name="July" ${User.birthMonth == 'July' ? 'selected' : ''}>July</option>
-                        <option name="August" ${User.birthMonth == 'August' ? 'selected' : ''}>August</option>
-                        <option name="September" ${User.birthMonth == 'September' ? 'selected' : ''}>September</option>
-                        <option name="October" ${User.birthMonth == 'October' ? 'selected' : ''}>October</option>
-                        <option name="November" ${User.birthMonth == 'November' ? 'selected' : ''}>November</option>
-                        <option name="December" ${User.birthMonth == 'December' ? 'selected' : ''}>December</option>
-                    </select>
+                    <form:select class="form-control" path="birthMonth" name="month">
+                        <option name="January">January</option>
+                        <option name="February">February</option>
+                        <option name="March">March</option>
+                        <option name="April">April</option>
+                        <option name="May">May</option>
+                        <option name="June">June</option>
+                        <option name="July">July</option>
+                        <option name="August">August</option>
+                        <option name="September">September</option>
+                        <option name="October">October</option>
+                        <option name="November">November</option>
+                        <option name="December">December</option>
+                    </form:select>
                 </div>
             </div>
-            <c:if test="${empty User.birthYear}">
                 <div class="form-group">
                     <div>
-                        <input name="birthYear" class="form-control" id="inputBirthYear" placeholder="Year of birth">
+                        <form:errors name="birthYear" path="birthYear" class="control-label has-error" id="inputUsBirthYearEr"/>
+                        <form:input name="birthYear" path="birthYear" class="form-control" id="inputUsBirthYear" placeholder="Birth year" type="text"/>
                     </div>
                 </div>
-            </c:if>
-            <c:if test="${not empty User.birthYear}">
-                <div class="form-group">
-                    <div>
-                        <input name="birthYear" class="form-control" id="inputUsBirthYear" placeholder="${User.birthYear}">
-                    </div>
-                </div>
-            </c:if>
             <div class="form-group">
-                <!--So long conditions, because sessionScope.User was got from db by previous requests,
-                 where field role is a table. And requestScope.User is a data, just saved from this form,
-                 during current request. Servlet haven't called db methods yet(because before successfull
-                 validation it is temporary data and don't need to be saved to db), so he only can
-                 set a string role field in a User-->
-            <c:if test="${sessionScope.User.role.name == 'Employee' || requestScope.User.strRole == 'Employee'}">
-                <input type="checkbox" name="isEmployee" id="isEmployee" checked="true"> You are employee</input>
-            </c:if>
-            <c:if test="${sessionScope.User.role.name != 'Employee' && requestScope.User.strRole != 'Employee'}">
-                <input type="checkbox" name="isEmployee" id="isEmployee"> You are employee</input>
-            </c:if>
+                <label>You are employee</label>
+                <form:checkbox path="isEmployee" id="isEmployee"/>
             </div>
 
             <div class="form-group">
@@ -157,7 +96,7 @@
             </div>
 
         </fieldset>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>

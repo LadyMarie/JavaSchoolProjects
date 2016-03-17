@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>login</title>
@@ -15,30 +16,21 @@
 </head>
 <body>
 <div align="center">
-        <form class="form-horizontal" action="login" method="post">
+        <form:form class="form-horizontal" action="loginPerson" method="post" modelAttribute="User">
         <fieldset>
             <legend>Login</legend>
-            <c:if test="${empty LoginError}">
-                <div class="form-group">
-                    <div>
-                        <input name="email" class="form-control" id="inputEmail" placeholder="Email" type="text">
-                    </div>
+            <div class="form-group has-warning">
+                <div>
+                    <form:errors path="email" class="control-label has-error" id="inputUsEmailErr"/>
+                    <form:input path="email" class="form-control" id="inputUsEmail"  type="text" placeholder="Email"/>
                 </div>
-                <div class="form-group">
-                    <div>
-                        <input name="password" class="form-control" id="inputPassword" placeholder="Password" type="password">
-                    </div>
+            </div>
+            <div class="form-group has-warning">
+                <div>
+                    <form:errors name="password" path="password" class="control-label has-error" id="inputPasswordErr" placeholder="Password"/>
+                    <form:password name="password" path="password" class="form-control" id="inputPassword" placeholder="Password"/>
                 </div>
-            </c:if>
-            <c:if test="${not empty LoginError}">
-                <div class="form-group has-error">
-                    <label class="control-label" for="inputError">Pair Email\Password is incorrect</label>
-                    <input name="email" type="text" class="form-control" placeholder="Email" id="inputError">
-                </div>
-                <div class="form-group has-error">
-                    <input name="password" type="password" placeholder="Password" class="form-control">
-                </div>
-            </c:if>
+            </div>
             <div class="form-group">
                 <div>
                     <button type="reset" class="btn btn-default">Cancel</button>
@@ -47,7 +39,7 @@
             </div>
             <a href="/ShopOnline/signup">Sign up!</a>
         </fieldset>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>

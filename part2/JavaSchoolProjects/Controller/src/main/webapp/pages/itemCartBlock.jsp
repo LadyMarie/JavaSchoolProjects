@@ -32,13 +32,7 @@
         <table class = "table-item">
             <tr>
                 <td rowspan="5">
-                    <a href="<c:url value="/uploads/${item.product.id}.jpg"/>">
-                        <img src="/icons/shoping_cart.png" style="height: 30px; width: 30px;">
-                            <span class="cart">
-                                <p class="text-info"><small>Total: ${cartsize}.</small></p>
-                            </span>
-                    </a>
-                    <img src="/uploads/${item.product.id}.jpg" style="max-width: 190px; max-height: 200px;" onerror="this.src='/uploads/default.jpg'"/>
+                    <img src="<c:url value="/uploads/${item.product.id}.jpg"/>" style="max-width: 190px; max-height: 200px;" onerror="this.src='/uploads/default.jpg'"/>
                 </td>
                 <td><small>Price: </small></td>
                 <td><small>${item.product.price}$</small></td>

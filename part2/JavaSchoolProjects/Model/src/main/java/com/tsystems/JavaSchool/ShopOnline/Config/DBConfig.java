@@ -26,7 +26,7 @@ import java.util.HashMap;
 @PropertySource({ "classpath:database.properties" })
 @ComponentScan(basePackages="com.tsystems.JavaSchool.ShopOnline")
 @EnableJpaRepositories(basePackages = "com.tsystems.JavaSchool.ShopOnline.Persistance.Repository", entityManagerFactoryRef = "entityManagerFactory", transactionManagerRef = "productTransactionManager")
-public class ProductConfig {
+public class DBConfig {
 
     @Autowired
     Environment env;
@@ -63,19 +63,6 @@ public class ProductConfig {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
-    }
-
-
-    @Bean
-    @Scope("prototype")
-    public IProductDAO productDAO() {
-        return new ProductDAO();
-    }
-
-    @Bean
-    @Scope("prototype")
-    public IGetCatalogService getCatalogService() {
-        return new GetCatalogService();
     }
 
 }

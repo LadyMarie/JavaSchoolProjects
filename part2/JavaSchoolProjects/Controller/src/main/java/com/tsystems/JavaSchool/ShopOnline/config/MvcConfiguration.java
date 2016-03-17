@@ -1,8 +1,7 @@
 package com.tsystems.JavaSchool.ShopOnline.config;
 
 
-import com.tsystems.JavaSchool.ShopOnline.Services.GetCatalogService;
-import com.tsystems.JavaSchool.ShopOnline.Services.IGetCatalogService;
+import com.tsystems.JavaSchool.ShopOnline.Services.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.ViewResolver;
@@ -31,6 +30,18 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     public IGetCatalogService getCatalogService() {
         return new GetCatalogService();
     }
+
+	@Bean
+	@Scope("prototype")
+	public ILoginService loginService() {
+		return new LoginService();
+	}
+
+	@Bean
+	@Scope("prototype")
+	public ICartItemService cartItemService() {
+		return new CartItemService();
+	}
 
 	
 	@Override
