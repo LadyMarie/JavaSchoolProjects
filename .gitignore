@@ -34,10 +34,10 @@ part1/ShopOnlineController/target/
 part1/ShopOnlineModel/target/
 part2/JavaSchoolProjects/Controller/.idea/
 part2/JavaSchoolProjects/Controller/target/
-part2/mJavaSchoolProjects/Controller/.settings/
+part2/JavaSchoolProjects/Controller/.settings/
 part2/JavaSchoolProjects/Model/.idea/
 part2/JavaSchoolProjects/Model/target/
-part2/mJavaSchoolProjects/Model/logs/
+part2/JavaSchoolProjects/Model/logs/
 *.iml
 *.project
 *.classpath

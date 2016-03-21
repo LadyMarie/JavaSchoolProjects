@@ -49,4 +49,10 @@ public class BeanConfig {
     public ICartItemService cartItemService() {
         return new CartItemService();
     }
+
+    @Bean
+    @Scope("singleton")
+    public ISignupService signupService() {
+        return new SignupService();
+    }
 }

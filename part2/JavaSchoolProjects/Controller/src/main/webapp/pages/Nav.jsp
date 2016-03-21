@@ -7,8 +7,8 @@
         </p>
     </noscript>
     <nav class="navbar navbar-default">
-        <c:if test="${not empty name}">
-            <p class="text-center">Hi, ${name}!</p>
+        <c:if test="${not empty User.name}">
+            <p class="text-center">Hi, ${User.name}!</p>
         </c:if>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -35,15 +35,15 @@
                     <li><p class="text-primary"><small>sorry, cart not working</small></p></li>
                 </c:if>
                 <c:if test="${empty User}">
-                    <li><a href="login">Sign in</a></li>
+                    <li><a href="${pageContext.request.contextPath}/login">Sign in</a></li>
                 </c:if>
                 <c:if test="${not empty User}">
-                    <li><a href="signup">Edit profile</a></li>
+                    <li><a href="${pageContext.request.contextPath}/editProfile">Edit profile</a></li>
                 </c:if>
                 <c:if test="${empty User}">
-                    <li><a href="signup">Sign up</a></li>
+                    <li><a href="${pageContext.request.contextPath}/signup">Sign up</a></li>
                 </c:if>
-                <li><a href="logout">Log out</a></li>
+                <li><a href="${pageContext.request.contextPath}/logout">Log out</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="dropdown">
@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="order" class="list-group-item active">Make order</a></li>
                         <li><a href="#">Anybody can do it</a></li>
-                        <c:if test="${User.role.name == 'Employee'}">
+                        <c:if test="${User.role == 'Employee'}">
                             <li><a href="addProduct">Add product</a></li>
                         </c:if>
                     </ul>
@@ -68,7 +68,7 @@
                     </a>
                     <a href="order" class="list-group-item" width="auto">Anybody can do it
                     </a>
-                    <c:if test="${User.role.name == 'Employee'}">
+                    <c:if test="${User.role == 'Employee'}">
                         <a href="#" class="list-group-item" width="auto">Employee only action</a>
                     </c:if>
                 </div>

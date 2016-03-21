@@ -7,6 +7,8 @@ import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import com.tsystems.JavaSchool.ShopOnline.Services.ICartItemService;
 import com.tsystems.JavaSchool.ShopOnline.Services.IGetCatalogService;
 import com.tsystems.JavaSchool.ShopOnline.Services.ILoginService;
+import com.tsystems.JavaSchool.ShopOnline.Services.ISignupService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -29,8 +31,9 @@ public class Check {
         ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
 
        // checkGetCatalogService(context);
-        checkLoginService(context);
+       // checkLoginService(context);
       //  checkCartItemService(context);
+          checkAddOrUpdateUser(context);
     }
 
     private static void checkGetCatalogService(ApplicationContext context) {
@@ -98,5 +101,23 @@ public class Check {
         cartItem6.setAmount(3);
         oldCart.put(String.valueOf(product6.getId()),cartItem6);
         return oldCart;
+    }
+
+    private static void checkAddOrUpdateUser(ApplicationContext context) {
+        //init
+        Person newPerson = new Person();
+        newPerson.setEmail("newemail@gmail.com");
+        newPerson.setPassword("password");
+        newPerson.setIsEmployee(false);
+        ILoginService loginService = (ILoginService)context.getBean("loginService");
+        Person existingPerson = loginService.getPerson("Rose@gmail.com", "rpassword");
+        existingPerson.setName("RoseName");
+        existingPerson.setIsEmployee(true);
+        ISignupService signupService = (ISignupService)context.getBean("signupService");
+
+        //test
+        signupService.addOrUpdateUserDB(existingPerson);
+        newPerson.setPassword(DigestUtils.md5Hex(newPerson.getPassword()));
+        signupService.addOrUpdateUserDB(newPerson);
     }
 }

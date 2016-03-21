@@ -38,6 +38,7 @@
     </script>
 </head>
 <body>
+
         <c:forEach items="${productsKeySet}" step="3" varStatus="status">
             <div class="row">
                 <div class="col-md-4">
@@ -61,6 +62,7 @@
                 </c:if>
             </div>
         </c:forEach>
+
 
 </body>
 </html>

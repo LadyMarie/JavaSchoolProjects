@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
+@SessionAttributes({"products","productsKeySet"})
 public class CatalogController {
 
 	private Logger logger = Logger.getLogger(CatalogController.class);
@@ -27,7 +30,7 @@ public class CatalogController {
 
 
     @RequestMapping(value = "/")
-	public String getCatalog(HttpServletRequest req) throws IOException{
+	public String getCatalog(ModelMap model) throws IOException{
 
         logger.info("Started");
 
@@ -36,16 +39,22 @@ public class CatalogController {
         Map<String, Product> products = getCatalogService.getCatalog();
         //todo: maybe better use modelAndView here
         if (products != null) {
-            req.getSession().setAttribute("products", products);
-            req.getSession().setAttribute("productsKeySet", new ArrayList<String>(products.keySet()));
+            model.put("products", products);
+            model.put("productsKeySet", new ArrayList<String>(products.keySet()));
 
         }
-        restoreCartCookie(req);
+        restoreCartCookie(model);
 		return "Index";
 	}
 
-    private void restoreCartCookie(HttpServletRequest req) {
+    private void restoreCartCookie(ModelMap model) {
         logger.info("Restoring cart from cookie");
         //todo: restore cart from cookie, don;t forget attr cartsize
+    }
+
+    //redirect here from some forms, because we need method get in browser instead of post
+    @RequestMapping(value = "/Main", method = RequestMethod.GET)
+    public String mainPage() {
+        return "Index";
     }
 }

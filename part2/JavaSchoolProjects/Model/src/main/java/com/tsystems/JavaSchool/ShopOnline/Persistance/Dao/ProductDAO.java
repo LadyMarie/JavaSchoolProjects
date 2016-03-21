@@ -37,8 +37,7 @@ public class ProductDAO implements IProductDAO {
             return productRepository.findAll();
         }
         catch (Exception ex) {
-            logger.error("Can't get catalog from db. " +
-                    ex.getMessage() + " " + ex.getStackTrace().toString());
+            logger.error("Can't get catalog from db. " + ex);
             return null;
         }
     }

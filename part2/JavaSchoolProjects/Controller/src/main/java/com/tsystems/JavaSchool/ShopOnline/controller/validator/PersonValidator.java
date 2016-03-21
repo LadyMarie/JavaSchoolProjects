@@ -26,9 +26,13 @@ public class PersonValidator implements Validator {
 	public void validate(final Object obj, final Errors errors) {
 		String email = ((Person)obj).getEmail();
 		String pass = ((Person)obj).getPassword();
-		user = loginService.getPerson(email, pass);
-		if (user == null)
-		    errors.rejectValue("password", null, "Please, enter valid password for this user");
+		if ((email != null) && (pass != null)) {
+			user = loginService.getPerson(email, pass);
+			if (user == null)
+				errors.rejectValue("password", null, "Please, enter valid password for this user");
+		}
+		//if password or email null, do nothing, because these fields has not null annotations,
+		//and error messages will appear automatically
 	}
 
 	public Person getUser() {

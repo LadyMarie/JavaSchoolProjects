@@ -1,6 +1,7 @@
 package com.tsystems.JavaSchool.ShopOnline.Persistance.Entity;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,16 +31,12 @@ public class Person implements Serializable{
     private String birthYear;
     private String name;
     private String surname;
+    private String role;
+
+    //This field represents role as checkbox in Ui
     @Transient
-    private boolean isEmployee;
+    private Boolean isEmployee;
 
-//    @OneToMany
-//    @JoinColumn(name="orders")
-//    private Order orders;
-
-    @OneToOne
-    @JoinColumn(name="role")
-    private Roles role;
 
     public long getId() {
         return id;
@@ -83,20 +80,18 @@ public class Person implements Serializable{
     public String getBirthMonth() { return birthMonth; }
     public void setBirthMonth(String birthMonth) { this.birthMonth = birthMonth; }
 
-    public Roles getRole() {
-        return role;
-    }
-    public void setRole(Roles role) { this.role = role; }
-
-    //this strange field we need to bandle employee checkbox in .jsp to this class
-    @Transient
-    public boolean getIsEmployee() {
+    public Boolean getIsEmployee() {
         return isEmployee;
     }
-
-    @Transient
     public void setIsEmployee(Boolean isEmployee) {this.isEmployee = isEmployee;}
 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
 
     @Override
     public String toString() {
@@ -106,7 +101,11 @@ public class Person implements Serializable{
                 ", birthMonth='" + birthMonth + '\'' +
                 ", email='" + email + '\'' +
                 ", id=" + id + '\'' +
-                ", password='" + password + '\'' +
+                ", name=" + name + '\'' +
+                ", surname=" + surname + '\'' +
+                ", isEmployee=" + isEmployee + '\'' +
                 '}';
     }
+
+
 }

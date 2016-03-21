@@ -11,7 +11,7 @@
 <c:set var="id" value="${param.productId}" />
 <c:set var="item" value="${cart[id]}"/>
 
-<div class = "panel panel-default">
+<div class = "panel panel-default" align="center">
     <div class = "panel-heading">
         <div class="row">
             <div class="col-md-8">

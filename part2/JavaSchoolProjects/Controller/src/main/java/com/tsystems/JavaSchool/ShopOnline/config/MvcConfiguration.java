@@ -1,6 +1,7 @@
 package com.tsystems.JavaSchool.ShopOnline.config;
 
 
+import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Services.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
@@ -9,11 +10,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @ComponentScan(basePackages="com.tsystems.JavaSchool.ShopOnline")
 @EnableWebMvc
-//@Import(ProductConfig1.class)
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
 
 
@@ -22,25 +24,37 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/pages/");
 		resolver.setSuffix(".jsp");
+		//resolver.setViewClass(JstlView.class);
 		return resolver;
 	}
 
     @Bean
-    @Scope("prototype")
+    @Scope("singleton")
     public IGetCatalogService getCatalogService() {
         return new GetCatalogService();
     }
 
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
+	public ISignupService signupService() {
+		return new SignupService();
+	}
+
+	@Bean
+	@Scope("singleton")
 	public ILoginService loginService() {
 		return new LoginService();
 	}
 
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public ICartItemService cartItemService() {
 		return new CartItemService();
+	}
+
+	@Bean
+	public Person user() {
+		return new Person();
 	}
 
 	

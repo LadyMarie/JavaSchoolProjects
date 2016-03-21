@@ -16,11 +16,14 @@
     <style>
         .table-item td{
             padding: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
             vertical-align: top;
         }
     </style>
 </head>
 <body>
+<div class="container">
         <div align="center">
             <legend>Products in cart</legend>
         </div>
@@ -48,8 +51,9 @@
             </div>
         </c:forEach>
         <div align="center">
-           <a href="/ShopOnline/order" class="btn btn-primary">Make Order</a>
-            </div>
-
+           <a href="${pageContext.request.contextPath}/order" class="btn btn-primary">Make Order</a>
+            <a href="Index.jsp" class="btn btn-primary" class="btn btn-primary">Catalog</a>
+        </div>
+</div>
 </body>
 </html>

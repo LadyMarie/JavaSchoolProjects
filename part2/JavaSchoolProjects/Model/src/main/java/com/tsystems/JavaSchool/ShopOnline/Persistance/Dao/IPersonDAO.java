@@ -17,4 +17,10 @@ public interface IPersonDAO {
      */
     Person getPerson(String email, String pass);
 
+    /**
+     * Save user to db or update existing user
+     * @param user
+     */
+    void addOrUpdateUser(Person user);
+
 }

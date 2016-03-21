@@ -72,8 +72,7 @@ public class OrderDAO implements IOrderDAO{
             return null;
         }
         catch (Exception ex) {
-            logger.error("Can't get incompleted order from db. User: " + user.getEmail() + " " +
-                    ex.getMessage() + " " + ex.getStackTrace().toString());
+            logger.error("Can't get incompleted order from db. User: " + user.getEmail() + " " + ex);
             return null;
         }
     }
