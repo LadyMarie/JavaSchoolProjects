@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>login</title>
@@ -15,85 +16,64 @@
 </head>
 <body>
 <div align="center">
-        <form class="form-horizontal" action="addProduct" method="post" enctype="multipart/form-data">
+        <form:form class="form-horizontal" action="addProduct" method="post"  modelAttribute="Product" enctype="multipart/form-data">
         <fieldset>
             <legend>Add product</legend>
 
                 <div class="form-group">
                     <div>
-                        <input name="name" class="form-control" id="inputEmail" placeholder="Name" type="text">
+                        <form:errors path="name" class="control-label has-error text-primary" id="inputNameErr"/>
+                        <form:input path="name" class="form-control" id="inputName" placeholder="Name" type="text"/>
                     </div>
                 </div>
-                <c:choose>
-                    <c:when test="${wrongNumber == 'price'}">
-                        <div class="form-group has-error">
-                            <div>
-                                <label class="control-label" for="priceError">Please, enter a number.</label>
-                                <input name="price" class="form-control" id="priceError" placeholder="Price">
-                            </div>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="form-group">
-                            <div>
-                                <input name="price" class="form-control" id="price" placeholder="Price">
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            <div class="form-group">
-                <div>
-                    <input name="category" class="form-control" id="category" placeholder="Category">
-                </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    <input name="params" class="form-control" id="params" placeholder="Params">
-                </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    <input name="weight" class="form-control" id="weight" placeholder="Weight">
-                </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    <input name="volume" class="form-control" id="volume" placeholder="Volume">
-                </div>
-            </div>
-            <c:choose>
-               <c:when test="${wrongNumber == 'amount'}">
-                   <div class="form-group has-error">
-                       <div>
-                           <label class="control-label" for="amountError">Please, enter a number.</label>
-                           <input name="amount" class="form-control" id="amountError" placeholder="Amount">
-                       </div>
-                   </div>
-               </c:when>
-                <c:otherwise>
-                    <div class="form-group">
-                       <div>
-                          <input name="amount" class="form-control" id="amount" placeholder="Amount">
-                       </div>
-                    </div>
-                </c:otherwise>
-            </c:choose>
-            <c:if test="${empty fileUploadError}">
                 <div class="form-group">
                     <div>
-                        <input name="pic"  id="pic" type="file">
+                        <form:errors path="price" class="control-label has-error text-primary" id="inputPriceErr"/>
+                        <form:input path="price" class="form-control" id="price" placeholder="Price"/>
                     </div>
                 </div>
-            </c:if>
-            <c:if test="${not empty fileUploadError}">
-                <div class="form-group has-error">
+            <div class="form-group">
+                <div>
+                    <form:errors path="category" class="control-label has-error text-primary" id="inputCategoryErr"/>
+                    <form:input path="category" class="form-control" id="category" placeholder="Category"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <form:errors path="params" class="control-label has-error text-primary" id="inputParamErr"/>
+                    <form:input path="params" class="form-control" id="params" placeholder="Params"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <form:errors path="weight" class="control-label has-error text-primary" id="inputWeightErr"/>
+                    <form:input path="weight" class="form-control" id="weight" placeholder="Weight"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <form:errors path="volume" class="control-label has-error text-primary" id="inputVolumeErr"/>
+                    <form:input path="volume" class="form-control" id="volume" placeholder="Volume"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <form:errors path="amount" class="control-label has-error text-primary" id="inputAmountErr"/>
+                    <form:input path="amount" class="form-control" id="amount" placeholder="Amount"/>
+                </div>
+            </div>
+                <div class="form-group">
                     <div>
-                        <br class="control-label" for="picError">Sorry, couldn't upload a file. Please, try one more time.</br> Jpeg is supported only yet.</label></label>
-                        </label>
-                        <input name="pic"  id="picError" type="file">
+                        <c:if test="${not empty fileUploadError}">
+                            <label class="control-label">Sorry, couldn't upload a file. Please, try one more time.</br> Jpeg is supported only yet.</label>
+                        </c:if>
+                        <c:if test="${not empty fileToBig}">
+                            <label class="control-label">File is too big. Size is limited < 10Mb.</label>
+                        </c:if>
+                        <form:errors path="pic" id="picEr" class="control-label has-error"/>
+                        <form:input path="pic" id="pic" type="file"/>
                     </div>
                 </div>
-            </c:if>
             <div class="form-group">
                 <div>
                     <button type="reset" class="btn btn-default">Cancel</button>
@@ -101,7 +81,7 @@
                 </div>
             </div>
         </fieldset>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>

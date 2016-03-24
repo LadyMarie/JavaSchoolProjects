@@ -55,4 +55,10 @@ public class BeanConfig {
     public ISignupService signupService() {
         return new SignupService();
     }
+
+    @Bean
+    @Scope("singleton")
+    public IAddProductService addProductService() {
+        return new AddProductService();
+    }
 }

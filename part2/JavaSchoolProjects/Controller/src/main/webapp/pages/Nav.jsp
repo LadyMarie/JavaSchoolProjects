@@ -50,9 +50,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="order" class="list-group-item active">Make order</a></li>
-                        <li><a href="#">Anybody can do it</a></li>
                         <c:if test="${User.role == 'Employee'}">
-                            <li><a href="addProduct">Add product</a></li>
+                            <li><a href="product">Add product</a></li>
                         </c:if>
                     </ul>
                 </li>
@@ -66,10 +65,8 @@
                     <a href="order" class="list-group-item active" width="20%">
                         Make order
                     </a>
-                    <a href="order" class="list-group-item" width="auto">Anybody can do it
-                    </a>
                     <c:if test="${User.role == 'Employee'}">
-                        <a href="#" class="list-group-item" width="auto">Employee only action</a>
+                        <a href="product" class="list-group-item" width="auto">Add product</a>
                     </c:if>
                 </div>
             </div>

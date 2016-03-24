@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
-//import com.tsystems.JavaSchool.ShopOnline.Dao.Product;
 import com.tsystems.JavaSchool.ShopOnline.Services.IGetCatalogService;
 import org.apache.log4j.Logger;
 
@@ -30,7 +29,7 @@ public class CatalogController {
 
 
     @RequestMapping(value = "/")
-	public String getCatalog(ModelMap model) throws IOException{
+    public String getCatalog(ModelMap model) throws IOException{
 
         logger.info("Started");
 

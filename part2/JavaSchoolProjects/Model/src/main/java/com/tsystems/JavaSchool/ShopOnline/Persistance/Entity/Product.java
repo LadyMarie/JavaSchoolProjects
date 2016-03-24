@@ -1,9 +1,9 @@
 package com.tsystems.JavaSchool.ShopOnline.Persistance.Entity;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
+import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Created by asus on 27.02.2016.
@@ -15,12 +15,19 @@ public class Product implements Serializable {
     @GeneratedValue
     private long id;
     private String name;
-    private Integer price;
+    @Pattern(regexp = "^[0-9]+$", message = "Incorrect price")
+    private String price;
     private String category;
     private String params;
     private String volume;
     private String weight;
-    private Integer amount;
+    @Pattern(regexp = "^[0-9]+$", message = "Incorrect amount")
+    private String amount;
+
+    //This field stores path to pic file in client's machine, and is used to upload pic/
+    //But there is no need to put it into db, because pic names are product_id.jpeg
+    @Transient
+    MultipartFile pic;
 
     public long getId() {
         return id;
@@ -34,10 +41,10 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -67,10 +74,32 @@ public class Product implements Serializable {
         this.weight = weight;
     }
 
-    public Integer getAmount() {
+    public String getAmount() {
         return amount;
     }
-    public void setAmount(Integer amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public MultipartFile getPic() {
+        return pic;
+    }
+    public void setPic(MultipartFile pic) {
+        this.pic = pic;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name=" + name +
+                ", price='" + price + '\'' +
+                ", category='" + category + '\'' +
+                ", params='" + params + '\'' +
+                ", id=" + id + '\'' +
+                ", volume=" + volume + '\'' +
+                ", weight=" + weight + '\'' +
+                ", amount=" + amount + '\'' +
+                '}';
     }
 }

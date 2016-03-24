@@ -53,7 +53,7 @@ public class CartItem implements Serializable{
     public String toString() {
         return "CartItem{" +
                 "id=" + id +
-                ", product id='" + product.getId() + '\'' +
+                ", product id='" + product.toString() + '\'' +
                 ", amount='" + amount + '\'' +
                 '}';
     }

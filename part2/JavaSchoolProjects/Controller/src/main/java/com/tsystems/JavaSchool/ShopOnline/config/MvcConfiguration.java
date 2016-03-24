@@ -5,6 +5,10 @@ import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Services.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsFileUploadSupport;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,7 +20,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @Configuration
 @ComponentScan(basePackages="com.tsystems.JavaSchool.ShopOnline")
 @EnableWebMvc
-public class MvcConfiguration extends WebMvcConfigurerAdapter{
+public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
 
 	@Bean
@@ -25,6 +29,13 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		resolver.setPrefix("/pages/");
 		resolver.setSuffix(".jsp");
 		//resolver.setViewClass(JstlView.class);
+		return resolver;
+	}
+
+	@Bean
+	public MultipartResolver multipartResolver() {
+		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		resolver.setMaxUploadSize(10240);
 		return resolver;
 	}
 
@@ -57,6 +68,13 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		return new Person();
 	}
 
+	@Bean
+	@Scope("singleton")
+	public IAddProductService addProductService() {
+		return new AddProductService();
+	}
+
+
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -64,6 +82,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/pages/Scripts/**").addResourceLocations("/pages/Scripts/");
 		registry.addResourceHandler("/icons/**").addResourceLocations("/icons/");
 		registry.addResourceHandler("/uploads/**").addResourceLocations("file:/C:/data/uploads/");
+
 	}
 
 	

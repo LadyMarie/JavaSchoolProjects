@@ -55,7 +55,7 @@
             </div>
                 <div class="form-group">
                     <div>
-                        <form:errors name="birthDay" path="birthDay" class="control-label has-error" id="inputUsBirthDayEr"/>
+                        <form:errors name="birthDay" path="birthDay" class="control-label has-error  text-primary" id="inputUsBirthDayEr"/>
                         <form:input name="birthDay" path="birthDay" class="form-control" id="inputUsBirthDay" placeholder="Birth day" type="text"/>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
             </div>
                 <div class="form-group">
                     <div>
-                        <form:errors name="birthYear" path="birthYear" class="control-label has-error" id="inputUsBirthYearEr"/>
+                        <form:errors name="birthYear" path="birthYear" class="control-label has-error  text-primary" id="inputUsBirthYearEr"/>
                         <form:input name="birthYear" path="birthYear" class="form-control" id="inputUsBirthYear" placeholder="Birth year" type="text"/>
                     </div>
                 </div>

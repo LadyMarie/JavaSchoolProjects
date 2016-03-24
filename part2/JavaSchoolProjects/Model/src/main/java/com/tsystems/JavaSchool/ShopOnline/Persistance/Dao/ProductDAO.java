@@ -25,7 +25,14 @@ public class ProductDAO implements IProductDAO {
      * @return id in db of saved product
      */
     public String addProductGetId(Product product) {
-        return null;
+        try {
+            product = productRepository.saveAndFlush(product);
+            return String.valueOf(product.getId());
+        }
+        catch (Exception ex) {
+            logger.error("Can't add product to db. " + product.toString() + " " + ex);
+            return null;
+        }
     }
 
     /**
@@ -41,6 +48,5 @@ public class ProductDAO implements IProductDAO {
             return null;
         }
     }
-
 
 }

@@ -4,10 +4,7 @@ import com.tsystems.JavaSchool.ShopOnline.Config.BeanConfig;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.CartItem;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
-import com.tsystems.JavaSchool.ShopOnline.Services.ICartItemService;
-import com.tsystems.JavaSchool.ShopOnline.Services.IGetCatalogService;
-import com.tsystems.JavaSchool.ShopOnline.Services.ILoginService;
-import com.tsystems.JavaSchool.ShopOnline.Services.ISignupService;
+import com.tsystems.JavaSchool.ShopOnline.Services.*;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -30,11 +27,13 @@ public class Check {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
 
-       // checkGetCatalogService(context);
-       // checkLoginService(context);
-      //  checkCartItemService(context);
-          checkAddOrUpdateUser(context);
+        //checkGetCatalogService(context);
+        //checkLoginService(context);
+        //checkCartItemService(context);
+        //checkAddOrUpdateUser(context);
+        checkAddProduct(context);
     }
+
 
     private static void checkGetCatalogService(ApplicationContext context) {
         IGetCatalogService getCatalogService = (IGetCatalogService)context.getBean("getCatalogService");
@@ -119,5 +118,15 @@ public class Check {
         signupService.addOrUpdateUserDB(existingPerson);
         newPerson.setPassword(DigestUtils.md5Hex(newPerson.getPassword()));
         signupService.addOrUpdateUserDB(newPerson);
+    }
+
+    private static void checkAddProduct(ApplicationContext context) {
+        //init
+        Product product = new Product();
+        product.setName("TestProduct");
+        IAddProductService addProductService = (IAddProductService)context.getBean("addProductService");
+
+        //test
+        String id = addProductService.addProductGetId(product);
     }
 }
