@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 
     <noscript>
         <p class="text-warning">
@@ -35,15 +36,15 @@
                     <li><p class="text-primary"><small>sorry, cart not working</small></p></li>
                 </c:if>
                 <c:if test="${empty User}">
-                    <li><a href="${pageContext.request.contextPath}/login">Sign in</a></li>
+                    <li><a href="${context}/login">Sign in</a></li>
                 </c:if>
                 <c:if test="${not empty User}">
-                    <li><a href="${pageContext.request.contextPath}/editProfile">Edit profile</a></li>
+                    <li><a href="${context}/editProfile">Edit profile</a></li>
                 </c:if>
                 <c:if test="${empty User}">
-                    <li><a href="${pageContext.request.contextPath}/signup">Sign up</a></li>
+                    <li><a href="${context}/signup">Sign up</a></li>
                 </c:if>
-                <li><a href="${pageContext.request.contextPath}/logout">Log out</a></li>
+                <li><a href="${context}/logout">Log out</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="dropdown">

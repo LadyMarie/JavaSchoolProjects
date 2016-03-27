@@ -8,15 +8,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
+
 <html>
 <head>
     <title>login</title>
     <!-- Bootstrap -->
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
+    <style>
+        body{
+            background-image: url(<c:url value="/icons/flower.jpg"/>);
+            background-size: contain;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+        }
+        .layer {
+            background-image:  linear-gradient(to bottom, rgba(255,255,255,1), rgba(0,0,0,0));
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
+<div class="layer">
 <div align="center">
-        <form:form class="form-horizontal" action="loginPerson" method="post" modelAttribute="User">
+        <form:form class="form-horizontal"  action="loginPerson" method="post" modelAttribute="User">
         <fieldset>
             <legend>Login</legend>
             <div class="form-group has-warning">
@@ -37,10 +56,11 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
-            <a href="/ShopOnline/signup">Sign up!</a>
+            <a href="${context}/signup">Sign up!</a>
         </fieldset>
     </form:form>
 </div>
+    </div>
 </body>
 </html>
 

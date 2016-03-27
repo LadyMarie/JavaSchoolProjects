@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>Index</title>
@@ -51,7 +52,7 @@
             </div>
         </c:forEach>
         <div align="center">
-           <a href="${pageContext.request.contextPath}/order" class="btn btn-primary">Make Order</a>
+           <a href="${context}/order" class="btn btn-primary">Make Order</a>
             <a href="Index.jsp" class="btn btn-primary" class="btn btn-primary">Catalog</a>
         </div>
 </div>

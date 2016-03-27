@@ -13,8 +13,25 @@
     <title>login</title>
     <!-- Bootstrap -->
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
+    <style>
+        body{
+            background-image: url(<c:url value="/icons/pastel.jpg"/>);
+            background-size: contain;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+        }
+        .layer {
+            background-image:  linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,1), rgba(0,0,0,0));
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
+<div class="layer">
 <div align="center">
         <form:form class="form-horizontal" action="addProduct" method="post"  modelAttribute="Product" enctype="multipart/form-data">
         <fieldset>
@@ -83,6 +100,7 @@
         </fieldset>
     </form:form>
 </div>
+    </div>
 </body>
 </html>
 

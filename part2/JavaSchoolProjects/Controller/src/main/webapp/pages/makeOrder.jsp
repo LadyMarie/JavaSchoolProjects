@@ -12,8 +12,25 @@
     <title>login</title>
     <!-- Bootstrap -->
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
+    <style>
+        body{
+            background-image: url(<c:url value="/icons/order.jpg"/>);
+            background-size: contain;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+        }
+        .layer {
+            background-image:  linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,1), rgba(0,0,0,0));
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
+<div class="layer">
 <div align="center">
         <c:if test="${not empty User}">
             <p class="text-center">Hi, ${User.name}!</p>
@@ -41,6 +58,7 @@
         </fieldset>
     </form>
 </div>
+    </div>
 </body>
 </html>
 
