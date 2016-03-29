@@ -53,7 +53,7 @@ public class AddProductController implements HandlerExceptionResolver {
 
     @RequestMapping(value="addProduct")
     public String addProduct(@Valid @ModelAttribute("Product") Product product,
-                           BindingResult result, ModelMap model, HttpServletRequest req) throws Exception {
+                           BindingResult result, ModelMap model, HttpServletRequest req) throws IOException {
         logger.info("Started");
         if (result.hasErrors()) {
             logger.info("Trying to add product. " + product.toString() + ". Errors: " + result.toString());
