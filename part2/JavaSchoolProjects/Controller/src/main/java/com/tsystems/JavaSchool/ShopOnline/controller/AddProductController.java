@@ -3,6 +3,7 @@ package com.tsystems.JavaSchool.ShopOnline.controller;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import com.tsystems.JavaSchool.ShopOnline.Services.IAddProductService;
+import com.tsystems.JavaSchool.ShopOnline.config.MvcConfiguration;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -11,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
@@ -48,17 +50,10 @@ public class AddProductController implements HandlerExceptionResolver {
         return "addProductEmployee";
     }
 
-    //Init person if someone types in browser '/addProduct', accessing form directly
-  /*  @ModelAttribute("Product")
-    public void initPerson(ModelMap model) {
-        if (model.get("Product") == null )
-            model.put("Product", new Product());
-    }*/
-
 
     @RequestMapping(value="addProduct")
     public String addProduct(@Valid @ModelAttribute("Product") Product product,
-                           BindingResult result, ModelMap model, HttpServletRequest req) throws IOException {
+                           BindingResult result, ModelMap model, HttpServletRequest req) throws Exception {
         logger.info("Started");
         if (result.hasErrors()) {
             logger.info("Trying to add product. " + product.toString() + ". Errors: " + result.toString());
@@ -79,11 +74,12 @@ public class AddProductController implements HandlerExceptionResolver {
             model.put("fileUploadError", "true");
             logger.error("Can't load file. " + ex);
             return "addProductEmployee";
-        }catch (Exception ex) {
+        } catch (IOException ex) {
             model.put("fileUploadError", "true");
             logger.error("Error while loading file" + ex);
             return "addProductEmployee";
         }
+
     }
 
     private void tryLoadPic(String product_id, MultipartFile pic) throws FileUploadException, IOException {
@@ -94,29 +90,31 @@ public class AddProductController implements HandlerExceptionResolver {
         //nesessary pic
 
         BufferedOutputStream stream = new BufferedOutputStream(
-                new FileOutputStream("/uploads/" + product_id));
+                new FileOutputStream(MvcConfiguration.getUploads() + product_id + ".jpg"));
         FileCopyUtils.copy(pic.getInputStream(), stream);
         stream.close();
 
     }
 
-    @ExceptionHandler(MultipartException.class)
-    @ResponseStatus(value = HttpStatus.PRECONDITION_FAILED)
-    @ResponseBody
-    public String handleEmployeeNotFoundException(ModelMap model, Exception ex){
-        model.put("fileToBig","true");
-        logger.error("Upload failed^ file is too big" + ex);
-        return "addProdctEmployee";
-    }
-
     @Override
     public ModelAndView resolveException(HttpServletRequest httpServletRequest,
                                          HttpServletResponse httpServletResponse, Object o, Exception e) {
-        ModelMap model = (ModelMap) new HashMap<String, Object>();
         if (e instanceof MaxUploadSizeExceededException)
         {
-            return new ModelAndView("addProductEmployee",model);
+            ModelAndView productModelView = new ModelAndView("addProductEmployee");
+            productModelView.getModel().put("Product",new Product());
+            productModelView.getModel().put("fileToBig",true);
+            return productModelView;
         }
-        return new ModelAndView("redirect:Main",model);
+        else {
+            logger.error("Error", e);
+            return new ModelAndView("error");
+        }
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleError(HttpServletRequest req, Exception e) {
+        logger.error("Error", e);
+        return new ModelAndView("error");
     }
 }

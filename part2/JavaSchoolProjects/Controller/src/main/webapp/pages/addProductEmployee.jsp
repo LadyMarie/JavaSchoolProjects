@@ -15,18 +15,23 @@
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
     <style>
         body{
-            background-image: url(<c:url value="/icons/pastel.jpg"/>);
-            background-size: contain;
+            background-image: url(<c:url value="/icons/product.jpg"/>);
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            -webkit-background-size: contain;
-            -moz-background-size: contain;
-            -o-background-size: contain;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
         }
         .layer {
             background-image:  linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,1), rgba(0,0,0,0));
             height: 100%;
+            background-size: cover;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
         }
     </style>
 </head>
@@ -80,14 +85,13 @@
                 </div>
             </div>
                 <div class="form-group">
-                    <div>
                         <c:if test="${not empty fileUploadError}">
-                            <label class="control-label">Sorry, couldn't upload a file. Please, try one more time.</br> Jpeg is supported only yet.</label>
+                            <label class="control-label has-error text-primary">Sorry, couldn't upload a file. </br> Please, try one more time.</br> Jpeg is supported only yet.</label>
                         </c:if>
                         <c:if test="${not empty fileToBig}">
-                            <label class="control-label">File is too big. Size is limited < 10Mb.</label>
+                            <br class="control-label has-error text-primary">File is too big.</br> Size is limited < 10Mb.</label>
                         </c:if>
-                        <form:errors path="pic" id="picEr" class="control-label has-error"/>
+                    <div>
                         <form:input path="pic" id="pic" type="file"/>
                     </div>
                 </div>

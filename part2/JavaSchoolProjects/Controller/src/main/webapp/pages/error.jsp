@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>Error</title>
@@ -14,17 +15,17 @@
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
     <style>
         body{
-            background-image: url(<c:url value="/icons/err.jpg"/>);
-            background-size: contain;
+            background-image: url(<c:url value="/icons/wrong.jpg"/>);
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            -webkit-background-size: contain;
-            -moz-background-size: contain;
-            -o-background-size: contain;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
         }
         .layer {
-            background:  rgba(0,0,0,1);
+            background:  rgba(255,255,255,0.7);
             position: absolute;
             top:0;
             bottom: 0;
@@ -39,7 +40,9 @@
 </head>
 <body>
    <div align="center" class="layer">
-        We are sorry, but there are something wrong with database=((
+        <b>We are sorry, but something went wrong=((</b>
+   <br>
+        <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Main</a>
     </div>
 </body>
 </html>

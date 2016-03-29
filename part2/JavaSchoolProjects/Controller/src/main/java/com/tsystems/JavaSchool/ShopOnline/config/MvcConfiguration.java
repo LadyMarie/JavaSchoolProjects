@@ -35,7 +35,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public MultipartResolver multipartResolver() {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-		resolver.setMaxUploadSize(10240);
+		resolver.setMaxUploadSize(10485760);
 		return resolver;
 	}
 
@@ -74,15 +74,18 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		return new AddProductService();
 	}
 
-
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/pages/css/**").addResourceLocations("/pages/css/");
 		registry.addResourceHandler("/pages/Scripts/**").addResourceLocations("/pages/Scripts/");
 		registry.addResourceHandler("/icons/**").addResourceLocations("/icons/");
-		registry.addResourceHandler("/uploads/**").addResourceLocations("file:/C:/data/uploads/");
+		registry.addResourceHandler("/uploads/**").addResourceLocations("file:/" + getUploads());
 
+	}
+
+	public static String getUploads() {
+		return "C:/data/uploads/";
 	}
 
 	

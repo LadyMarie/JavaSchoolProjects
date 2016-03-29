@@ -124,6 +124,7 @@ public class Check {
         //init
         Product product = new Product();
         product.setName("TestProduct");
+        product.setPrice("2$");
         IAddProductService addProductService = (IAddProductService)context.getBean("addProductService");
 
         //test

@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 /**
@@ -22,7 +22,7 @@ import javax.validation.Valid;
  */
 @Controller
 @SessionAttributes({"User","userExists"})
-public class SignupController {
+public class SignupController implements HandlerExceptionResolver{
 
     Logger logger = Logger.getLogger(SignupController.class);
 
@@ -86,5 +86,16 @@ public class SignupController {
         }
     }
 
+    @Override
+    public ModelAndView resolveException(HttpServletRequest httpServletRequest,
+                                         HttpServletResponse httpServletResponse, Object o, Exception e) {
+        logger.error("Error", e);
+        return new ModelAndView("error");
+    }
 
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleError(HttpServletRequest req, Exception e) {
+        logger.error("Error", e);
+        return new ModelAndView("error");
+    }
 }

@@ -8,9 +8,13 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +28,7 @@ import java.util.Map;
  */
 @Controller
 @SessionAttributes({"products","cart","User","cartKeySet","cartsize"})
-public class CartController  {
+public class CartController  implements HandlerExceptionResolver {
 
     private Logger logger = Logger.getLogger(CartController.class);
 
@@ -59,6 +63,19 @@ public class CartController  {
            model.put("noCart","true");
            return "Index";
 
+    }
+
+    @Override
+    public ModelAndView resolveException(HttpServletRequest httpServletRequest,
+                                         HttpServletResponse httpServletResponse, Object o, Exception e) {
+            logger.error("Error", e);
+            return new ModelAndView("error");
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleError(HttpServletRequest req, Exception e) {
+        logger.error("Error", e);
+        return new ModelAndView("error");
     }
 
 }

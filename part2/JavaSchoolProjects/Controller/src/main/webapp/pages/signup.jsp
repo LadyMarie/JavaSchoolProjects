@@ -15,18 +15,23 @@
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
     <style>
         body{
-            background-image: url(<c:url value="/icons/rose.jpg"/>);
-            background-size: contain;
+            background-image: url(<c:url value="/icons/signup.jpg"/>);
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            -webkit-background-size: contain;
-            -moz-background-size: contain;
-            -o-background-size: contain;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
         }
         .layer {
             background-image:  linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,1), rgba(0,0,0,0));
             height: 100%;
+            background-size: cover;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
         }
     </style>
 </head>
