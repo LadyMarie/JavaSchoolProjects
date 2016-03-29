@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>login</title>
@@ -35,20 +36,25 @@
         <c:if test="${not empty User}">
             <p class="text-center">Hi, ${User.name}!</p>
         </c:if>
-        <form class="form-horizontal" action="order" method="post">
+        <form:form class="form-horizontal" action="addOrder" method="post" modelAttribute="Order">
         <fieldset>
             <legend>Make order</legend>
 
                 <div class="form-group">
                     <div>
-                        <input name="pay" class="form-control" id="inputPay" placeholder="Pay method" type="text">
+                        <form:input path="payMethod" name="pay" class="form-control" id="inputPay" placeholder="Pay method" type="text"/>
                     </div>
                 </div>
                   <div class="form-group">
                       <div>
-                          <input name="delivery" class="form-control" id="inputDelivery" placeholder="Delivery method">
+                          <form:input path="deliveryMethod" name="delivery" class="form-control" id="inputDelivery" placeholder="Delivery method"/>
                       </div>
                   </div>
+            <div class="form-group">
+                <div>
+                    <form:input path="address" name="address" class="form-control" id="address" placeholder="Address"/>
+                </div>
+            </div>
             <div class="form-group">
                 <div>
                     <button type="reset" class="btn btn-default">Cancel</button>
@@ -56,7 +62,7 @@
                 </div>
             </div>
         </fieldset>
-    </form>
+    </form:form>
 </div>
     </div>
 </body>

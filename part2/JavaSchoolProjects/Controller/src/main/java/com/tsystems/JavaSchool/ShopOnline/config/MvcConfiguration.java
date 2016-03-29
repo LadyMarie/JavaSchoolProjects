@@ -39,22 +39,15 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 
-    @Bean
-    @Scope("singleton")
-    public IGetCatalogService getCatalogService() {
-        return new GetCatalogService();
-    }
-
 	@Bean
-	@Scope("singleton")
-	public ISignupService signupService() {
-		return new SignupService();
+	public Person user() {
+		return new Person();
 	}
 
 	@Bean
 	@Scope("singleton")
-	public ILoginService loginService() {
-		return new LoginService();
+	public IPersonService loginService() {
+		return new PersonService();
 	}
 
 	@Bean
@@ -63,15 +56,17 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		return new CartItemService();
 	}
 
+
 	@Bean
-	public Person user() {
-		return new Person();
+	@Scope("singleton")
+	public IProductService productService() {
+		return new ProductService();
 	}
 
 	@Bean
 	@Scope("singleton")
-	public IAddProductService addProductService() {
-		return new AddProductService();
+	public IOrderService orderService() {
+		return new OrderService();
 	}
 
 	

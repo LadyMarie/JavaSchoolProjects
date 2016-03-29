@@ -1,28 +1,30 @@
 package com.tsystems.JavaSchool.ShopOnline.Services;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.IProductDAO;
-import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.ProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by asus on 13.03.2016.
+ * Created by asus on 22.03.2016.
  */
-@Service
-public class GetCatalogService implements IGetCatalogService{
+public class ProductService implements IProductService {
 
     @Autowired
     IProductDAO productDAO;
+
+
+    /**
+     * adds product to db
+     * @param product
+     * @return id in db of saved product
+     */
+    public String addProductGetId(Product product) {
+        return productDAO.addProductGetId(product);
+    }
 
     /**
      * Converts list of products from db to map, which is easier to view in jsp

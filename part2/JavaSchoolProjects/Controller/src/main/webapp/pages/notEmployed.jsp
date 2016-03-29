@@ -39,8 +39,10 @@
 </head>
 <body>
   <div class="layer" align="center">
-      We're sorry, ${User.name} ${not empty User.name? ',' : ''} this page can only be seen by employees of our shop=(( <br>
-P.S. But you can send us your resume;)
+      <b>We're sorry, ${User.name} ${not empty User.name? ',' : ''} this page can only be seen by employees of our shop=(( <br>
+P.S. But you can send us your resume;)</b>
+      <br>
+          <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Main</a>
       </div>
 </body>
 </html>

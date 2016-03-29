@@ -1,10 +1,6 @@
 package com.tsystems.JavaSchool.ShopOnline.Config;
 
 import com.google.common.base.Preconditions;
-import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.IProductDAO;
-import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.ProductDAO;
-import com.tsystems.JavaSchool.ShopOnline.Services.GetCatalogService;
-import com.tsystems.JavaSchool.ShopOnline.Services.IGetCatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;

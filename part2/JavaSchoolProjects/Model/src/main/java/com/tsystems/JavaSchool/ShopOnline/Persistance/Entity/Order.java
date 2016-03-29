@@ -23,8 +23,13 @@ public class Order implements Serializable{
     @JoinColumn(name="user")
     private Person user;
 
+    //Todo: make a normal tables from it
     private String payMethod;
     private String deliveryMethod;
+    private String status;
+
+    //Todo: make a normal table from it
+    private String address;
 
     public long getId() {
         return id;
@@ -71,5 +76,34 @@ public class Order implements Serializable{
 
     public void setDeliveryMethod(String deliveryMethod) {
         this.deliveryMethod = deliveryMethod;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", completed=" + completed +
+                ", cartItems=" + cartItems +
+                ", user=" + user +
+                ", payMethod='" + payMethod + '\'' +
+                ", deliveryMethod='" + deliveryMethod + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

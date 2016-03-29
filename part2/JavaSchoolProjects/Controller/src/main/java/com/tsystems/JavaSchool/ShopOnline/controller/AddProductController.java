@@ -1,28 +1,23 @@
 package com.tsystems.JavaSchool.ShopOnline.controller;
 
+
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
-import com.tsystems.JavaSchool.ShopOnline.Services.IAddProductService;
+import com.tsystems.JavaSchool.ShopOnline.Services.IProductService;
 import com.tsystems.JavaSchool.ShopOnline.config.MvcConfiguration;
-import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
-import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.NestedServletException;
+
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -39,15 +34,22 @@ public class AddProductController implements HandlerExceptionResolver {
     private Logger logger = Logger.getLogger(AddProductController.class);
 
     @Autowired
-    IAddProductService addProductService;
+    IProductService productService;
 
     @Autowired
     ServletContext servletContext;
 
     @RequestMapping(value="product", method= RequestMethod.GET)
     public String addLoginForm(ModelMap model) {
-        model.put("Product", new Product());
-        return "addProductEmployee";
+        Person user = (Person) model.get("User");
+        if ((user != null) && (user!= null) && (user.getRole().equals("Employee"))) {
+            model.put("Product", new Product());
+            return "addProductEmployee";
+        }
+        else {
+            //protect from anonim user
+            return "notEmployed";
+        }
     }
 
 
@@ -66,7 +68,7 @@ public class AddProductController implements HandlerExceptionResolver {
 
     private String loadPic(Product product, ModelMap model) {
         try {
-            String product_id = addProductService.addProductGetId(product);
+            String product_id = productService.addProductGetId(product);
             tryLoadPic(product_id, product.getPic());
             //forward to next page only in case of success
             return "redirect:Main";

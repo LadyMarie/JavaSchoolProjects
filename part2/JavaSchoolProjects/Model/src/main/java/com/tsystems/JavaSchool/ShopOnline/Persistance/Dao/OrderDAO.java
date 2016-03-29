@@ -55,6 +55,21 @@ public class OrderDAO implements IOrderDAO{
     }
 
     /**
+     * save order to db
+     * @param order
+     */
+    public void saveOrder(Order order) {
+        try {
+            logger.info("Save person to db. " + order.toString());
+            orderRepository.saveAndFlush(order);
+        }
+        catch (Exception ex) {
+            logger.error("Can't save person to db. " + order.toString()+ " " + ex);
+        }
+
+    }
+
+    /**
      * Returns cart for this user (this in an order, marked as "incompleted")
      * @param user
      * @return

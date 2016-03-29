@@ -2,6 +2,7 @@ package com.tsystems.JavaSchool.ShopOnline;
 
 import com.tsystems.JavaSchool.ShopOnline.Config.BeanConfig;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.CartItem;
+import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Order;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import com.tsystems.JavaSchool.ShopOnline.Services.*;
@@ -27,23 +28,23 @@ public class Check {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
 
-        //checkGetCatalogService(context);
-        //checkLoginService(context);
+        //checkproductService(context);
+        //checkpersonService(context);
         //checkCartItemService(context);
         //checkAddOrUpdateUser(context);
-        checkAddProduct(context);
+        //checkAddProduct(context);
+        checkMakeOrder(context);
     }
 
-
-    private static void checkGetCatalogService(ApplicationContext context) {
-        IGetCatalogService getCatalogService = (IGetCatalogService)context.getBean("getCatalogService");
-        Map<String,Product> products = getCatalogService.getCatalog();
+    private static void checkproductService(ApplicationContext context) {
+        IProductService productService = (IProductService)context.getBean("productService");
+        Map<String,Product> products = productService.getCatalog();
     }
 
-    private static void checkLoginService(ApplicationContext context) {
-        ILoginService loginService = (ILoginService)context.getBean("loginService");
-        Person user = loginService.getPerson("George@gmail.com", "gpassword");
-        Person notExistUser = loginService.getPerson("null","null");
+    private static void checkpersonService(ApplicationContext context) {
+        IPersonService personService = (IPersonService)context.getBean("personService");
+        Person user = personService.getPerson("George@gmail.com", "gpassword");
+        Person notExistUser = personService.getPerson("null","null");
     }
 
     private static void checkCartItemService(ApplicationContext context) {
@@ -52,25 +53,25 @@ public class Check {
 
     private static void checkCartItemMergeCarts(ApplicationContext context) {
         //init
-        ILoginService loginService = (ILoginService)context.getBean("loginService");
-        IGetCatalogService getCatalogService = (IGetCatalogService)context.getBean("getCatalogService");
+        IPersonService personService = (IPersonService)context.getBean("personService");
+        IProductService productService = (IProductService)context.getBean("productService");
         ICartItemService cartItemService = (ICartItemService)context.getBean("cartItemService");
-        Map<String,Product> products = getCatalogService.getCatalog();
+        Map<String,Product> products = productService.getCatalog();
         Product product1 = products.get(String.valueOf(1));
         Product product6 = products.get(String.valueOf(6));
         Map<String,CartItem> oldCartNotEmpty = createOldCart(product1,product6);
 
 
         //test
-        Person userWithCart = loginService.getPerson("Rose@gmail.com","rpassword");
+        Person userWithCart = personService.getPerson("Rose@gmail.com","rpassword");
         cartItemService.mergeCarts(userWithCart,oldCartNotEmpty);
         cartItemService.mergeCarts(userWithCart,null);
 
-        Person userWithCompletedOrder = loginService.getPerson("George@gmail.com", "gpassword");
+        Person userWithCompletedOrder = personService.getPerson("George@gmail.com", "gpassword");
         cartItemService.mergeCarts(userWithCompletedOrder,oldCartNotEmpty);
         cartItemService.mergeCarts(userWithCompletedOrder,null);
 
-        Person userWithoutCart = loginService.getPerson("July@gmail.com", "julypassword");
+        Person userWithoutCart = personService.getPerson("July@gmail.com", "julypassword");
         cartItemService.mergeCarts(userWithoutCart,oldCartNotEmpty);
         cartItemService.mergeCarts(userWithoutCart,null);
     }
@@ -108,16 +109,16 @@ public class Check {
         newPerson.setEmail("newemail@gmail.com");
         newPerson.setPassword("password");
         newPerson.setIsEmployee(false);
-        ILoginService loginService = (ILoginService)context.getBean("loginService");
-        Person existingPerson = loginService.getPerson("Rose@gmail.com", "rpassword");
+        IPersonService personService = (IPersonService)context.getBean("personService");
+        Person existingPerson = personService.getPerson("Rose@gmail.com", "rpassword");
         existingPerson.setName("RoseName");
         existingPerson.setIsEmployee(true);
-        ISignupService signupService = (ISignupService)context.getBean("signupService");
+        
 
         //test
-        signupService.addOrUpdateUserDB(existingPerson);
+        personService.addOrUpdateUserDB(existingPerson);
         newPerson.setPassword(DigestUtils.md5Hex(newPerson.getPassword()));
-        signupService.addOrUpdateUserDB(newPerson);
+        personService.addOrUpdateUserDB(newPerson);
     }
 
     private static void checkAddProduct(ApplicationContext context) {
@@ -125,9 +126,35 @@ public class Check {
         Product product = new Product();
         product.setName("TestProduct");
         product.setPrice("2$");
-        IAddProductService addProductService = (IAddProductService)context.getBean("addProductService");
+        IProductService productService = (IProductService)context.getBean("productService");
 
         //test
-        String id = addProductService.addProductGetId(product);
+        String id = productService.addProductGetId(product);
+    }
+
+    private static void checkMakeOrder(ApplicationContext context) {
+        //init
+        ICartItemService cartItemService = (ICartItemService)context.getBean("cartItemService");
+        IPersonService personService = (IPersonService)context.getBean("personService");
+        IProductService productService = (IProductService)context.getBean("productService");
+        IOrderService orderService = (IOrderService)context.getBean("orderService");
+
+        Map<String,Product> products = productService.getCatalog();
+        Product product1 = products.get(String.valueOf(1));
+        Product product6 = products.get(String.valueOf(10));
+        int amountold = Integer.parseInt(product6.getAmount());
+        Map<String,CartItem> cart = createOldCart(product1,product6);
+        Person user = personService.getPerson("Rose@gmail.com","rpassword");
+
+        //test
+        cartItemService.addCartItem(products,cart,String.valueOf(product6.getId()),user);
+        Product product6new = productService.getCatalog().get(String.valueOf(10));
+        int diff = amountold - Integer.parseInt(product6new.getAmount());
+
+        Order order = new Order();
+        orderService.makeOrder(order);
+        Order order1 = orderService.getIncompletedOrder(user);
+        order1.setDeliveryMethod("home");
+        orderService.makeOrder(order1);
     }
 }

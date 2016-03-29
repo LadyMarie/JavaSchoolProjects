@@ -32,16 +32,11 @@ public class BeanConfig {
         return new PersonDAO();
     }
 
-    @Bean
-    @Scope("singleton")
-    public IGetCatalogService getCatalogService() {
-        return new GetCatalogService();
-    }
 
     @Bean
     @Scope("singleton")
-    public ILoginService loginService() {
-        return new LoginService();
+    public IPersonService loginService() {
+        return new PersonService();
     }
 
     @Bean
@@ -50,15 +45,16 @@ public class BeanConfig {
         return new CartItemService();
     }
 
+
     @Bean
     @Scope("singleton")
-    public ISignupService signupService() {
-        return new SignupService();
+    public IProductService productService() {
+        return new ProductService();
     }
 
     @Bean
     @Scope("singleton")
-    public IAddProductService addProductService() {
-        return new AddProductService();
+    public IOrderService orderService() {
+        return new OrderService();
     }
 }

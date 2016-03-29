@@ -21,4 +21,10 @@ public interface IOrderDAO {
      * @param user
      */
     void updateCartDB(CartItem item, Person user);
+
+    /**
+     * save order to db
+     * @param order
+     */
+    void saveOrder(Order order);
 }

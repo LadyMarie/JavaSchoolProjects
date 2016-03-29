@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
-import com.tsystems.JavaSchool.ShopOnline.Services.IGetCatalogService;
+import com.tsystems.JavaSchool.ShopOnline.Services.IProductService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +29,7 @@ public class CatalogController implements HandlerExceptionResolver{
 	private Logger logger = Logger.getLogger(CatalogController.class);
 
     @Autowired
-    IGetCatalogService getCatalogService;
+    IProductService productService;
 
 
     @RequestMapping(value = "/")
@@ -56,7 +56,7 @@ public class CatalogController implements HandlerExceptionResolver{
     private void updateCatalog(ModelMap model) {
         //always load catalog from db, bacause another user
         //could add new products to db during this session
-        Map<String, Product> products = getCatalogService.getCatalog();
+        Map<String, Product> products = productService.getCatalog();
         if (products != null) {
             model.put("products", products);
             model.put("productsKeySet", new ArrayList<String>(products.keySet()));

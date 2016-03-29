@@ -3,7 +3,7 @@ package com.tsystems.JavaSchool.ShopOnline.controller;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.CartItem;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Services.ICartItemService;
-import com.tsystems.JavaSchool.ShopOnline.Services.ILoginService;
+import com.tsystems.JavaSchool.ShopOnline.Services.IPersonService;
 import com.tsystems.JavaSchool.ShopOnline.controller.validator.PersonValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class LoginController implements HandlerExceptionResolver{
     Logger logger = Logger.getLogger(LoginController.class);
 
     @Autowired
-    ILoginService loginService;
+    IPersonService personService;
 
     @Autowired
     private ICartItemService cartItemService;

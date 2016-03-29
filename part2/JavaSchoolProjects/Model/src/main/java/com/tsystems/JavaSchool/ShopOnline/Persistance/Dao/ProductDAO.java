@@ -49,4 +49,12 @@ public class ProductDAO implements IProductDAO {
         }
     }
 
+    /**
+     * save product to db
+     * @param product
+     */
+    public void saveProduct(Product product) {
+        productRepository.saveAndFlush(product);
+    }
+
 }

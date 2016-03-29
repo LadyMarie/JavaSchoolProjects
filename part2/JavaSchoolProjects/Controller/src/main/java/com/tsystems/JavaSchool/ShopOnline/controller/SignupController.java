@@ -1,9 +1,8 @@
 package com.tsystems.JavaSchool.ShopOnline.controller;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
-import com.tsystems.JavaSchool.ShopOnline.Services.ISignupService;
+import com.tsystems.JavaSchool.ShopOnline.Services.IPersonService;
 import com.tsystems.JavaSchool.ShopOnline.controller.validator.PersonValidator;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +29,7 @@ public class SignupController implements HandlerExceptionResolver{
     PersonValidator validator;
 
     @Autowired
-    ISignupService signupService;
+    IPersonService personService;
 
     //not existing user wants to register
     @RequestMapping(value="/signup", method= RequestMethod.GET)
@@ -80,7 +79,7 @@ public class SignupController implements HandlerExceptionResolver{
         if (result.hasErrors())
             return "signup";
         else {
-            signupService.addOrUpdateUserDB(user);
+            personService.addOrUpdateUserDB(user);
             model.put("User",user);
             return "redirect:Main";
         }

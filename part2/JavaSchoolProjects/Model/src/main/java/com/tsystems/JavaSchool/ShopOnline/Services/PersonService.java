@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by asus on 13.03.2016.
  */
 @Service
-public class LoginService implements ILoginService{
+public class PersonService implements IPersonService{
 
     @Autowired
     IPersonDAO personDAO;
@@ -30,4 +30,16 @@ public class LoginService implements ILoginService{
        return  personDAO.getPerson(email, DigestUtils.md5Hex(pass));
     }
 
+    /**
+     * Save user to db or update existing user
+     * @param user
+     */
+    public void addOrUpdateUserDB(Person user) {
+        encryptPassword(user);
+        personDAO.addOrUpdateUser(user);
+    }
+
+    private void encryptPassword(Person user) {
+        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+    }
 }

@@ -23,4 +23,9 @@ public interface IProductDAO {
      */
     List<Product> getCatalog();
 
+    /**
+     * save product to db
+     * @param product
+     */
+    void saveProduct(Product product);
 }

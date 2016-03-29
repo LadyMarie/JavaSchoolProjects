@@ -2,18 +2,17 @@ package com.tsystems.JavaSchool.ShopOnline.controller.validator;
 
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
-import com.tsystems.JavaSchool.ShopOnline.Services.ILoginService;
+import com.tsystems.JavaSchool.ShopOnline.Services.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 @Component
 public class PersonValidator implements Validator {
 
 	@Autowired
-	ILoginService loginService;
+	IPersonService personService;
 
 	Person user;
 
@@ -27,7 +26,7 @@ public class PersonValidator implements Validator {
 		String email = ((Person)obj).getEmail();
 		String pass = ((Person)obj).getPassword();
 		if ((email != null) && (pass != null)) {
-			user = loginService.getPerson(email, pass);
+			user = personService.getPerson(email, pass);
 			if (user == null)
 				errors.rejectValue("password", null, "Please, enter valid password for this user");
 		}

@@ -78,4 +78,6 @@ public class CartController  implements HandlerExceptionResolver {
         return new ModelAndView("error");
     }
 
+    //Todo:get and view relevant amount of chosen product
+
 }

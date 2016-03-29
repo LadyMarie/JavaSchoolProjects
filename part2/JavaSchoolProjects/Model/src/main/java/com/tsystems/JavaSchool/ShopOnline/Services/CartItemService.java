@@ -1,6 +1,7 @@
 package com.tsystems.JavaSchool.ShopOnline.Services;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.IOrderDAO;
+import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.IProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.CartItem;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Order;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
@@ -22,10 +23,13 @@ public class CartItemService implements ICartItemService {
     Logger logger = Logger.getLogger(CartItemService.class);
 
     @Autowired
-    private IGetCatalogService getCatalogService;
+    private IProductService getCatalogService;
 
     @Autowired
     private IOrderDAO orderDAO;
+
+    @Autowired
+    private IProductDAO productDAO;
 
     /**
      * Get cart of this user from db and add to it items from another cart. Save result to db.
@@ -71,7 +75,8 @@ public class CartItemService implements ICartItemService {
 
     /**
      * Adds new item to cart or increments counter of existing item. </br>
-     * Save item to db if user exists.
+     * Save item to db if user exists. Decrease amount of corresponding product.
+     * If product has been run out, add nothing to cart.
      * @param products
      * @param cart existing cart, to which we want put product, or null, if we need new one
      * @param id
@@ -86,13 +91,14 @@ public class CartItemService implements ICartItemService {
             logger.error("session expired, gor product from db");
             //load from db if session spoiled
             products =  getCatalogService.getCatalog();
+            if (products == null) {
+                logger.error("can't got catalog from db");
+                return null;
+            }
         }
-
-        if (products != null)
-            return addToCartAndSave(cart, products, id, user);
-        else
-            return null;
+        return addToCartAndSave(cart, products, id, user);
     }
+
 
 
     private Map<String,CartItem> addToCartAndSave(Map<String, CartItem> cart, Map<String, Product> products, String id, Person user) {
@@ -100,21 +106,50 @@ public class CartItemService implements ICartItemService {
             logger.info("there is no cart, creating new one");
             cart = new HashMap<String, CartItem>();
         }
+        Product product = products.get(id);
         CartItem item = cart.get(id);
         //add to cart if there are no such product
         if (item == null) {
             logger.info("no such product " + products.get(id).getName() + "in cart, adding one");
             item = new CartItem();
-            item.setProduct(products.get(id));
+            item.setProduct(product);
         }
         //if there is, just increment its counter
         item.setAmount(item.getAmount() + 1);
-
-        cart = addItemToCartAndDB(cart, id, item, user);
+        //decrement count of this product in shop
+        if (bookProductInCatalog(product))
+            cart = addItemToCartAndDB(cart, id, item, user);
 
         logger.info("there are " + item.getAmount() +
                 " products " + products.get(id).getName() + " in cart now");
         return cart;
+    }
+
+
+    /**
+     * We have to 'book' product in the shop to disallow different users add to carts
+     * more items of this product, then it is in the stock.
+     * When booking, amount of this product in catalog is decreased, and then
+     * new value is saved to db.
+     * @param product
+     * @return
+     * true - if there is enough product in the stock
+     * and item may be added to cart,
+     * false - if product has ended in the stock
+     */
+    private boolean bookProductInCatalog(Product product) {
+        logger.info("Book product " + product.toString());
+        //we can be sure that it will be parsed successfully,
+        //because of validation of amount field
+        int prodAmount = Integer.parseInt(product.getAmount());
+        if (prodAmount > 0) {
+            logger.info("Now its amount is" + (prodAmount - 1));
+            product.setAmount(String.valueOf(prodAmount - 1));
+            productDAO.saveProduct(product);
+            return true;
+        }
+        else
+            return false;
     }
 
     private Map<String,CartItem> addItemToCartAndDB(Map<String, CartItem> cart,
