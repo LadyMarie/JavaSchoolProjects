@@ -63,6 +63,13 @@ public class CatalogController implements HandlerExceptionResolver{
         }
     }
 
+    //filter forward here if user attempted to access .jsp pages,
+    //containing form, directly
+    @RequestMapping(value = "/error", method = RequestMethod.GET)
+    public String errorPage(ModelMap model) {
+        return "error";
+    }
+
     @Override
     public ModelAndView resolveException(HttpServletRequest httpServletRequest,
                                          HttpServletResponse httpServletResponse, Object o, Exception e) {

@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Controller
+@SessionAttributes("User")
 public class AddProductController implements HandlerExceptionResolver {
 
     private Logger logger = Logger.getLogger(AddProductController.class);
@@ -42,12 +43,12 @@ public class AddProductController implements HandlerExceptionResolver {
     @RequestMapping(value="product", method= RequestMethod.GET)
     public String addLoginForm(ModelMap model) {
         Person user = (Person) model.get("User");
-        if ((user != null) && (user!= null) && (user.getRole().equals("Employee"))) {
+        if ((user != null) && (user.getRole()!= null) && (user.getRole().equals("Employee"))) {
             model.put("Product", new Product());
             return "addProductEmployee";
         }
         else {
-            //protect from anonim user
+            //protect from anonimys user and client
             return "notEmployed";
         }
     }

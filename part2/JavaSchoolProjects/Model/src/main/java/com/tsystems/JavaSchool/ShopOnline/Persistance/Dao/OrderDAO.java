@@ -76,7 +76,7 @@ public class OrderDAO implements IOrderDAO{
      */
     public Order getIncompletedOrder(Person user) {
         try {
-            return orderRepository.getIncompletedOrder(user);
+            return tryGetOrder(user);
         }
         catch (NoResultException ex) {
             logger.info("there aren't incompleted orders, create new one");
@@ -90,6 +90,14 @@ public class OrderDAO implements IOrderDAO{
             logger.error("Can't get incompleted order from db. User: " + user.getEmail() + " " + ex);
             return null;
         }
+    }
+
+    private Order tryGetOrder(Person user) {
+        Order order = orderRepository.getIncompletedOrder(user);
+        if (order == null)
+            return new Order();
+        else
+            return order;
     }
 
 

@@ -50,9 +50,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="order" class="list-group-item active">Make order</a></li>
+                        <li><a href="${context}/order" class="list-group-item active">Make order</a></li>
                         <c:if test="${User.role == 'Employee'}">
-                            <li><a href="product">Add product</a></li>
+                            <li><a href="${context}/product">Add product</a></li>
                         </c:if>
                     </ul>
                 </li>
@@ -63,11 +63,11 @@
         <div class="col-lg-4">
             <div class="bs-component">
                 <div class="list-group" width="20%">
-                    <a href="order" class="list-group-item active" width="20%">
+                    <a href="${context}/order" class="list-group-item active" width="20%">
                         Make order
                     </a>
                     <c:if test="${User.role == 'Employee'}">
-                        <a href="product" class="list-group-item" width="auto">Add product</a>
+                        <a href="${context}/product" class="list-group-item" width="auto">Add product</a>
                     </c:if>
                 </div>
             </div>

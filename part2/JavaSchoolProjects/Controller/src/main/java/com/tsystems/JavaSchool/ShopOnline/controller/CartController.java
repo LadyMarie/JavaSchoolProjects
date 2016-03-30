@@ -52,9 +52,16 @@ public class CartController  implements HandlerExceptionResolver {
 
         if (cart != null) {
             //write in .jsp that item added
-            res.getWriter().write("<p class=\"text-info\"><small>Added: "
-                    + cart.get(id).getProduct().getName() + ".</br> Total: " + cart.size() + ".</small></p>");
-            res.getWriter().close();
+            if ((cart.get(id) != null) && (cart.get(id).getProduct() != null)) {
+                res.getWriter().write("<p class=\"text-info\"><small>Added: "
+                        + cart.get(id).getProduct().getName() + ".</br> Total: " + cart.size() + ".</small></p>");
+                res.getWriter().close();
+            }
+            else
+            {
+                res.getWriter().write("<p class=\"text-info\"><small>Total: " + cart.size() + ".</small></p>");
+                res.getWriter().close();
+            }
             model.put("cart", cart);
             model.put("cartKeySet", new ArrayList<String>(cart.keySet()));
             model.put("cartsize", cart.size());

@@ -153,7 +153,8 @@ public class Check {
 
         Order order = new Order();
         orderService.makeOrder(order);
-        Order order1 = orderService.getIncompletedOrder(user);
+        Person userGeorge = personService.getPerson("George@gmail.com","gpassword");
+        Order order1 = orderService.getIncompletedOrder(userGeorge);
         order1.setDeliveryMethod("home");
         orderService.makeOrder(order1);
     }

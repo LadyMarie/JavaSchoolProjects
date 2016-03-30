@@ -15,7 +15,7 @@
     <link href="<c:url value="/pages/css/bootstrap.css"/>" type="text/css" rel="stylesheet">
     <style>
         body{
-            background-image: url(<c:url value="/icons/wrong.jpg"/>);
+            background-image: url(<c:url value="/icons/cartEmpty.jpg"/>);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -32,17 +32,25 @@
             left: 0;
             right: 0;
             width: 50%;
-            height: 20%;
+            height: 25%;
             margin: auto;
             align-items: center;
+        }
+        .layer1 {
+            background-image:  linear-gradient(to bottom, rgba(255,255,255,1), rgba(0,0,0,0));
+            height: 100%;
+            background-attachment: fixed;
         }
     </style>
 </head>
 <body>
+<div class="layer1">
    <div align="center" class="layer">
-        <b><p class="lead">We are sorry, but something went wrong=((</p></b>
+        <b><p class="lead">We are sorry, but your cart is empty.</br>
+            Please, add something to your cart before making order.</p></b>
    <br>
-        <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Main</a>
+        <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Catalog</a>
     </div>
+</div>
 </body>
 </html>

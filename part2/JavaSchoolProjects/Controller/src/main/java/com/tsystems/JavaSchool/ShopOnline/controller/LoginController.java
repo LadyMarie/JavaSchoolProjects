@@ -41,7 +41,7 @@ public class LoginController implements HandlerExceptionResolver{
     @RequestMapping(value="login", method= RequestMethod.GET)
     public String addLoginForm(ModelMap model) {
         model.put("User", new Person());
-        return "login";
+        return "loginUser";
     }
 
     //Init person if someone types in browser '/loginPerson', accessing form directly
@@ -57,7 +57,7 @@ public class LoginController implements HandlerExceptionResolver{
             validator.validate(user, result);
             if (result.hasErrors()) {
                 logger.info("User " + user.getName() + " tried to login. Errors " + result.toString());
-                return "login";
+                return "loginUser";
             } else {
                 logger.info("User " + user.getName() + " logged on successfully.");
                 user = validator.getUser();

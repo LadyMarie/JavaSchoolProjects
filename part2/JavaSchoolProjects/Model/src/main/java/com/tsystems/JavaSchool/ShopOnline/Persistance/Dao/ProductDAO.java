@@ -54,7 +54,12 @@ public class ProductDAO implements IProductDAO {
      * @param product
      */
     public void saveProduct(Product product) {
-        productRepository.saveAndFlush(product);
+        try {
+            productRepository.saveAndFlush(product);
+        }
+        catch (Exception ex) {
+            logger.error("Can't save product to db. " + product.toString() + " " + ex);
+        }
     }
 
 }

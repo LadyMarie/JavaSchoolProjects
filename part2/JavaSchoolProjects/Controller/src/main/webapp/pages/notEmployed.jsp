@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>makeOrder</title>
@@ -31,7 +32,7 @@
             left: 0;
             right: 0;
             width: 50%;
-            height: 20%;
+            height: 30%;
             margin: auto;
             align-items: center;
         }
@@ -39,8 +40,8 @@
 </head>
 <body>
   <div class="layer" align="center">
-      <b>We're sorry, ${User.name} ${not empty User.name? ',' : ''} this page can only be seen by employees of our shop=(( <br>
-P.S. But you can send us your resume;)</b>
+      <b><p class="lead text-primary">We're sorry, ${User.name} ${not empty User.name? ',' : ''} this page can only be seen by employees of our shop=(( <br>
+P.S. But you can send us your resume;)</p></b>
       <br>
           <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Main</a>
       </div>
