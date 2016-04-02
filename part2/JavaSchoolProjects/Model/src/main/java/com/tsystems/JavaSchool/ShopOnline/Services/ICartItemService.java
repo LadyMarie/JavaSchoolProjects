@@ -32,4 +32,11 @@ public interface ICartItemService {
      * @return
      */
     Map<String,CartItem> addCartItem(Map<String, Product> products, Map<String, CartItem> cart, String id, Person user);
+
+    /**
+     * converts arrayList to map for better view representation
+     * @param userCartItems
+     * @return
+     */
+    public Map<String,CartItem> convertToMap(List<CartItem> userCartItems);
 }

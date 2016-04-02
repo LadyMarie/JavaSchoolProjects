@@ -1,11 +1,14 @@
 package com.tsystems.JavaSchool.ShopOnline.Config;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.*;
+import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Order;
 import com.tsystems.JavaSchool.ShopOnline.Services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
+
+import java.util.Comparator;
 
 /**
  * Created by asus on 14.03.2016.
@@ -56,5 +59,11 @@ public class BeanConfig {
     @Scope("singleton")
     public IOrderService orderService() {
         return new OrderService();
+    }
+
+    @Bean
+    @Scope("singleton")
+    public Comparator<Order> orderComparator() {
+        return new OrderComparator();
     }
 }

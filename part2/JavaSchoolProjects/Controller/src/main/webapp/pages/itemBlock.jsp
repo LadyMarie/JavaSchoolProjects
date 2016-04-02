@@ -16,9 +16,14 @@
         <div class="row">
             <div class="col-md-8">
                 ${item.name}
-                </div>
-        <div class="col-md-4 text-right">
-            <a href="javascript:addToCart(${item.id})" class="btn btn-primary btn-xs">Add to cart</a>
+            </div>
+            <div class="col-md-4 text-right">
+                <c:if test="${User.role == 'Employee' && not empty editMode}">
+                    <a href="product?id=${id}" class="btn btn-primary btn-xs">Edit product</a>
+                </c:if>
+                <c:if test="${empty editMode}">
+                  <a href="javascript:addToCart(${item.id})" class="btn btn-primary btn-xs">Add to cart</a>
+                </c:if>
             </div>
         </div>
     </div>

@@ -1,5 +1,7 @@
 package com.tsystems.JavaSchool.ShopOnline.Persistance.Entity;
 
+import org.apache.log4j.Logger;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="booking")
 public class Order implements Serializable{
+
     @Id
     @GeneratedValue
     private long id;
@@ -106,4 +109,6 @@ public class Order implements Serializable{
     public void setAddress(String address) {
         this.address = address;
     }
+
+
 }

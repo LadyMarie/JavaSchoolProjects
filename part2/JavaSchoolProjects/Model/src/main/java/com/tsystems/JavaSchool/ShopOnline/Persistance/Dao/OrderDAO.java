@@ -5,6 +5,7 @@ import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Order;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Repository.ICartItemRepository;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Repository.IOrderRepository;
+import javafx.collections.transformation.SortedList;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -60,13 +61,68 @@ public class OrderDAO implements IOrderDAO{
      */
     public void saveOrder(Order order) {
         try {
-            logger.info("Save person to db. " + order.toString());
+            logger.info("Save order to db. " + order.toString());
             orderRepository.saveAndFlush(order);
         }
         catch (Exception ex) {
-            logger.error("Can't save person to db. " + order.toString()+ " " + ex);
+            logger.error("Can't save order to db. " + order.toString()+ " " + ex);
         }
 
+    }
+
+    /**
+     * get list of orders for this user
+     */
+    public ArrayList<Order> getUserOrders(Person user) {
+        try {
+            logger.info("Get orders of user. " + user.toString());
+            return tryGetOrders(user);
+        }
+        catch (NoResultException ex) {
+            logger.info("There aren't orders for this user, return empty list.");
+            return new ArrayList<Order>();
+        }
+        catch (Exception ex) {
+            logger.error("Can't get orders for this user. " + ex);
+            return null;
+        }
+    }
+
+    /**
+     * get all orders and sort it by alphabet user email
+     */
+    public ArrayList<Order> getOrders() {
+        try {
+            logger.info("Get all orders. ");
+            return (ArrayList<Order>)orderRepository.findAll();
+        }
+        catch (Exception ex) {
+            logger.error("Can't get orders. " + ex);
+            return null;
+        }
+    }
+
+    /**
+     * get order with id given
+     * @param id
+     * @return
+     */
+    public Order getOrder(Long id) {
+        try {
+            return orderRepository.findOne(id);
+        }
+        catch (Exception ex) {
+            logger.error("Can't get order by id " + id);
+            return null;
+        }
+    }
+
+    private ArrayList<Order> tryGetOrders(Person user) {
+        ArrayList<Order> orders = (ArrayList<Order>)orderRepository.getUserOrders(user);
+        if (orders == null)
+            return new ArrayList<Order>();
+        else
+            return orders;
     }
 
     /**
@@ -76,7 +132,7 @@ public class OrderDAO implements IOrderDAO{
      */
     public Order getIncompletedOrder(Person user) {
         try {
-            return tryGetOrder(user);
+            return tryGetIncompletedOrder(user);
         }
         catch (NoResultException ex) {
             logger.info("there aren't incompleted orders, create new one");
@@ -92,7 +148,7 @@ public class OrderDAO implements IOrderDAO{
         }
     }
 
-    private Order tryGetOrder(Person user) {
+    private Order tryGetIncompletedOrder(Person user) {
         Order order = orderRepository.getIncompletedOrder(user);
         if (order == null)
             return new Order();
@@ -110,4 +166,5 @@ public class OrderDAO implements IOrderDAO{
             order.setCartItems(new ArrayList<CartItem>());
         return order;
     }
+
 }

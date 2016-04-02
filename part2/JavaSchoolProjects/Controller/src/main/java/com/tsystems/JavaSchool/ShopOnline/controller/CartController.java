@@ -1,9 +1,11 @@
 package com.tsystems.JavaSchool.ShopOnline.controller;
 
+import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Order;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.CartItem;
 import com.tsystems.JavaSchool.ShopOnline.Services.ICartItemService;
+import com.tsystems.JavaSchool.ShopOnline.Services.IOrderService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,11 +31,16 @@ import java.util.Map;
 @Controller
 @SessionAttributes({"products","cart","User","cartKeySet","cartsize"})
 public class CartController  implements HandlerExceptionResolver {
+   //Remove orderCartattr
+    //rename
 
     private Logger logger = Logger.getLogger(CartController.class);
 
     @Autowired
     ICartItemService cartItemService;
+
+    @Autowired
+    IOrderService orderService;
 
 
     @RequestMapping(value = "/cart")
@@ -68,9 +75,10 @@ public class CartController  implements HandlerExceptionResolver {
         }
         else
            model.put("noCart","true");
-           return "Index";
+        return "Index";
 
     }
+
 
     @Override
     public ModelAndView resolveException(HttpServletRequest httpServletRequest,

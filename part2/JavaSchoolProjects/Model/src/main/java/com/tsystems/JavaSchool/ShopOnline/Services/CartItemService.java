@@ -64,11 +64,21 @@ public class CartItemService implements ICartItemService {
             return null;
     }
 
-    private Map<String,CartItem> convertToMap(List<CartItem> userCartItems) {
+    /**
+     * converts arrayList to map for better view representation
+     * @param userCartItems
+     * @return
+     */
+    public Map<String,CartItem> convertToMap(List<CartItem> userCartItems) {
 
             Map<String, CartItem> map = new HashMap<String, CartItem>();
-            for (CartItem item : userCartItems) {
-                map.put(String.valueOf(item.getProduct().getId()), item);
+            if (userCartItems != null) {
+                for (CartItem item : userCartItems) {
+                    map.put(String.valueOf(item.getProduct().getId()), item);
+                }
+            }
+            else {
+                logger.error("Cart item list is null");
             }
             return map;
     }

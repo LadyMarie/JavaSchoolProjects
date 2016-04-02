@@ -4,6 +4,9 @@ import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.CartItem;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Order;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by asus on 14.03.2016.
  */
@@ -27,4 +30,21 @@ public interface IOrderDAO {
      * @param order
      */
     void saveOrder(Order order);
+
+    /**
+     * get list of orders for this user
+     */
+    ArrayList<Order> getUserOrders(Person user);
+
+    /**
+     * get all orders and sort it by alphabet user email
+     */
+    ArrayList<Order> getOrders();
+
+    /**
+     * get order with id given
+     * @param id
+     * @return
+     */
+    Order getOrder(Long id);
 }

@@ -51,8 +51,12 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="${context}/order" class="list-group-item active">Make order</a></li>
+                        <li><a href="${context}/Main">Catalog</a></li>
+                        <li><a href="${context}/viewOrders">View order list</a></li>
                         <c:if test="${User.role == 'Employee'}">
                             <li><a href="${context}/product">Add product</a></li>
+                            <li><a href="${context}/manageOrders">Manage orders</a></li>
+                            <li><a href="${context}/editProducts">Edit products</a></li>
                         </c:if>
                     </ul>
                 </li>
@@ -66,8 +70,12 @@
                     <a href="${context}/order" class="list-group-item active" width="20%">
                         Make order
                     </a>
+                    <li><a href="${context}/viewOrders">View order list</a></li>
+                    <li><a href="${context}/Main">Catalog</a></li>
                     <c:if test="${User.role == 'Employee'}">
                         <a href="${context}/product" class="list-group-item" width="auto">Add product</a>
+                        <li><a href="${context}/manageOrders">Manage orders</a></li>
+                        <li><a href="${context}/editProducts">Edit products</a></li>
                     </c:if>
                 </div>
             </div>

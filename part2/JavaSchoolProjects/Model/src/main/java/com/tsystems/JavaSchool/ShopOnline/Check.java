@@ -12,7 +12,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,7 +35,11 @@ public class Check {
         //checkCartItemService(context);
         //checkAddOrUpdateUser(context);
         //checkAddProduct(context);
-        checkMakeOrder(context);
+        //checkMakeOrder(context);
+        //checkUserOrders(context);
+        //checkChangeStatus(context);
+        checkRepeatOrder(context);
+        //checkGetCart(context);
     }
 
     private static void checkproductService(ApplicationContext context) {
@@ -157,5 +163,66 @@ public class Check {
         Order order1 = orderService.getIncompletedOrder(userGeorge);
         order1.setDeliveryMethod("home");
         orderService.makeOrder(order1);
+    }
+
+    private static void checkUserOrders(ApplicationContext context) {
+        //init
+        IPersonService personService = (IPersonService)context.getBean("personService");
+        IOrderService orderService = (IOrderService)context.getBean("orderService");
+        Person userGeorge = personService.getPerson("George@gmail.com","gpassword");
+        addAlphabetUserAndOrder("a",personService,orderService);
+        addAlphabetUserAndOrder("b",personService,orderService);
+        addAlphabetUserAndOrder("c",personService,orderService);
+        addAlphabetUserAndOrder("b",personService,orderService);
+        addAlphabetUserAndOrder("a",personService,orderService);
+
+        //test
+        List<Order> userOrders =  orderService.getUserOrders(userGeorge);
+        List<Order> orders = orderService.getOrders();
+    }
+
+    private static void addAlphabetUserAndOrder(String letter,
+                                                IPersonService personService, IOrderService orderService) {
+        Person user = new Person();
+        user.setEmail(letter + "@gmail.com");
+        user.setPassword(letter + "password");
+        user.setIsEmployee(true);
+        personService.addOrUpdateUserDB(user);
+        Order order = new Order();
+        order.setUser(user);
+        orderService.makeOrder(order);
+    }
+
+    private static void checkChangeStatus(ApplicationContext context) {
+        //init
+        IOrderService orderService = (IOrderService)context.getBean("orderService");
+
+        //test
+        orderService.changeStatus(String.valueOf(1), "new");
+    }
+
+    private static void checkRepeatOrder(ApplicationContext context) {
+        //init
+        IOrderService orderService = (IOrderService)context.getBean("orderService");
+        IPersonService personService = (IPersonService)context.getBean("personService");
+        Person userGeorge = personService.getPerson("George@gmail.com","gpassword");
+        List<Order> orders =  orderService.getUserOrders(userGeorge);
+
+        //test
+        Order order = orderService.repeatOrder(orders,String.valueOf(7));
+        Order order1 = orderService.repeatOrder(orders,String.valueOf(500));
+        Order order2 = orderService.repeatOrder(orders,"dfgdg");
+        Order order3 = orderService.repeatOrder(orders,null);
+    }
+
+    private static void checkGetCart(ApplicationContext context) {
+        //init
+        IOrderService orderService = (IOrderService)context.getBean("orderService");
+        ArrayList<Order> orders =  orderService.getOrders();
+
+        Map<String,CartItem> cart = orderService.getCart(String.valueOf(2),orders);
+        Map<String,CartItem> cantParseId = orderService.getCart("dgdgg",orders);
+        Map<String,CartItem> nonExistingIdCart = orderService.getCart(String.valueOf(500),orders);
+        Map<String,CartItem> emptyOrderCart = orderService.getCart(String.valueOf(1),orders);
     }
 }

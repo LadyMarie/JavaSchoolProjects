@@ -1,6 +1,5 @@
 package com.tsystems.JavaSchool.ShopOnline.controller;
 
-
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import com.tsystems.JavaSchool.ShopOnline.Services.IProductService;
@@ -24,15 +23,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 
 @Controller
-@SessionAttributes("User")
-public class AddProductController implements HandlerExceptionResolver {
+@SessionAttributes({"User","products","Product"})
+public class ProductController implements HandlerExceptionResolver {
 
-    private Logger logger = Logger.getLogger(AddProductController.class);
+    private Logger logger = Logger.getLogger(ProductController.class);
 
     @Autowired
     IProductService productService;
@@ -41,16 +38,27 @@ public class AddProductController implements HandlerExceptionResolver {
     ServletContext servletContext;
 
     @RequestMapping(value="product", method= RequestMethod.GET)
-    public String addLoginForm(ModelMap model) {
+    public String addLoginForm(ModelMap model, HttpServletRequest req) {
         Person user = (Person) model.get("User");
         if ((user != null) && (user.getRole()!= null) && (user.getRole().equals("Employee"))) {
-            model.put("Product", new Product());
-            return "addProductEmployee";
+            return initProduct(model, req);
         }
         else {
             //protect from anonimys user and client
             return "notEmployed";
         }
+    }
+
+    private String initProduct(ModelMap model, HttpServletRequest req) {
+        //check if editProduct button pressed by employee
+        String prodId = req.getParameter("id");
+        if (prodId !=null) {
+            Map<String,Product> products = (Map<String,Product>)model.get("products");
+            model.put("Product", products.get(prodId));
+        }
+        else
+            model.put("Product", new Product());
+        return "productEmployee";
     }
 
 
@@ -60,7 +68,7 @@ public class AddProductController implements HandlerExceptionResolver {
         logger.info("Started");
         if (result.hasErrors()) {
             logger.info("Trying to add product. " + product.toString() + ". Errors: " + result.toString());
-            return "addProductEmployee";
+            return "productEmployee";
         }
         else
             return loadPic(product, model);
@@ -69,18 +77,25 @@ public class AddProductController implements HandlerExceptionResolver {
 
     private String loadPic(Product product, ModelMap model) {
         try {
+            String redirect;
+            //check if product was previously initialized, it means, that it is edit mode
+            //if id not zero, it means, product is got from db
+            if (product.getId() != 0)
+                redirect = "manageOrders";
+            else
+                redirect = "Main";
             String product_id = productService.addProductGetId(product);
             tryLoadPic(product_id, product.getPic());
             //forward to next page only in case of success
-            return "redirect:Main";
+            return "redirect:" + redirect;
         } catch (FileUploadException ex) {
             model.put("fileUploadError", "true");
             logger.error("Can't load file. " + ex);
-            return "addProductEmployee";
+            return "productEmployee";
         } catch (IOException ex) {
             model.put("fileUploadError", "true");
             logger.error("Error while loading file" + ex);
-            return "addProductEmployee";
+            return "productEmployee";
         }
 
     }
@@ -104,7 +119,7 @@ public class AddProductController implements HandlerExceptionResolver {
                                          HttpServletResponse httpServletResponse, Object o, Exception e) {
         if (e instanceof MaxUploadSizeExceededException)
         {
-            ModelAndView productModelView = new ModelAndView("addProductEmployee");
+            ModelAndView productModelView = new ModelAndView("productEmployee");
             productModelView.getModel().put("Product",new Product());
             productModelView.getModel().put("fileToBig",true);
             return productModelView;

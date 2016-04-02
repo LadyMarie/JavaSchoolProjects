@@ -103,7 +103,7 @@ public class Person implements Serializable{
                 ", id=" + id + '\'' +
                 ", name=" + name + '\'' +
                 ", surname=" + surname + '\'' +
-                ", isEmployee=" + isEmployee + '\'' +
+                ", role=" + role + '\'' +
                 '}';
     }
 

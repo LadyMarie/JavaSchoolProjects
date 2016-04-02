@@ -16,13 +16,13 @@
     <style>
         body{
             background-image: url(<c:url value="/icons/error.jpg"/>);
-            background-size: contain;
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            -webkit-background-size: contain;
-            -moz-background-size: contain;
-            -o-background-size: contain;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
         }
         .layer {
             background:  rgba(0,0,0,1);

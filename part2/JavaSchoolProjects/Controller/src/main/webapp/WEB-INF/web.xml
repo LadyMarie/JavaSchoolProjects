@@ -36,27 +36,6 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<filter>
-		<filter-name>EmployeeFilter</filter-name>
-		<filter-class>com.tsystems.JavaSchool.ShopOnline.controller.EmployeeFilter</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>EmployeeFilter</filter-name>
-		<url-pattern>/pages/addProductEmployee.jsp</url-pattern>
-	</filter-mapping>
-
-
-	<filter>
-		<filter-name>MakeOrderFilter</filter-name>
-		<filter-class>com.tsystems.JavaSchool.ShopOnline.controller.OrderFilter</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>MakeOrderFilter</filter-name>
-		<url-pattern>/pages/makeOrder.jsp</url-pattern>
-	</filter-mapping>
-
 
 	<filter>
 		<filter-name>JspFilter</filter-name>
@@ -71,7 +50,38 @@
 		<filter-name>JspFilter</filter-name>
 		<url-pattern>/pages/signup.jsp</url-pattern>
 	</filter-mapping>
-
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/viewOrders.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/orderBlock.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/makeOrder.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/productEmployee.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/manageOrders.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/orderEmployeeBlock.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/orderCart.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/orderCartBlock.jsp</url-pattern>
+	</filter-mapping>
 
 
 

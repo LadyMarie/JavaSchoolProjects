@@ -53,6 +53,13 @@ public class CatalogController implements HandlerExceptionResolver{
         return "Index";
     }
 
+    @RequestMapping(value = "/editProducts", method = RequestMethod.GET)
+    public String editProduct(ModelMap model) {
+        updateCatalog(model);
+        model.put("editMode", true);
+        return "Index";
+    }
+
     private void updateCatalog(ModelMap model) {
         //always load catalog from db, bacause another user
         //could add new products to db during this session
