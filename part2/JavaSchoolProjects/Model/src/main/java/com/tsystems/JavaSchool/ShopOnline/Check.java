@@ -38,8 +38,9 @@ public class Check {
         //checkMakeOrder(context);
         //checkUserOrders(context);
         //checkChangeStatus(context);
-        checkRepeatOrder(context);
+        //checkRepeatOrder(context);
         //checkGetCart(context);
+        checkFilterCatalog(context);
     }
 
     private static void checkproductService(ApplicationContext context) {
@@ -224,5 +225,56 @@ public class Check {
         Map<String,CartItem> cantParseId = orderService.getCart("dgdgg",orders);
         Map<String,CartItem> nonExistingIdCart = orderService.getCart(String.valueOf(500),orders);
         Map<String,CartItem> emptyOrderCart = orderService.getCart(String.valueOf(1),orders);
+    }
+
+    private static void checkFilterCatalog(ApplicationContext context) {
+
+        //init
+        IProductService productService = (IProductService)context.getBean("productService");
+        List<Filter> filterList = createFilters();
+
+        //test
+        Map<String,Product> products;
+        for (Filter filter:filterList) {
+            products = productService.filterCatalog(filter);
+        }
+
+    }
+
+    private static List<Filter> createFilters() {
+        List<Filter> filterList = new ArrayList<Filter>();
+        Filter filter = new Filter();
+        filter.setCategory("surr");
+        filter.setFromPrice("1000");
+        filter.setToPrice("5000");
+        filterList.add(filter);
+        Filter filterWrongCategory = new Filter();
+        filterWrongCategory.setCategory("sfsefs");
+        filterWrongCategory.setFromPrice("1000");
+        filterWrongCategory.setToPrice("5000");
+        filterList.add(filterWrongCategory);
+        Filter filterInvertPrice = new Filter();
+        filterInvertPrice.setCategory("surr");
+        filterInvertPrice.setFromPrice("5000");
+        filterInvertPrice.setToPrice("1000");
+        filterList.add(filterInvertPrice);
+        Filter filterEmptyList = new Filter();
+        filterEmptyList.setCategory("surr");
+        filterEmptyList.setFromPrice("1");
+        filterEmptyList.setFromPrice("2");
+        filterList.add(filterEmptyList);
+        Filter filterAllCategory = new Filter();
+        filterAllCategory.setFromPrice("1000");
+        filterAllCategory.setToPrice("5000");
+        filterList.add(filterAllCategory);
+        Filter filterNoMin = new Filter();
+        filterNoMin.setToPrice("5000");
+        filterList.add(filterNoMin);
+        Filter filterNoMax = new Filter();
+        filterNoMax.setFromPrice("1000");
+        filterList.add(filterNoMax);
+        filterList.add(new Filter());
+        return  filterList;
+
     }
 }

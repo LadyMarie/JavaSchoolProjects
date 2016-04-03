@@ -20,30 +20,11 @@
     </style>
 </head>
 <body>
-    <dv class="container">
+    <div class="container">
         <div>
            <jsp:include page="Nav.jsp"/>
         </div>
 
-
-     <!--   <div class="form-group has-feedback" align="center">
-            <label class="control-label ssv-small-label">Filter:</label>
-            <div class="input-group">
-                <form action="addFilter" method="post" class="input-group">
-                    <span class="input-group"><label class="control-label ssv-small-label">Category:</label>
-                    <input type="text" name="category" class="form-control input-sm" placeholder="${category}">
-                   <label class="control-label ssv-small-label">Price:</label>
-                    <input type="text" name="fromPrice" class="form-control input-sm" placeholder="${fromPrice}">
-                    <label class="control-label ssv-small-label">-</label>
-                    <input type="text" name="toPrice" class="form-control input-sm" placeholder="${toPrice}">
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default btn-xs">Ok</button>
-                    </span>
-                </form>
-            </div>
-        </div>
-
-        <div>-->
         <c:if test="${not empty showFilter}">
         <div align="center">
            <!-- <label class="control-label ssv-small-label">Filter:</label>-->
@@ -69,12 +50,13 @@
             </c:if>
             </c:if>
         </div>
-        </div>
 
 
+          <div>
           <jsp:include page="catalog.jsp" />
+              </div>
         </div>
-    </div>
+
 
   <!-- Bootstrap core JavaScript
       ================================================== -->

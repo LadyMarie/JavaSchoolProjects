@@ -6,6 +6,7 @@ import com.tsystems.JavaSchool.ShopOnline.Services.Filter;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -69,7 +70,23 @@ public class ProductDAO implements IProductDAO {
      * @return filtered catalog
      */
     public List<Product> filterCatalog(Filter filter) {
-        return null;
+        try {
+            return tryFilterCatalog(filter);
+        }
+        catch (Exception ex) {
+            logger.error("Can't get category list. " + filter.getCategory() + " " + ex);
+            return new ArrayList<Product>();
+        }
+    }
+
+    private List<Product> tryFilterCatalog(Filter filter) {
+        List<Product> products = productRepository.getCategoryOrders(filter.getCategory());
+        if (products == null) {
+            logger.info("There is no products with this category " + filter.getCategory());
+            return new ArrayList<Product>();
+        }
+        else
+            return products;
     }
 
 }
