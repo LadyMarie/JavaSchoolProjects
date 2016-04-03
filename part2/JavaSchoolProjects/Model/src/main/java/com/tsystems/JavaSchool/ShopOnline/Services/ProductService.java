@@ -4,6 +4,7 @@ import com.tsystems.JavaSchool.ShopOnline.Persistance.Dao.IProductDAO;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,16 @@ public class ProductService implements IProductService {
      */
     public Map<String, Product> getCatalog() {
         List<Product> products = productDAO.getCatalog();
+        return convertToMap(products);
+    }
+
+    /**
+     * filter catalog by params in class Filter
+     * @param filter
+     * @return filtered catalog
+     */
+    public Map<String, Product> filterCatalog(Filter filter) {
+        List<Product> products = productDAO.filterCatalog(filter);
         return convertToMap(products);
     }
 

@@ -1,6 +1,7 @@
 package com.tsystems.JavaSchool.ShopOnline.Persistance.Dao;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
+import com.tsystems.JavaSchool.ShopOnline.Services.Filter;
 
 import java.util.List;
 
@@ -28,4 +29,11 @@ public interface IProductDAO {
      * @param product
      */
     void saveProduct(Product product);
+
+    /**
+     * filter catalog by params in class Filter
+     * @param filter
+     * @return filtered catalog
+     */
+    List<Product> filterCatalog(Filter filter);
 }

@@ -2,6 +2,7 @@ package com.tsystems.JavaSchool.ShopOnline.Persistance.Dao;
 
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Repository.IProductRepository;
+import com.tsystems.JavaSchool.ShopOnline.Services.Filter;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -60,6 +61,15 @@ public class ProductDAO implements IProductDAO {
         catch (Exception ex) {
             logger.error("Can't save product to db. " + product.toString() + " " + ex);
         }
+    }
+
+    /**
+     * filter catalog by params in class Filter
+     * @param filter
+     * @return filtered catalog
+     */
+    public List<Product> filterCatalog(Filter filter) {
+        return null;
     }
 
 }

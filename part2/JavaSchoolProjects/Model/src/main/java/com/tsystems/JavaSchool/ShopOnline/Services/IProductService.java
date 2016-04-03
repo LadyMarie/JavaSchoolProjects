@@ -23,4 +23,10 @@ public interface IProductService {
      */
     public Map<String, Product> getCatalog();
 
+    /**
+     * filter catalog by params in class Filter
+     * @param filter
+     * @return filtered catalog
+     */
+    public Map<String,Product> filterCatalog(Filter filter);
 }

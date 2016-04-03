@@ -4,20 +4,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Person;
 import com.tsystems.JavaSchool.ShopOnline.Persistance.Entity.Product;
+import com.tsystems.JavaSchool.ShopOnline.Services.Filter;
 import com.tsystems.JavaSchool.ShopOnline.Services.IProductService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,8 +40,15 @@ public class CatalogController implements HandlerExceptionResolver{
         logger.info("Started");
         updateCatalog(model);
         restoreCartCookie(model);
+        initFilter(model);
 		return "Index";
 	}
+
+    private void initFilter(ModelMap model) {
+        if (model.get("Filter") == null )
+            model.put("Filter", new Filter());
+
+    }
 
     private void restoreCartCookie(ModelMap model) {
         logger.info("Restoring cart from cookie");
@@ -50,6 +59,7 @@ public class CatalogController implements HandlerExceptionResolver{
     @RequestMapping(value = "/Main", method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
         updateCatalog(model);
+        initFilter(model);
         return "Index";
     }
 
@@ -57,6 +67,7 @@ public class CatalogController implements HandlerExceptionResolver{
     public String editProduct(ModelMap model) {
         updateCatalog(model);
         model.put("editMode", true);
+        initFilter(model);
         return "Index";
     }
 
@@ -64,6 +75,48 @@ public class CatalogController implements HandlerExceptionResolver{
         //always load catalog from db, bacause another user
         //could add new products to db during this session
         Map<String, Product> products = productService.getCatalog();
+        if (products != null) {
+            model.put("products", products);
+            model.put("productsKeySet", new ArrayList<String>(products.keySet()));
+        }
+    }
+
+    @RequestMapping(value="/filter")
+    public String showFilter(ModelMap model, HttpServletRequest req) {
+        model.put("showFilter",true);
+        //recover edit mode property
+        if (req.getParameter("editMode") != null)
+            model.put("editMode", true);
+        initFilter(model);
+        return "Index";
+    }
+
+    //Init filter if someone types in browser '/addFilter', accessing form directly
+    @ModelAttribute("Filter")
+    public void initFilterModel(ModelMap model) {
+        if (model.get("Filter") == null )
+            model.put("Filter", new Filter());
+    }
+
+    @RequestMapping(value="/addFilter")
+    public String login(@Valid @ModelAttribute("Filter") Filter filter, BindingResult result,
+                        ModelMap model,HttpServletRequest req) {
+        model.put("showFilter",true);
+        if (req.getParameter("editMode") != null)
+            model.put("editMode", true);
+        if (result.hasErrors()) {
+            logger.info("Trying to filter with params." + filter.toString() + "Errors " + result.toString());
+            return "Index";
+        } else {
+            logger.info("Filtered successfully " + filter.toString());
+            filterCatalog(filter, model);
+            return "Index";
+        }
+
+    }
+
+    private void filterCatalog(Filter filter, ModelMap model) {
+        Map<String, Product> products = productService.filterCatalog(filter);
         if (products != null) {
             model.put("products", products);
             model.put("productsKeySet", new ArrayList<String>(products.keySet()));
@@ -89,4 +142,6 @@ public class CatalogController implements HandlerExceptionResolver{
         logger.error("Error", e);
         return new ModelAndView("error");
     }
+
+
 }

@@ -52,11 +52,17 @@
                     <ul class="dropdown-menu">
                         <li><a href="${context}/order" class="list-group-item active">Make order</a></li>
                         <li><a href="${context}/Main">Catalog</a></li>
+                        <c:if test="${empty editMode}">
+                            <li><a href="${context}/filter">Filter</a></li>
+                        </c:if>
+                        <c:if test="${not empty editMode}">
+                            <li><a href="${context}/filter?editMode=true">Filter</a></li>
+                        </c:if>
                         <li><a href="${context}/viewOrders">View order list</a></li>
                         <c:if test="${User.role == 'Employee'}">
                             <li><a href="${context}/product">Add product</a></li>
-                            <li><a href="${context}/manageOrders">Manage orders</a></li>
                             <li><a href="${context}/editProducts">Edit products</a></li>
+                            <li><a href="${context}/manageOrders">Manage orders</a></li>
                         </c:if>
                     </ul>
                 </li>
@@ -70,12 +76,18 @@
                     <a href="${context}/order" class="list-group-item active" width="20%">
                         Make order
                     </a>
-                    <li><a href="${context}/viewOrders">View order list</a></li>
                     <li><a href="${context}/Main">Catalog</a></li>
+                    <c:if test="${empty editMode}">
+                        <li><a href="${context}/filter">Filter</a></li>
+                    </c:if>
+                    <c:if test="${not empty editMode}">
+                        <li><a href="${context}/filter?editMode=true">Filter</a></li>
+                    </c:if>
+                    <li><a href="${context}/viewOrders">View order list</a></li>
                     <c:if test="${User.role == 'Employee'}">
                         <a href="${context}/product" class="list-group-item" width="auto">Add product</a>
-                        <li><a href="${context}/manageOrders">Manage orders</a></li>
                         <li><a href="${context}/editProducts">Edit products</a></li>
+                        <li><a href="${context}/manageOrders">Manage orders</a></li>
                     </c:if>
                 </div>
             </div>

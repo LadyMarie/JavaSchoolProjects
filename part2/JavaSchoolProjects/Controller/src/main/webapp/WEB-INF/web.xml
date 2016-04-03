@@ -82,10 +82,10 @@
 		<filter-name>JspFilter</filter-name>
 		<url-pattern>/pages/orderCartBlock.jsp</url-pattern>
 	</filter-mapping>
-
-
-
-
+	<filter-mapping>
+		<filter-name>JspFilter</filter-name>
+		<url-pattern>/pages/Index.jsp</url-pattern>
+	</filter-mapping>
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
