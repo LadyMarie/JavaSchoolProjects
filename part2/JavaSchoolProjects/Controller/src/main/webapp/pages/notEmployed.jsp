@@ -43,7 +43,7 @@
       <b><p class="lead text-primary">We're sorry, ${User.name} ${not empty User.name? ',' : ''} this page can only be seen by employees of our shop=(( <br>
 P.S. But you can send us your resume;)</p></b>
       <br>
-          <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Main</a>
+          <a href="${context}/Main" class="btn btn-primary" class="btn btn-primary">Main</a>
       </div>
 </body>
 </html>

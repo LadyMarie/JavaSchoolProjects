@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>login</title>
@@ -97,7 +98,7 @@
                 </div>
             <div class="form-group">
                 <div>
-                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <a href="${context}/Main"  class="btn btn-default">Main</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>

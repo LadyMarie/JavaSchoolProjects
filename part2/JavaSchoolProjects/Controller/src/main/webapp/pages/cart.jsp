@@ -53,7 +53,7 @@
         </c:forEach>
         <div align="center">
            <a href="${context}/order" class="btn btn-primary">Make Order</a>
-            <a href="Index.jsp" class="btn btn-primary" class="btn btn-primary">Catalog</a>
+            <a href="${context}/Main" class="btn btn-primary" class="btn btn-primary">Catalog</a>
         </div>
 </div>
 </body>

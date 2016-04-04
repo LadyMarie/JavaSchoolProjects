@@ -77,17 +77,10 @@ public class ProductController implements HandlerExceptionResolver {
 
     private String loadPic(Product product, ModelMap model) {
         try {
-            String redirect;
-            //check if product was previously initialized, it means, that it is edit mode
-            //if id not zero, it means, product is got from db
-            if (product.getId() != 0)
-                redirect = "manageOrders";
-            else
-                redirect = "Main";
             String product_id = productService.addProductGetId(product);
             tryLoadPic(product_id, product.getPic());
             //forward to next page only in case of success
-            return "redirect:" + redirect;
+            return "redirect:Main";
         } catch (FileUploadException ex) {
             model.put("fileUploadError", "true");
             logger.error("Can't load file. " + ex);

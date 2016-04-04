@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
                 <div>
-                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <a href="${context}/Main" class="btn btn-default">Main</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>

@@ -42,7 +42,7 @@
    <div align="center" class="layer">
         <b><p class="lead">We are sorry, ${User.name} ${not empty User.name? ',' : ''} but something went wrong=((</p></b>
    <br>
-        <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Main</a>
+        <a href="${context}/Main" class="btn btn-primary" class="btn btn-primary">Main</a>
     </div>
 </body>
 </html>

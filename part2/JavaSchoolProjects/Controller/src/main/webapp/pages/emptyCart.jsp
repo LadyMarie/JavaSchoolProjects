@@ -49,7 +49,7 @@
         <b><p class="lead">We are sorry, but your cart is empty.</br>
             Please, add something to your cart before making order.</p></b>
    <br>
-        <a href="${context}/pages/Index.jsp" class="btn btn-primary" class="btn btn-primary">Catalog</a>
+        <a href="${context}/Main" class="btn btn-primary" class="btn btn-primary">Catalog</a>
     </div>
 </div>
 </body>

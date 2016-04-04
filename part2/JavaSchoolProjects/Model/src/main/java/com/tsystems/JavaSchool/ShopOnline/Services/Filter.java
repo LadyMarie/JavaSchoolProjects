@@ -11,10 +11,10 @@ public class Filter {
 
     private String category;
 
-    @Pattern(regexp = "^\\w*$|^[0-9]+$", message = "Incorrect:")
+    @Pattern(regexp = "^$|^[1-9][0-9]?+$", message = "Incorrect:")
     private String fromPrice;
 
-    @Pattern(regexp = "^\\w*$|^[0-9]+$", message = "Incorrect:")
+    @Pattern(regexp = "^$|^[1-9][0-9]?+$", message = "Incorrect:")
     private String toPrice;
 
     public String getCategory() {

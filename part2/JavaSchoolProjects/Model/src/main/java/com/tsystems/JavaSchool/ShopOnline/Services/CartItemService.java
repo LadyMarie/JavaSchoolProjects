@@ -124,11 +124,12 @@ public class CartItemService implements ICartItemService {
             item = new CartItem();
             item.setProduct(product);
         }
-        //if there is, just increment its counter
-        item.setAmount(item.getAmount() + 1);
         //decrement count of this product in shop
-        if (bookProductInCatalog(product))
+        if (bookProductInCatalog(product)) {
+            //if there is, just increment its counter
+            item.setAmount(item.getAmount() + 1);
             cart = addItemToCartAndDB(cart, id, item, user);
+        }
 
         logger.info("there are " + item.getAmount() +
                 " products " + products.get(id).getName() + " in cart now");
