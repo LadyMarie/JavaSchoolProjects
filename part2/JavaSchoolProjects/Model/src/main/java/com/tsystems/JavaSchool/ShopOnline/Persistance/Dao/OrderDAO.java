@@ -94,7 +94,7 @@ public class OrderDAO implements IOrderDAO{
     public ArrayList<Order> getOrders() {
         try {
             logger.info("Get all orders. ");
-            return (ArrayList<Order>)orderRepository.findAll();
+            return (ArrayList<Order>)orderRepository.findAllCopleted();
         }
         catch (Exception ex) {
             logger.error("Can't get orders. " + ex);

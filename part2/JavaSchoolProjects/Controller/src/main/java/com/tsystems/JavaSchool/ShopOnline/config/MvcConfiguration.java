@@ -80,8 +80,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	public static String getUploads() {
-		return "C:/data/uploads/";
+		return "c:/data/uploads/";
 	}
 
-	
+
 }

@@ -35,13 +35,13 @@
                 <c:if test="${not empty noCart}">
                     <li><p class="text-primary"><small>sorry, cart not working</small></p></li>
                 </c:if>
-                <c:if test="${empty User}">
+                <c:if test="${empty User.email}">
                     <li><a href="${context}/login">Sign in</a></li>
                 </c:if>
-                <c:if test="${not empty User}">
+                <c:if test="${not empty User.email}">
                     <li><a href="${context}/editProfile">Edit profile</a></li>
                 </c:if>
-                <c:if test="${empty User}">
+                <c:if test="${empty User.email}">
                     <li><a href="${context}/signup">Sign up</a></li>
                 </c:if>
                 <li><a href="${context}/logout">Log out</a></li>

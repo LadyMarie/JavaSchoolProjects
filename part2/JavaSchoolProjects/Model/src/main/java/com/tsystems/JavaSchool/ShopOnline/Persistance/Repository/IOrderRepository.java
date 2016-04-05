@@ -16,6 +16,9 @@ public interface IOrderRepository extends JpaRepository<Order,Long>{
     @Query("select o from Order o where o.user=:userParam and o.completed=false")
     Order getIncompletedOrder(@Param("userParam") Person user);
 
-    @Query("select o from Order o where o.user=:userParam")
+    @Query("select o from Order o where o.user=:userParam  and o.completed=true")
     List<Order> getUserOrders(@Param("userParam") Person user);
+
+    @Query("select o from Order o where o.completed=true")
+    List<Order> findAllCopleted();
 }
