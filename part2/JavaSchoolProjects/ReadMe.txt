@@ -1,6 +1,6 @@
 This project is based on MVC-pattern. 
 It consists of 3 layers: Model, View and Controller.
-        Model. 
+		Model. 
 			It is responsible for business-logic and database-interaction. 
 			Model consists of two layers: services and persistance. 
 				Services. 
