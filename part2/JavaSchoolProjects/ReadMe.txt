@@ -16,10 +16,10 @@ It consists of 3 layers: Model, View and Controller.
 							They already have crud operations realised. 
 						Dao.
 							Provides interaction between Services layer and JpaRepository.
-						Controller. 
-							Delegates user's requests to Model.
-						View.
-							Jsp pages.
+		Controller. 
+			Delegates user's requests to Model.
+		View.
+			Jsp pages.
 
 
  
